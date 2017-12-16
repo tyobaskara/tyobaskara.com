@@ -3261,6 +3261,15 @@ body {
 
 * {
   font-family: 'Baumans', sans-serif; }
+  *:hover, *:focus, *:active {
+    text-decoration: none;
+    outline: none;
+    border: none; }
+
+a:hover, a:focus, a:active {
+  text-decoration: none;
+  outline: none;
+  border: none; }
 
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
   outline: none; }
@@ -3275,8 +3284,9 @@ body {
   -moz-transition: opacity .3s ease;
   transition: opacity .3s ease; }
 
-nav .container {
-  padding-top: 0; }
+.container {
+  padding-top: 25px;
+  padding-bottom: 25px; }
 
 .slick-prev {
   left: 15px;
@@ -3296,6 +3306,47 @@ nav .container {
 
 .slick-dots li.slick-active button:before {
   color: white; }
+
+.btn {
+  display: inline-block;
+  padding: 15px 20px;
+  line-height: 1;
+  -webkit-border-radius: 25px 5px 25px 5px;
+     -moz-border-radius: 25px 5px 25px 5px;
+          border-radius: 25px 5px 25px 5px;
+  -webkit-transition: all .3 ease-in-out;
+  -o-transition: all .3 ease-in-out;
+  -moz-transition: all .3 ease-in-out;
+  transition: all .3 ease-in-out; }
+  .btn:hover {
+    text-decoration: none;
+    -webkit-transition: all .3 ease-in-out;
+    -o-transition: all .3 ease-in-out;
+    -moz-transition: all .3 ease-in-out;
+    transition: all .3 ease-in-out; }
+  .btn:active {
+    -webkit-transition: all .3 ease-in-out;
+    -o-transition: all .3 ease-in-out;
+    -moz-transition: all .3 ease-in-out;
+    transition: all .3 ease-in-out;
+    top: 1px; }
+  .btn.btn-wheat {
+    background: wheat;
+    color: #333333;
+    -webkit-box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
+       -moz-box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
+            box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
+    position: relative; }
+    .btn.btn-wheat:hover {
+      color: #414a4c; }
+    .btn.btn-wheat:active {
+      -webkit-box-shadow: 0px 1px 2px goldenrod, 0px 2px 0px wheat;
+         -moz-box-shadow: 0px 1px 2px goldenrod, 0px 2px 0px wheat;
+              box-shadow: 0px 1px 2px goldenrod, 0px 2px 0px wheat; }
+
+nav .container {
+  padding-top: 0;
+  padding-bottom: 0; }
 
 .nav {
   background: #f1f1f1;
@@ -3349,18 +3400,21 @@ nav .container {
   -o-object-fit: cover;
      object-fit: cover; }
 
-.homeAbout {
+.aboutIntro {
   background-color: #414a4c;
   color: wheat;
   padding-bottom: 25px;
   padding-top: 25px; }
 
-.aboutMe h1 {
+.aboutIntro__description h1 {
   font-size: 36px; }
 
-.aboutMe p {
+.aboutIntro__description p {
   font-size: 24px;
   margin-top: 25px;
   line-height: 1.5; }
+
+.aboutIntro__description .btn-wheat {
+  margin-top: 25px; }
 
 /*# sourceMappingURL=maps/bundle.min.css.map */

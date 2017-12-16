@@ -4,11 +4,23 @@
 @import './vendor/slick-theme';
 
 body {background: ghostwhite;}
-* { font-family: 'Baumans', sans-serif; }
+* { 
+    font-family: 'Baumans', sans-serif; 
+    &:hover, &:focus, &:active {
+        text-decoration: none;
+        outline: none;
+        border: none;
+    }
+}
+a:hover, a:focus, a:active {
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {outline: none;}
 .opOn {opacity: 0;}
 .opOff {opacity: 1;transition: opacity .3s ease;}
-nav { .container { padding-top: 0; } }
+.container {padding-top: 25px;padding-bottom: 25px;}
 .slick-prev { left: 15px; z-index: 25;}
 .slick-next { right: 15px; z-index: 25;}
 .slick-dots { bottom: 15px; z-index: 25;}
@@ -24,7 +36,7 @@ nav { .container { padding-top: 0; } }
     }
 } 
 
+@import './component/button';
 @import './component/navigation';
 @import './component/sliderme';
-@import './component/home';
-@import './component/aboutme';
+@import './component/about-intro';

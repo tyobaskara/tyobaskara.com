@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, browserHistory } from 'react-router-dom
 import Home from './jsx/home';
 import About from './jsx/about';
 import Ajax from './jsx/ajax';
-import Redux from './jsx/redux';
 
 class App extends React.Component{
     componentWillMount(){
@@ -24,7 +23,6 @@ class App extends React.Component{
                     <Route exact path={'/'} component={Home}></Route>
                     <Route path={'/About'} component={About}></Route>
                     <Route path={'/Ajax'} component={Ajax}></Route>
-                    <Route path={'/Redux'} component={Redux}></Route>
                 </div>
             </Router>
         );

@@ -6,7 +6,7 @@ export class Navigation extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            NavList: ['Home', 'About', 'Ajax', 'Redux']
+            NavList: ['Home', 'About', 'Ajax']
         }
     }
 

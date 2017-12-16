@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
-import { HomeAbout } from './component/home-about';
-import { SliderMe } from './component/sliderme';
+import { AboutInro } from './component/about-intro';
 
 class Home extends React.Component {
     constructor(props){
@@ -27,18 +26,7 @@ class Home extends React.Component {
                 <Navigation active="Home"/>
 
                 <div className="container-fluid">
-                    <div className="homeAbout">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-sm-6">
-                                    <SliderMe />
-                                </div>
-                                <div className="col-sm-6">
-                                    <HomeAbout/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <AboutInro />
                     <div className="container">
                         <div>
                             <button type="button" className="btn btn-danger" onClick={this.testAlert}>button</button>

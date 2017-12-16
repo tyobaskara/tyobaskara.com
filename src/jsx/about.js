@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
-import { HomeAbout } from './component/home-about';
 
 class About extends React.Component {
     constructor(props){
@@ -30,11 +29,6 @@ class About extends React.Component {
                 <Navigation active="About"/>
 
                 <div className="container-fluid">
-                    <div className="jumbotron">
-                        <div className="container text-center">
-                            <HomeAbout/>
-                        </div>
-                    </div>
                     <div className="container">
                         <div className="skills">
                             <h2>Skills</h2>
