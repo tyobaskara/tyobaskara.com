@@ -1,0 +1,14 @@
+.sliderMe {
+    .slick-slider {
+        border: 1px solid wheat;
+        border-radius: 25px 5px 25px 5px;
+        box-shadow: 0 0 2px ghostwhite;
+        overflow: hidden;
+    }
+    .slick-slide {
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}

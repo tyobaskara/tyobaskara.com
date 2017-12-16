@@ -1,0 +1,22 @@
+{
+  "name": "TyoBaskara",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "me"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "reset-css": "^2.2.1",
+    "bootstrap": "^3.3.7",
+    "slick-carousel": "^1.8.1"
+  }
+}
