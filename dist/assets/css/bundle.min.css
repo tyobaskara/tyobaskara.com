@@ -3256,6 +3256,9 @@ table {
       color: black;
       opacity: 0.75; }
 
+html, body {
+  overflow-x: hidden; }
+
 body {
   background: ghostwhite; }
 
@@ -3386,19 +3389,19 @@ nav .container {
       content: ''; }
 
 .sliderMe .slick-slider {
-  border: 1px solid wheat;
-  -webkit-border-radius: 25px 5px 25px 5px;
-     -moz-border-radius: 25px 5px 25px 5px;
-          border-radius: 25px 5px 25px 5px;
-  -webkit-box-shadow: 0 0 2px ghostwhite;
-     -moz-box-shadow: 0 0 2px ghostwhite;
-          box-shadow: 0 0 2px ghostwhite;
   overflow: hidden; }
 
 .sliderMe .slick-slide img {
   width: 100%;
   -o-object-fit: cover;
-     object-fit: cover; }
+     object-fit: cover;
+  -webkit-border-radius: 25px 5px 25px 5px;
+     -moz-border-radius: 25px 5px 25px 5px;
+          border-radius: 25px 5px 25px 5px;
+  border: 1px solid wheat;
+  -webkit-box-shadow: 0 0 2px ghostwhite;
+     -moz-box-shadow: 0 0 2px ghostwhite;
+          box-shadow: 0 0 2px ghostwhite; }
 
 .aboutIntro {
   background-color: #414a4c;

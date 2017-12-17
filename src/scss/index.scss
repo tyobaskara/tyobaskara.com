@@ -3,6 +3,9 @@
 @import './vendor/slick';
 @import './vendor/slick-theme';
 
+html, body {
+    overflow-x:hidden 
+} 
 body {background: ghostwhite;}
 * { 
     font-family: 'Baumans', sans-serif; 
