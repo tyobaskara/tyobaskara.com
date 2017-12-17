@@ -3467,7 +3467,7 @@ var AboutInro = exports.AboutInro = function AboutInro(props) {
                         'div',
                         { className: 'aboutIntro__description' },
                         _react2.default.createElement(
-                            'h1',
+                            'h2',
                             null,
                             'Who am i? ',
                             _react2.default.createElement('br', null),
@@ -3480,7 +3480,7 @@ var AboutInro = exports.AboutInro = function AboutInro(props) {
                         ),
                         _react2.default.createElement(
                             'a',
-                            { href: '/about', className: 'btn btn-wheat' },
+                            { href: '/About', className: 'btn btn-wheat' },
                             'Read More'
                         )
                     )
