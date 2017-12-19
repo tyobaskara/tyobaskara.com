@@ -2,26 +2,25 @@
     display: inline-block;
     padding: 15px 20px;
     line-height: 1;
-    border-radius: 25px 5px 25px 5px;
-    transition: all .3 ease-in-out;
+    @include border-radius(25px 5px 25px 5px);
     &:hover {
         text-decoration: none;
-        transition: all .3 ease-in-out;
+        @include transition(all .3 ease-in-out);
     }
     &:active {
-        transition: all .3 ease-in-out;
+        @include transition(all .3 ease-in-out);
         top: 1px;
     }
     &.btn-wheat {
         background: wheat;
-        color: #333333;
-        box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
+        color: $black2;
+        @include box-shadow((0px 1px 2px goldenrod), (0px 2px 2px wheat));
         position: relative;
         &:hover {
-            color: #414a4c;
+            color: $black1;
         }
         &:active {
-            box-shadow: 0px 1px 2px goldenrod, 0px 2px 0px wheat;
+            @include box-shadow((0px 1px 2px goldenrod), (0px 2px 2px wheat));
         }
     }
 }

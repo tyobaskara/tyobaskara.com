@@ -2,6 +2,8 @@
 @import './vendor/_reset';
 @import './vendor/slick';
 @import './vendor/slick-theme';
+@import './etc/variables';
+@import './etc/mixin';
 
 html, body {
     overflow-x:hidden 
@@ -22,7 +24,7 @@ a:hover, a:focus, a:active {
 }
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {outline: none;}
 .opOn {opacity: 0;}
-.opOff {opacity: 1;transition: opacity .3s ease;}
+.opOff {opacity: 1;@include transition(opacity .3s ease);}
 .container {padding-top: 25px;padding-bottom: 25px;}
 .slick-prev { left: 15px; z-index: 25;}
 .slick-next { right: 15px; z-index: 25;}
@@ -43,3 +45,4 @@ a:hover, a:focus, a:active {
 @import './component/navigation';
 @import './component/sliderme';
 @import './component/about-intro';
+@import './component/home-banner';

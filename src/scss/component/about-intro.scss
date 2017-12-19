@@ -1,19 +1,30 @@
 .aboutIntro {
-    background-color: #414a4c;
+    background-color: $black1;
     color: wheat;
-    padding-bottom: 25px;
-    padding-top: 25px;
-}
-.aboutIntro__description {
-    h2 {
-        font-size: 36px;
+    position: relative;
+    .container {
+        padding-top: 0;
     }
-    p {
-        font-size: 24px;
-        margin-top: 25px;
-        line-height: 1.5;
+
+    &__description {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        h2 {
+            font-size: 36px;
+        }
+        p {
+            font-size: 24px;
+            margin-top: 25px;
+            line-height: 1.5;
+        }
+        .btn-wheat {
+            margin-top: 25px;
+        }
     }
-    .btn-wheat {
-        margin-top: 25px;
+    
+    .sliderMe {
+        margin-top: -100px;
+        position: relative;
+        z-index: 10;
     }
 }

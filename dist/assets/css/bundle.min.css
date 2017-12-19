@@ -3256,6 +3256,19 @@ table {
       color: black;
       opacity: 0.75; }
 
+/* -------------------------------------------------------------
+  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
+
+  List of CSS3 Sass Mixins File to be @imported and @included as you need
+
+  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER
+  ENDING css files
+
+  note: All CSS3 Properties are being supported by Safari 5
+  more info: http://www.findmebyip.com/litmus/#css3-properties
+
+------------------------------------------------------------- */
 html, body {
   overflow-x: hidden; }
 
@@ -3282,10 +3295,10 @@ a:hover, a:focus, a:active {
 
 .opOff {
   opacity: 1;
-  -webkit-transition: opacity .3s ease;
-  -o-transition: opacity .3s ease;
-  -moz-transition: opacity .3s ease;
-  transition: opacity .3s ease; }
+  -webkit-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease; }
 
 .container {
   padding-top: 25px;
@@ -3315,109 +3328,168 @@ a:hover, a:focus, a:active {
   padding: 15px 20px;
   line-height: 1;
   -webkit-border-radius: 25px 5px 25px 5px;
-     -moz-border-radius: 25px 5px 25px 5px;
-          border-radius: 25px 5px 25px 5px;
-  -webkit-transition: all .3 ease-in-out;
-  -o-transition: all .3 ease-in-out;
-  -moz-transition: all .3 ease-in-out;
-  transition: all .3 ease-in-out; }
+  -moz-border-radius: 25px 5px 25px 5px;
+  border-radius: 25px 5px 25px 5px; }
   .btn:hover {
     text-decoration: none;
-    -webkit-transition: all .3 ease-in-out;
-    -o-transition: all .3 ease-in-out;
-    -moz-transition: all .3 ease-in-out;
-    transition: all .3 ease-in-out; }
+    -webkit-transition: all 0.3 ease-in-out;
+    -moz-transition: all 0.3 ease-in-out;
+    -o-transition: all 0.3 ease-in-out;
+    transition: all 0.3 ease-in-out; }
   .btn:active {
-    -webkit-transition: all .3 ease-in-out;
-    -o-transition: all .3 ease-in-out;
-    -moz-transition: all .3 ease-in-out;
-    transition: all .3 ease-in-out;
+    -webkit-transition: all 0.3 ease-in-out;
+    -moz-transition: all 0.3 ease-in-out;
+    -o-transition: all 0.3 ease-in-out;
+    transition: all 0.3 ease-in-out;
     top: 1px; }
   .btn.btn-wheat {
     background: wheat;
     color: #333333;
     -webkit-box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
-       -moz-box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
-            box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
+    -moz-box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
+    box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
     position: relative; }
     .btn.btn-wheat:hover {
       color: #414a4c; }
     .btn.btn-wheat:active {
-      -webkit-box-shadow: 0px 1px 2px goldenrod, 0px 2px 0px wheat;
-         -moz-box-shadow: 0px 1px 2px goldenrod, 0px 2px 0px wheat;
-              box-shadow: 0px 1px 2px goldenrod, 0px 2px 0px wheat; }
+      -webkit-box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
+      -moz-box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
+      box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat; }
 
 nav .container {
   padding-top: 0;
   padding-bottom: 0; }
 
 .nav {
-  background: #f1f1f1;
-  -webkit-box-shadow: 0px 1px 2px goldenrod, 0px 2px 5px wheat;
-     -moz-box-shadow: 0px 1px 2px goldenrod, 0px 2px 5px wheat;
-          box-shadow: 0px 1px 2px goldenrod, 0px 2px 5px wheat;
-  position: relative; }
-
-.nav__menu {
-  font-size: 0;
-  text-align: center; }
-  .nav__menu > * {
-    font-size: initial; }
-  .nav__menu > li {
-    display: inline-block;
-    vertical-align: middle;
-    position: relative; }
-    .nav__menu > li .active {
-      font-weight: 600; }
-    .nav__menu > li a {
+  padding-bottom: 50px; }
+  .nav__wrapper {
+    background: #f1f1f1;
+    -webkit-box-shadow: 0px 1px 2px goldenrod, 0px 2px 5px wheat;
+    -moz-box-shadow: 0px 1px 2px goldenrod, 0px 2px 5px wheat;
+    box-shadow: 0px 1px 2px goldenrod, 0px 2px 5px wheat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 15; }
+  .nav__menu {
+    font-size: 0;
+    text-align: center; }
+    .nav__menu > * {
+      font-size: initial; }
+    .nav__menu > li {
       display: inline-block;
-      padding: 15px;
-      color: #333333;
-      font-size: 21px; }
-    .nav__menu > li:after {
-      content: '|';
-      position: absolute;
-      right: 0;
-      top: 50%;
-      -webkit-transform: translateY(-50%);
-         -moz-transform: translateY(-50%);
-          -ms-transform: translateY(-50%);
-           -o-transform: translateY(-50%);
-              transform: translateY(-50%);
-      color: white; }
-    .nav__menu > li:last-child:after {
-      content: ''; }
+      vertical-align: middle;
+      position: relative; }
+      .nav__menu > li .active {
+        font-weight: 600;
+        color: #414a4c; }
+      .nav__menu > li a {
+        display: inline-block;
+        padding: 15px;
+        color: #333333;
+        font-size: 21px; }
+      .nav__menu > li:after {
+        content: '|';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+           -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+             -o-transform: translateY(-50%);
+                transform: translateY(-50%);
+        color: wheat; }
+      .nav__menu > li:last-child:after {
+        content: ''; }
 
-.sliderMe .slick-slider {
-  overflow: hidden; }
-
-.sliderMe .slick-slide img {
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+.sliderMe {
+  -webkit-box-shadow: -2px 2px 2px ghostwhite;
+  -moz-box-shadow: -2px 2px 2px ghostwhite;
+  box-shadow: -2px 2px 2px ghostwhite;
   -webkit-border-radius: 25px 5px 25px 5px;
-     -moz-border-radius: 25px 5px 25px 5px;
-          border-radius: 25px 5px 25px 5px;
-  border: 1px solid wheat;
-  -webkit-box-shadow: 0 0 2px ghostwhite;
-     -moz-box-shadow: 0 0 2px ghostwhite;
-          box-shadow: 0 0 2px ghostwhite; }
+  -moz-border-radius: 25px 5px 25px 5px;
+  border-radius: 25px 5px 25px 5px; }
+  .sliderMe .slick-slider {
+    overflow: hidden; }
+  .sliderMe .slick-slide img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -webkit-border-radius: 25px 5px 25px 5px;
+    -moz-border-radius: 25px 5px 25px 5px;
+    border-radius: 25px 5px 25px 5px;
+    border: 2px solid wheat;
+    -webkit-box-shadow: 0px 0px 2px ghostwhite;
+    -moz-box-shadow: 0px 0px 2px ghostwhite;
+    box-shadow: 0px 0px 2px ghostwhite; }
 
 .aboutIntro {
   background-color: #414a4c;
   color: wheat;
-  padding-bottom: 25px;
-  padding-top: 25px; }
+  position: relative; }
+  .aboutIntro .container {
+    padding-top: 0; }
+  .aboutIntro__description {
+    padding-top: 25px;
+    padding-bottom: 25px; }
+    .aboutIntro__description h2 {
+      font-size: 36px; }
+    .aboutIntro__description p {
+      font-size: 24px;
+      margin-top: 25px;
+      line-height: 1.5; }
+    .aboutIntro__description .btn-wheat {
+      margin-top: 25px; }
+  .aboutIntro .sliderMe {
+    margin-top: -100px;
+    position: relative;
+    z-index: 10; }
 
-.aboutIntro__description h2 {
-  font-size: 36px; }
-
-.aboutIntro__description p {
-  font-size: 24px;
-  margin-top: 25px;
-  line-height: 1.5; }
-
-.aboutIntro__description .btn-wheat {
-  margin-top: 25px; }
+.heroBanner {
+  position: relative; }
+  .heroBanner__image {
+    position: relative;
+    width: 100%;
+    height: 385px;
+    overflow: hidden; }
+    .heroBanner__image img {
+      position: absolute;
+      top: -9999px;
+      right: -9999px;
+      bottom: -9999px;
+      left: -9999px;
+      margin: auto;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: 2; }
+    .heroBanner__image:after {
+      content: ' ';
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      background: rgba(0, 0, 0, 0.2); }
+  .heroBanner__content {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+       -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+         -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+    z-index: 4;
+    text-align: center;
+    color: white; }
+    .heroBanner__content h1 {
+      font-size: 52px; }
+    .heroBanner__content p {
+      font-size: 24px;
+      margin-top: 10px; }
 
 /*# sourceMappingURL=maps/bundle.min.css.map */

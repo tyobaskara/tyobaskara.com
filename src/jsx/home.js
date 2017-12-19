@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
 import { AboutInro } from './component/about-intro';
+import { HeroBanner } from './component/herobanner';
 
 class Home extends React.Component {
     constructor(props){
@@ -26,6 +27,7 @@ class Home extends React.Component {
                 <Navigation active="Home"/>
 
                 <div className="container-fluid">
+                    <HeroBanner />
                     <AboutInro />
                     <div className="container">
                         <div>
