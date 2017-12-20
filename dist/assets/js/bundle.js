@@ -3476,9 +3476,7 @@ var AboutInro = exports.AboutInro = function AboutInro(props) {
                         _react2.default.createElement(
                             'h2',
                             null,
-                            'Who am i? ',
-                            _react2.default.createElement('br', null),
-                            'What will i be in the future?'
+                            'Who am i ?'
                         ),
                         _react2.default.createElement(
                             'p',

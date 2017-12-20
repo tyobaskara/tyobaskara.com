@@ -23,6 +23,8 @@ a:hover, a:focus, a:active {
     border: none;
 }
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {outline: none;}
+.posRelative {position: relative;}
+.posInitial {position: initial;}
 .opOn {opacity: 0;}
 .opOff {opacity: 1;@include transition(opacity .3s ease);}
 .container {padding-top: 25px;padding-bottom: 25px;}
@@ -40,8 +42,42 @@ a:hover, a:focus, a:active {
         }   
     }
 } 
-.posRelative {position: relative;}
-.posInitial {position: initial;}
+h2 {
+    font-size: 36px;
+    @include lg {
+        font-size: 30px;
+    }
+    @include md {
+        font-size: 24px;
+    }
+    @include xs {
+        font-size: 20px;
+    }
+}
+h3 {
+    font-size: 34px;
+    @include lg {
+        font-size: 26px;
+    }
+    @include md {
+        font-size: 20px;
+    }
+    @include xs {
+        font-size: 18px;
+    }
+}
+p {
+    font-size: 24px;
+    @include lg {
+        font-size: 20px;
+    }
+    @include md {
+        font-size: 18px;
+    }
+    @include xs {
+        font-size: 16px;
+    }
+}
 
 @import './component/button';
 @import './component/navigation';

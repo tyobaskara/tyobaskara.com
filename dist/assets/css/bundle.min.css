@@ -3293,6 +3293,12 @@ a:hover, a:focus, a:active {
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
   outline: none; }
 
+.posRelative {
+  position: relative; }
+
+.posInitial {
+  position: initial; }
+
 .opOn {
   opacity: 0; }
 
@@ -3326,11 +3332,41 @@ a:hover, a:focus, a:active {
 .slick-dots li.slick-active button:before {
   color: white; }
 
-.posRelative {
-  position: relative; }
+h2 {
+  font-size: 36px; }
+  @media (max-width: 1200px) {
+    h2 {
+      font-size: 30px; } }
+  @media (max-width: 992px) {
+    h2 {
+      font-size: 24px; } }
+  @media (max-width: 576px) {
+    h2 {
+      font-size: 20px; } }
 
-.posInitial {
-  position: initial; }
+h3 {
+  font-size: 34px; }
+  @media (max-width: 1200px) {
+    h3 {
+      font-size: 26px; } }
+  @media (max-width: 992px) {
+    h3 {
+      font-size: 20px; } }
+  @media (max-width: 576px) {
+    h3 {
+      font-size: 18px; } }
+
+p {
+  font-size: 24px; }
+  @media (max-width: 1200px) {
+    p {
+      font-size: 20px; } }
+  @media (max-width: 992px) {
+    p {
+      font-size: 18px; } }
+  @media (max-width: 576px) {
+    p {
+      font-size: 16px; } }
 
 .btn {
   display: inline-block;
@@ -3442,24 +3478,8 @@ nav .container {
   .aboutIntro__description {
     padding-top: 25px;
     padding-bottom: 25px; }
-    .aboutIntro__description h2 {
-      font-size: 36px; }
-      @media (max-width: 1200px) {
-        .aboutIntro__description h2 {
-          font-size: 30px; } }
-      @media (max-width: 992px) {
-        .aboutIntro__description h2 {
-          font-size: 24px; } }
     .aboutIntro__description p {
-      font-size: 24px;
-      margin-top: 25px;
       line-height: 1.5; }
-      @media (max-width: 1200px) {
-        .aboutIntro__description p {
-          font-size: 20px; } }
-      @media (max-width: 992px) {
-        .aboutIntro__description p {
-          font-size: 18px; } }
     .aboutIntro__description .btn-wheat {
       margin-top: 25px; }
   .aboutIntro .sliderMe {
@@ -3512,8 +3532,26 @@ nav .container {
     color: white; }
     .heroBanner__content h1 {
       font-size: 52px; }
+      @media (max-width: 1200px) {
+        .heroBanner__content h1 {
+          font-size: 46px; } }
+      @media (max-width: 992px) {
+        .heroBanner__content h1 {
+          font-size: 40px; } }
+      @media (max-width: 576px) {
+        .heroBanner__content h1 {
+          font-size: 32px; } }
     .heroBanner__content p {
       font-size: 24px;
       margin-top: 10px; }
+      @media (max-width: 1200px) {
+        .heroBanner__content p {
+          font-size: 22px; } }
+      @media (max-width: 992px) {
+        .heroBanner__content p {
+          font-size: 20px; } }
+      @media (max-width: 576px) {
+        .heroBanner__content p {
+          font-size: 18px; } }
 
 /*# sourceMappingURL=maps/bundle.min.css.map */
