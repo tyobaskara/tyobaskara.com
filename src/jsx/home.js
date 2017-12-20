@@ -5,6 +5,15 @@ import { Navigation } from './component/navigation';
 import { AboutInro } from './component/about-intro';
 import { HeroBanner } from './component/herobanner';
 
+
+const scroll = () => {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.getElementsByClassName("nav")[0].className = "nav nav--active";
+    } else {
+        document.getElementsByClassName("nav")[0].className = "nav";
+    }
+};
+
 class Home extends React.Component {
     constructor(props){
         super(props);
@@ -41,6 +50,13 @@ class Home extends React.Component {
                 </div>
             </div>
         )
+    }
+
+    componentDidMount() {
+        document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
+        window.onscroll = function() {
+            scroll();
+        }
     }
 };
 

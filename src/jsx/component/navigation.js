@@ -25,7 +25,7 @@ export class Navigation extends React.Component{
         });
 
         return (
-            <nav className="nav">
+            <nav className="nav nav--fixed">
                 <div className="nav__wrapper">
                     <div className="container">
                         <ul className="nav__menu">

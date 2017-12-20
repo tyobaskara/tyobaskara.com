@@ -1,6 +1,5 @@
 .aboutIntro {
     background-color: $black1;
-    color: wheat;
     position: relative;
     .container {
         padding-top: 0;
@@ -9,8 +8,13 @@
     &__description {
         padding-top: 25px;
         padding-bottom: 25px;
+        h2 {
+            margin-bottom: 15px;
+            color: wheat;
+        }
         p {
             line-height: 1.5;
+            color: wheat;
         }
         .btn-wheat {
             margin-top: 25px;
