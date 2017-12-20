@@ -3269,6 +3269,9 @@ table {
   more info: http://www.findmebyip.com/litmus/#css3-properties
 
 ------------------------------------------------------------- */
+/*********************
+BREAKPOINTS
+*********************/
 html, body {
   overflow-x: hidden; }
 
@@ -3322,6 +3325,12 @@ a:hover, a:focus, a:active {
 
 .slick-dots li.slick-active button:before {
   color: white; }
+
+.posRelative {
+  position: relative; }
+
+.posInitial {
+  position: initial; }
 
 .btn {
   display: inline-block;
@@ -3435,16 +3444,31 @@ nav .container {
     padding-bottom: 25px; }
     .aboutIntro__description h2 {
       font-size: 36px; }
+      @media (max-width: 1200px) {
+        .aboutIntro__description h2 {
+          font-size: 30px; } }
+      @media (max-width: 992px) {
+        .aboutIntro__description h2 {
+          font-size: 24px; } }
     .aboutIntro__description p {
       font-size: 24px;
       margin-top: 25px;
       line-height: 1.5; }
+      @media (max-width: 1200px) {
+        .aboutIntro__description p {
+          font-size: 20px; } }
+      @media (max-width: 992px) {
+        .aboutIntro__description p {
+          font-size: 18px; } }
     .aboutIntro__description .btn-wheat {
       margin-top: 25px; }
   .aboutIntro .sliderMe {
     margin-top: -100px;
     position: relative;
     z-index: 10; }
+    @media (max-width: 992px) {
+      .aboutIntro .sliderMe {
+        margin-top: 25px; } }
 
 .heroBanner {
   position: relative; }

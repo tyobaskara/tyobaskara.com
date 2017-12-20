@@ -40,6 +40,8 @@ a:hover, a:focus, a:active {
         }   
     }
 } 
+.posRelative {position: relative;}
+.posInitial {position: initial;}
 
 @import './component/button';
 @import './component/navigation';
