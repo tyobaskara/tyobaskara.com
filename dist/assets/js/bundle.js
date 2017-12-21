@@ -3911,7 +3911,7 @@ var HeroBanner = exports.HeroBanner = function HeroBanner() {
         _react2.default.createElement(
             "div",
             { className: "heroBanner__image" },
-            _react2.default.createElement("img", { src: "./assets/images/herobanner-1.jpg", alt: "banner" })
+            _react2.default.createElement("img", { src: "./assets/images/herobanner-2.jpg", alt: "banner" })
         ),
         _react2.default.createElement(
             "div",
