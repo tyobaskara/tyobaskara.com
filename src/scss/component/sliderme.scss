@@ -10,7 +10,6 @@
             object-fit: cover;
             @include border-radius(25px 5px 25px 5px);
             border: 2px solid wheat;
-            @include box-shadow(0px 0px 2px ghostwhite);
         }
     }
 }

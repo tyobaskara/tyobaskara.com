@@ -27,7 +27,7 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
 
     &__wrapper {
         background: rgba(255,255,255,.1);
-        @include box-shadow((0px 1px 2px $blue1), (0px 1px 1px wheat));
+        @include box-shadow((0px 1px 2px $orange1), (0px 1px 1px white));
         position: fixed;
         top: 0;
         left: 0;
@@ -62,7 +62,7 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
                 font-size: 21px;
                 &.active {
                     font-weight: 600;
-                    color: white;
+                    color: ghostwhite;
                 }
             }
             &:after{

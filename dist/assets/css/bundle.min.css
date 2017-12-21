@@ -3389,18 +3389,28 @@ p {
     transition: all 0.3 ease-in-out;
     top: 1px; }
   .btn.btn-wheat {
-    background: wheat;
-    color: #333333;
-    -webkit-box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
-    -moz-box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
-    box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
-    position: relative; }
+    background: ghostwhite;
+    color: chocolate;
+    -webkit-box-shadow: 0px 0px 2px ghostwhite;
+    -moz-box-shadow: 0px 0px 2px ghostwhite;
+    box-shadow: 0px 0px 2px ghostwhite;
+    position: relative;
+    font-weight: 600; }
     .btn.btn-wheat:hover {
-      color: #414a4c; }
+      background: floralwhite;
+      color: chocolate;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out; }
     .btn.btn-wheat:active {
-      -webkit-box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
-      -moz-box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat;
-      box-shadow: 0px 1px 2px goldenrod, 0px 2px 2px wheat; }
+      -webkit-box-shadow: 0px 0px 1px ghostwhite inset, 0px 0px 1px white inset;
+      -moz-box-shadow: 0px 0px 1px ghostwhite inset, 0px 0px 1px white inset;
+      box-shadow: 0px 0px 1px ghostwhite inset, 0px 0px 1px white inset;
+      -webkit-transition: all 0.3s ease-in-out;
+      -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out; }
 
 nav .container {
   padding-top: 0;
@@ -3409,10 +3419,10 @@ nav .container {
 .nav--fixed {
   padding-bottom: 50px; }
   .nav--fixed .nav__wrapper {
-    background: rgba(29, 91, 101, 0.9);
-    -webkit-box-shadow: 0px 1px 2px rgba(29, 91, 101, 0.9), 0px 1px 1px wheat;
-    -moz-box-shadow: 0px 1px 2px rgba(29, 91, 101, 0.9), 0px 1px 1px wheat;
-    box-shadow: 0px 1px 2px rgba(29, 91, 101, 0.9), 0px 1px 1px wheat; }
+    background: #1d5b65;
+    -webkit-box-shadow: 0px 1px 2px #1d5b65, 0px 1px 1px wheat;
+    -moz-box-shadow: 0px 1px 2px #1d5b65, 0px 1px 1px wheat;
+    box-shadow: 0px 1px 2px #1d5b65, 0px 1px 1px wheat; }
   .nav--fixed .nav__menu > li a {
     color: white; }
 
@@ -3423,7 +3433,7 @@ nav .container {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(29, 91, 101, 0.9);
+    background: #1d5b65;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
@@ -3431,9 +3441,9 @@ nav .container {
 
 .nav__wrapper {
   background: rgba(255, 255, 255, 0.1);
-  -webkit-box-shadow: 0px 1px 2px rgba(29, 91, 101, 0.9), 0px 1px 1px wheat;
-  -moz-box-shadow: 0px 1px 2px rgba(29, 91, 101, 0.9), 0px 1px 1px wheat;
-  box-shadow: 0px 1px 2px rgba(29, 91, 101, 0.9), 0px 1px 1px wheat;
+  -webkit-box-shadow: 0px 1px 2px #ef7a16, 0px 1px 1px white;
+  -moz-box-shadow: 0px 1px 2px #ef7a16, 0px 1px 1px white;
+  box-shadow: 0px 1px 2px #ef7a16, 0px 1px 1px white;
   position: fixed;
   top: 0;
   left: 0;
@@ -3472,7 +3482,7 @@ nav .container {
       font-size: 21px; }
       .nav__menu > li a.active {
         font-weight: 600;
-        color: white; }
+        color: ghostwhite; }
     .nav__menu > li:after {
       content: '|';
       position: absolute;
@@ -3503,13 +3513,10 @@ nav .container {
     -webkit-border-radius: 25px 5px 25px 5px;
     -moz-border-radius: 25px 5px 25px 5px;
     border-radius: 25px 5px 25px 5px;
-    border: 2px solid wheat;
-    -webkit-box-shadow: 0px 0px 2px ghostwhite;
-    -moz-box-shadow: 0px 0px 2px ghostwhite;
-    box-shadow: 0px 0px 2px ghostwhite; }
+    border: 2px solid wheat; }
 
 .aboutIntro {
-  background-color: #414a4c;
+  background-color: #f36f12;
   position: relative; }
   .aboutIntro .container {
     padding-top: 0; }
@@ -3518,10 +3525,10 @@ nav .container {
     padding-bottom: 25px; }
     .aboutIntro__description h2 {
       margin-bottom: 15px;
-      color: wheat; }
+      color: ghostwhite; }
     .aboutIntro__description p {
       line-height: 1.5;
-      color: wheat; }
+      color: ghostwhite; }
     .aboutIntro__description .btn-wheat {
       margin-top: 25px; }
   .aboutIntro .sliderMe {
@@ -3572,7 +3579,7 @@ nav .container {
     z-index: 4;
     text-align: center; }
     .heroBanner__content h1 {
-      color: white;
+      color: ghostwhite;
       font-size: 52px; }
       @media (max-width: 1200px) {
         .heroBanner__content h1 {
@@ -3586,7 +3593,7 @@ nav .container {
     .heroBanner__content p {
       font-size: 24px;
       margin-top: 10px;
-      color: white; }
+      color: ghostwhite; }
       @media (max-width: 1200px) {
         .heroBanner__content p {
           font-size: 22px; } }
