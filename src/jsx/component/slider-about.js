@@ -17,10 +17,9 @@ export class SliderAbout extends React.Component {
     return (
       <div className="sliderMe">
         <Slider {...settings}>
-          <div><img src="./assets/images/tyo-5.jpg"/></div>
           <div><img src="./assets/images/tyo-7.jpg"/></div>
+          <div><img src="./assets/images/tyo-9.jpg"/></div>
           <div><img src="./assets/images/tyo-10.jpg"/></div>
-          <div><img src="./assets/images/tyo-6.jpg"/></div>
           <div><img src="./assets/images/tyo-12.jpg"/></div>
           <div><img src="./assets/images/tyo-13.jpg"/></div>
         </Slider>

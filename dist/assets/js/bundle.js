@@ -3577,22 +3577,17 @@ var SliderAbout = exports.SliderAbout = function (_React$Component) {
           _react2.default.createElement(
             'div',
             null,
-            _react2.default.createElement('img', { src: './assets/images/tyo-5.jpg' })
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
             _react2.default.createElement('img', { src: './assets/images/tyo-7.jpg' })
           ),
           _react2.default.createElement(
             'div',
             null,
-            _react2.default.createElement('img', { src: './assets/images/tyo-10.jpg' })
+            _react2.default.createElement('img', { src: './assets/images/tyo-9.jpg' })
           ),
           _react2.default.createElement(
             'div',
             null,
-            _react2.default.createElement('img', { src: './assets/images/tyo-6.jpg' })
+            _react2.default.createElement('img', { src: './assets/images/tyo-10.jpg' })
           ),
           _react2.default.createElement(
             'div',

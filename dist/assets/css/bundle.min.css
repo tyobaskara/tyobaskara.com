@@ -3409,14 +3409,12 @@ nav .container {
 .nav--fixed {
   padding-bottom: 50px; }
   .nav--fixed .nav__wrapper {
-    background: ghostwhite;
-    -webkit-box-shadow: 0px 1px 2px darksalmon, 0px 2px 5px wheat;
-    -moz-box-shadow: 0px 1px 2px darksalmon, 0px 2px 5px wheat;
-    box-shadow: 0px 1px 2px darksalmon, 0px 2px 5px wheat; }
+    background: rgba(29, 91, 101, 0.9);
+    -webkit-box-shadow: 0px 1px 2px rgba(29, 91, 101, 0.9), 0px 1px 1px wheat;
+    -moz-box-shadow: 0px 1px 2px rgba(29, 91, 101, 0.9), 0px 1px 1px wheat;
+    box-shadow: 0px 1px 2px rgba(29, 91, 101, 0.9), 0px 1px 1px wheat; }
   .nav--fixed .nav__menu > li a {
-    color: darksalmon; }
-    .nav--fixed .nav__menu > li a.active {
-      color: darksalmon; }
+    color: white; }
 
 .nav--active .nav__wrapper {
   background: none; }
@@ -3425,7 +3423,7 @@ nav .container {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(29, 91, 101, 0.9);
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
@@ -3433,9 +3431,9 @@ nav .container {
 
 .nav__wrapper {
   background: rgba(255, 255, 255, 0.1);
-  -webkit-box-shadow: 0px 1px 2px goldenrod, 0px 2px 5px wheat;
-  -moz-box-shadow: 0px 1px 2px goldenrod, 0px 2px 5px wheat;
-  box-shadow: 0px 1px 2px goldenrod, 0px 2px 5px wheat;
+  -webkit-box-shadow: 0px 1px 2px rgba(29, 91, 101, 0.9), 0px 1px 1px wheat;
+  -moz-box-shadow: 0px 1px 2px rgba(29, 91, 101, 0.9), 0px 1px 1px wheat;
+  box-shadow: 0px 1px 2px rgba(29, 91, 101, 0.9), 0px 1px 1px wheat;
   position: fixed;
   top: 0;
   left: 0;
