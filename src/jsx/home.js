@@ -5,15 +5,6 @@ import { Navigation } from './component/navigation';
 import { AboutInro } from './component/about-intro';
 import { HeroBanner } from './component/herobanner';
 
-
-const scroll = () => {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        document.getElementsByClassName("nav")[0].className = "nav nav--active";
-    } else {
-        document.getElementsByClassName("nav")[0].className = "nav";
-    }
-};
-
 class Home extends React.Component {
     constructor(props){
         super(props);
@@ -24,6 +15,23 @@ class Home extends React.Component {
         console.log(event);
         alert('this button text is: ' + event.target.textContent + '\n' + 'this button class is: ' + event.currentTarget.className);
     }
+    
+    componentDidMount() {
+        document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
+        window.addEventListener('scroll', this.scroll);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.scroll);
+    }
+
+    scroll(event) {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            document.getElementsByClassName("nav")[0].className = "nav nav--active";
+        } else {
+            document.getElementsByClassName("nav")[0].className = "nav";
+        }
+    };
 
     render() {
         return (
@@ -50,13 +58,6 @@ class Home extends React.Component {
                 </div>
             </div>
         )
-    }
-
-    componentDidMount() {
-        document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
-        window.onscroll = function() {
-            scroll();
-        }
     }
 };
 

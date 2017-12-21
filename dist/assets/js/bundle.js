@@ -3280,14 +3280,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var scroll = function scroll() {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        document.getElementsByClassName("nav")[0].className = "nav nav--active";
-    } else {
-        document.getElementsByClassName("nav")[0].className = "nav";
-    }
-};
-
 var Home = function (_React$Component) {
     _inherits(Home, _React$Component);
 
@@ -3305,6 +3297,26 @@ var Home = function (_React$Component) {
         value: function testAlert(event) {
             console.log(event);
             alert('this button text is: ' + event.target.textContent + '\n' + 'this button class is: ' + event.currentTarget.className);
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
+            window.addEventListener('scroll', this.scroll);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            window.removeEventListener('scroll', this.scroll);
+        }
+    }, {
+        key: 'scroll',
+        value: function scroll(event) {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                document.getElementsByClassName("nav")[0].className = "nav nav--active";
+            } else {
+                document.getElementsByClassName("nav")[0].className = "nav";
+            }
         }
     }, {
         key: 'render',
@@ -3361,14 +3373,6 @@ var Home = function (_React$Component) {
                     )
                 )
             );
-        }
-    }, {
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
-            window.onscroll = function () {
-                scroll();
-            };
         }
     }]);
 
