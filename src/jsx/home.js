@@ -8,21 +8,15 @@ import { HeroBanner } from './component/herobanner';
 class Home extends React.Component {
     constructor(props){
         super(props);
-        this.testAlert = this.testAlert.bind(this);
-    }
-
-    testAlert(event) {
-        console.log(event);
-        alert('this button text is: ' + event.target.textContent + '\n' + 'this button class is: ' + event.currentTarget.className);
     }
     
     componentDidMount() {
         document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
-        window.addEventListener('scroll', this.scroll);
+        document.addEventListener('scroll', this.scroll);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('scroll', this.scroll);
+        document.removeEventListener('scroll', this.scroll);
     }
 
     scroll(event) {
@@ -46,15 +40,6 @@ class Home extends React.Component {
                 <div className="container-fluid">
                     <HeroBanner />
                     <AboutInro />
-                    <div className="container">
-                        <div>
-                            <button type="button" className="btn btn-danger" onClick={this.testAlert}>button</button>
-                        </div>
-
-                        <p>Envelope icon: <span className="glyphicon glyphicon-envelope"></span></p> 
-                        <p>Search icon: <span className="glyphicon glyphicon-search"></span></p>
-                        <p>Print icon: <span className="glyphicon glyphicon-print"></span></p>
-                    </div>
                 </div>
             </div>
         )

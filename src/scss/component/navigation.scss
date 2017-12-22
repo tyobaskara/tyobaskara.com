@@ -1,5 +1,20 @@
 nav { .container { padding-top: 0; padding-bottom: 0} }
 .nav {
+    &__logo {
+        a {
+            display: inline-block;
+        }
+        position: absolute;
+        left: 15px;
+        right: 125px;
+        bottom: 0;
+        top: 0;
+        @include md {
+            position: relative;
+            left: 0;
+        }
+    }
+
     &--fixed {
         padding-bottom: 50px;
         .nav__wrapper {
@@ -33,6 +48,7 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
         left: 0;
         right: 0;
         z-index: 15;
+        height: 50px;
         &:before {
             content: ' ';
             position: absolute;
@@ -48,6 +64,11 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
     &__menu {
         font-size: 0;
         text-align: center;
+        padding-left: 135px;
+        padding-right: 40px;
+        @include md {
+            padding: 0;
+        }
         > * {
             font-size: initial;
         }
@@ -76,6 +97,105 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
             &:last-child{    
                 &:after{
                     content: '';
+                }
+            }
+        }
+    }
+}
+
+.hamburgerSlim {
+    display: none;
+    @include md {
+        display: block;
+    }
+    background: transparent;
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    top: 0;
+    left: auto;
+    height: 100%;
+    width: 30px;
+    &:hover {
+        cursor: pointer;
+    }
+  
+    &:before,
+    &:after {
+        background: ghostwhite;
+        backface-visibility: hidden;
+        content: "";
+        height: 2px;
+        left: 0;
+        transition: 0.75s;
+        width: 30px;
+    }
+  
+    &:before {
+        box-shadow: ghostwhite 0 10px 0 0;
+        position: absolute;
+        top: 15px;
+    }
+  
+    &:after {
+        position: absolute;
+        bottom: 15px;
+    }
+  }
+
+.nav {
+    &__menu {
+        @include md {
+            display: none;
+        }
+    }
+}
+
+.nav.isActive {
+    @include md {
+        .overlay {
+            content: ' ';
+            position: fixed;
+            left: 0;right: 0;top: 0;bottom: 0;
+            width: 100%;
+            height: calc(100% - 52px);
+            top: 52px;
+            background: rgba(255, 165, 0, .5);
+        }
+    }
+    .hamburgerSlim {
+        &:before {
+        box-shadow: transparent 0 0 0 0;
+        top: 50%;
+        transform: rotate(225deg);
+        }
+
+        &:after {
+        top: 50%;
+        transform: rotate(315deg);
+        }
+    }
+
+    .nav__menu {
+        @include md {
+            display: block;
+            position: fixed;
+            top: 52px;
+            left: 15px;
+            right: 15px;
+            background: rgba(29, 91, 101,.9);
+            li {
+                display: block;
+                text-align: left;
+                border-bottom: 1px solid $orange1;
+                &:after{
+                    content: '>';
+                    right: 15px;
+                }
+                &:last-child{    
+                    &:after{
+                        content: '>';
+                    }
                 }
             }
         }

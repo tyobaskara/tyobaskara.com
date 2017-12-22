@@ -3,38 +3,25 @@ import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
 
-class About extends React.Component {
+class Contact extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            Skills: ['HTML5','CSS/SCSS/SASS','Javascript','Jquery','Gulp','React']
-        }
     }
 
     render() {
-        let Skills = this.state.Skills;
-        Skills = Skills.map( (item,index) => {
-            return (
-                <li key={index}>{item}</li>
-            );
-        });
-
         return (
             <div>
                 <Helmet>
                     <meta name="description" content="Prasetya Aji Baskara who accidently in love with front end technology and decided to explore more with it" />
-                    <title>About - Prasetya Aji Baskara</title>
+                    <title>Contact - Prasetya Aji Baskara</title>
                 </Helmet>
 
-                <Navigation active="About"/>
+                <Navigation active="Contact"/>
 
                 <div className="container-fluid">
                     <div className="container">
                         <div className="skills">
-                            <h1>About</h1>
-                            <ul>
-                                {Skills}
-                            </ul>
+                            <h1>Contact</h1>
                         </div>
                     </div>
                 </div>
@@ -43,4 +30,4 @@ class About extends React.Component {
     }
 };
 
-export default About;
+export default Contact;

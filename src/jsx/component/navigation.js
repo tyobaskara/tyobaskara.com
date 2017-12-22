@@ -6,7 +6,20 @@ export class Navigation extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            NavList: ['Home', 'About', 'Ajax']
+            NavList: ['Home', 'About', 'Blog', 'Contact'],
+            burgerToggle: 'off'
+        }
+        this.burgerToggle = this.burgerToggle.bind(this);
+    }
+
+    burgerToggle(event) {
+        if(this.state.burgerToggle === 'off') {
+            document.getElementsByClassName('nav')[0].classList.add("isActive");
+            this.setState({burgerToggle: 'on'});
+        }
+        else {
+            document.getElementsByClassName('nav')[0].classList.remove("isActive");
+            this.setState({burgerToggle: 'off'});
         }
     }
 
@@ -27,10 +40,16 @@ export class Navigation extends React.Component{
         return (
             <nav className="nav nav--fixed">
                 <div className="nav__wrapper">
-                    <div className="container">
+                    <div className="container posRelative">
+                        <div className="overlay"></div>
+                        <div className="nav__logo">
+                            <a href="/"><img src="./assets/images/logo.png" alt="tyobaskara"/></a>
+                        </div>
                         <ul className="nav__menu">
                             {NavList}
                         </ul>
+                        <div className="hamburgerSlim" onClick={this.burgerToggle}>
+                        </div>
                     </div>
                 </div>
             </nav>

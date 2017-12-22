@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
 
-class Ajax extends React.Component {
+class Blog extends React.Component {
     constructor(props){
         super(props);
 
@@ -17,15 +17,15 @@ class Ajax extends React.Component {
             <div>
                 <Helmet>
                     <meta name="description" content="Prasetya Aji Baskara who accidently in love with front end technology and decided to explore more with it" />
-                    <title>Ajax - Prasetya Aji Baskara</title>
+                    <title>Blog - Prasetya Aji Baskara</title>
                 </Helmet>
 
-                <Navigation active="Ajax"/>
+                <Navigation active="Blog"/>
 
                 <div className="container-fluid">
                     <div className="jumbotron">
                         <div className="container text-center">
-                            <p>Ahh ajax..</p>
+                            <h1>Blog</h1>
                         </div>
                     </div>
                     <div className="container">
@@ -73,4 +73,4 @@ class Ajax extends React.Component {
     }
 };
 
-export default Ajax;
+export default Blog;

@@ -6,6 +6,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build && echo /*   /index.html   200 > dist/_redirects",
+    "deploy": "netlify deploy",
     "update": "npm-check -u"
   },
   "author": "me",
