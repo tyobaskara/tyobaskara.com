@@ -15,8 +15,9 @@
 
     .slick-arrow {
         background: transparent;
-        height: 100%;
+        height: calc(100% - 5px);
         width: 75px;
+        @include transition(all .2s ease-in-out);
         @include sm {
             width: 50px;
         }

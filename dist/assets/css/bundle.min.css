@@ -6288,8 +6288,14 @@ nav .container {
     border: 2px solid wheat; }
   .sliderMe .slick-arrow {
     background: transparent;
-    height: 100%;
-    width: 75px; }
+    height: -webkit-calc(100% - 5px);
+    height: -moz-calc(100% - 5px);
+    height: calc(100% - 5px);
+    width: 75px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
     @media (max-width: 768px) {
       .sliderMe .slick-arrow {
         width: 50px; } }
