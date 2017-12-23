@@ -6304,7 +6304,10 @@ nav .container {
       font-family: "Font Awesome 5 Free";
       font-weight: 900; }
     .sliderMe .slick-arrow.slick-next {
-      right: 0; }
+      right: 0;
+      -webkit-border-radius: 0 5px 25px 0;
+      -moz-border-radius: 0 5px 25px 0;
+      border-radius: 0 5px 25px 0; }
       .sliderMe .slick-arrow.slick-next:before {
         content: "\f054"; }
       .sliderMe .slick-arrow.slick-next:hover {
@@ -6314,7 +6317,10 @@ nav .container {
         -o-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out; }
     .sliderMe .slick-arrow.slick-prev {
-      left: 0; }
+      left: 0;
+      -webkit-border-radius: 25px 0 0 5px;
+      -moz-border-radius: 25px 0 0 5px;
+      border-radius: 25px 0 0 5px; }
       .sliderMe .slick-arrow.slick-prev:before {
         content: "\f053"; }
       .sliderMe .slick-arrow.slick-prev:hover {
