@@ -3550,8 +3550,8 @@ var SliderAbout = exports.SliderAbout = function (_React$Component) {
         slidesToScroll: 1,
         autoplay: true,
         lazyload: true,
-        swipeToSlide: true,
-        fade: true
+        fade: true,
+        swipe: false
       };
       return _react2.default.createElement(
         'div',

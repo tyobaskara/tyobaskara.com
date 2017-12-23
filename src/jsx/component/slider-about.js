@@ -11,8 +11,8 @@ export class SliderAbout extends React.Component {
       slidesToScroll: 1,
       autoplay: true,
       lazyload: true,
-      swipeToSlide: true,
-      fade: true
+      fade: true,
+      swipe: false
     };
     return (
       <div className="sliderMe">
