@@ -188,9 +188,13 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
                 display: block;
                 text-align: left;
                 border-bottom: 1px solid $orange1;
+                a {
+                    display: block;
+                }
                 &:after{
                     content: '>';
                     right: 15px;
+                    pointer-events: none;
                 }
                 &:last-child{    
                     &:after{
