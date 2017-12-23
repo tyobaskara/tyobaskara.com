@@ -25,14 +25,19 @@
 
     <link href="//fonts.googleapis.com/css?family=Baumans" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon.ico" />
-    <link rel="stylesheet" href="./assets/css/bundle.min.css" type="text/css" media="all" />
+    <!--[if IE]>
+      <link rel="stylesheet" href="./assets/css/bundle.min.css" type="text/css" media="all" />
+    <![endif]-->
   </head>
   <body>
+    <!--[if !IE]> -->
+      <link rel="stylesheet" href="./assets/css/bundle.min.css" type="text/css" lazyload="1" />
+    <!-- <![endif]-->
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
-    <script src="./assets/js/bundle.js"></script>
+    <script async src="./assets/js/bundle.js"></script>
   </body>
 </html>
 
