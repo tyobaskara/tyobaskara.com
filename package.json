@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "deploy": "netlify deploy",
+    "deploy": "gulp build && netlify deploy",
     "update": "npm-check -u"
   },
   "author": "me",

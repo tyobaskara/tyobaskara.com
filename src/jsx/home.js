@@ -12,15 +12,15 @@ class Home extends React.Component {
     
     componentDidMount() {
         document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
-        document.body.addEventListener('scroll', this.scroll);
+        document.addEventListener('scroll', this.scroll); //mobile
     }
 
     componentWillUnmount() {
-        document.body.removeEventListener('scroll', this.scroll);
+        document.removeEventListener('scroll', this.scroll); //mobile
     }
 
     scroll(event) {
-        if (document.body.scrollTop > 50) {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
             document.getElementsByClassName("nav")[0].className = "nav nav--active";
         } else {
             document.getElementsByClassName("nav")[0].className = "nav";

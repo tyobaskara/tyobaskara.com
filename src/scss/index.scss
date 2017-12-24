@@ -8,13 +8,9 @@
 @import './etc/mixin';
 
 html, body {
-    overflow-x: hidden;height:100%;min-height: 100%;
+    overflow-x: hidden;
     background: ghostwhite; font-family: 'Baumans';
 } 
-.container, .container-fluid { height:100%; }
-#root, #root > div, #root > div > div { 
-    height:100%; min-height: 100%;
-}
 * { 
     font-family: 'Baumans', sans-serif; 
     &:hover, &:focus, &:active {
