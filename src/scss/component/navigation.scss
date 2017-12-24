@@ -5,13 +5,12 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
             display: inline-block;
         }
         position: absolute;
-        left: 15px;
-        right: 125px;
+        left: 5px;
         bottom: 0;
         top: 0;
         @include md {
             position: relative;
-            left: 0;
+            left: -5px;
         }
     }
 
@@ -64,8 +63,7 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
     &__menu {
         font-size: 0;
         text-align: center;
-        padding-left: 135px;
-        padding-right: 40px;
+        padding: 0 120px;
         @include md {
             padding: 0;
         }

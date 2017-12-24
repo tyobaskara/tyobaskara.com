@@ -3,13 +3,14 @@
 @import './vendor/slick';
 @import './vendor/slick-theme';
 @import './vendor/fontawesome';
+@import './etc/fonts';
 @import './etc/variables';
 @import './etc/mixin';
 
 html, body {
     overflow-x:hidden 
 } 
-body {background: ghostwhite;}
+body {background: ghostwhite; font-family: 'Baumans'}
 * { 
     font-family: 'Baumans', sans-serif; 
     &:hover, &:focus, &:active {
