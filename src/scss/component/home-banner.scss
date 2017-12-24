@@ -3,8 +3,8 @@
     height: 50vh;
     min-height: 385px;
     @include sm {
-        height: 100vh;
-        min-height: 100vh;
+        height: 275px;
+        min-height: initial;
     }
     &__image {
         position: relative;

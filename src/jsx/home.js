@@ -21,9 +21,9 @@ class Home extends React.Component {
 
     scroll(event) {
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            document.getElementsByClassName("nav")[0].className = "nav nav--active";
+            document.getElementsByClassName("nav")[0].classList.add("nav--active");
         } else {
-            document.getElementsByClassName("nav")[0].className = "nav";
+            document.getElementsByClassName("nav")[0].classList.remove("nav--active");
         }
     };
 
