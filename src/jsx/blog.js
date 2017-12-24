@@ -18,7 +18,7 @@ class Blog extends React.Component {
                 <Helmet>
                     <title>Blog - Prasetya Aji Baskara</title>
                     <meta name="title" content="Tyobaskara.rocks : Front End Developer from Zero to Zoro" />
-                    <meta name="description" content="I became really passionate as a Front End Developer and kept creating since then. It absolutely has its ups and downs" />
+                    <meta name="description" content="I became really passionate as a Front End Developer and kept creating since then. It absolutely has its ups and downs, but if you love what you do and are able to provide value to people, the outcomes are far more rewarding!" />
                 </Helmet>
 
                 <Navigation active="Blog"/>
