@@ -2,6 +2,10 @@
     position: relative;
     height: 50%;
     min-height: 385px;
+    @include sm {
+        height: 100%;
+        min-height: 100%;
+    }
     &__image {
         position: relative;
         width: 100%;
