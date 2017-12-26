@@ -13,10 +13,12 @@ export class Navigation extends React.Component{
 
     burgerToggle = (e) => {
         if(this.state.burgerToggle === 'off') {
+            document.getElementsByTagName('html')[0].classList.add("ovHidden");
             document.getElementsByClassName('nav')[0].classList.add("isActive");
             this.setState({burgerToggle: 'on'});
         }
         else {
+            document.getElementsByTagName('html')[0].classList.remove("ovHidden");
             document.getElementsByClassName('nav')[0].classList.remove("isActive");
             this.setState({burgerToggle: 'off'});
         }
@@ -40,7 +42,7 @@ export class Navigation extends React.Component{
             <nav className="nav nav--fixed">
                 <div className="nav__wrapper">
                     <div className="container posRelative">
-                        <div className="overlay"></div>
+                        <div className="overlay" onClick={this.burgerToggle}></div>
                         <div className="nav__logo">
                             <a href="/"><img src="./assets/images/logo.png" alt="tyobaskara"/></a>
                         </div>

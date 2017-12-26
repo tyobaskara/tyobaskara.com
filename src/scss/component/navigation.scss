@@ -1,3 +1,4 @@
+.ovHidden {overflow: hidden;}
 nav { .container { padding-top: 0; padding-bottom: 0} }
 .nav {
     &__logo {
@@ -11,13 +12,14 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
         @include md {
             position: relative;
             left: -5px;
+            display: inline-block;
         }
     }
 
     &--fixed {
         padding-bottom: 50px;
         .nav__wrapper {
-            background: $blue1;
+            background: rgba(29, 91, 101, 0.9);
             @include box-shadow((0px 1px 2px $blue1), (0px 1px 1px wheat));
         }
         .nav__menu > li a {
@@ -33,7 +35,8 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
                 position: absolute;
                 width: 100%;
                 height: 100%;
-                background: $blue1;
+                background: rgba(29, 91, 101, 0.9);
+                opacity: 100;
                 @include transition (all .5s ease-in-out);
             }
         }
@@ -56,6 +59,7 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
             background: rgba(255,255,255,.1);
             left: 50%;
             transform: translateX(-50%);
+            opacity: 0;
             @include transition (all .5s ease-in-out);
         }
     }
@@ -81,7 +85,8 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
                 font-size: 21px;
                 &.active {
                     font-weight: 600;
-                    color: ghostwhite;
+                    color: $orange1;
+                    pointer-events: none;
                 }
             }
             &:after{
@@ -144,50 +149,19 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
 .nav {
     &__menu {
         @include md {
-            display: none;
-        }
-    }
-}
-
-.nav.isActive {
-    @include md {
-        .overlay {
-            content: ' ';
             position: fixed;
-            left: 0;right: 0;top: 0;bottom: 0;
-            width: 100%;
-            height: calc(100% - 52px);
-            top: 52px;
-            background: rgba(255, 165, 0, .5);
-        }
-    }
-    .hamburgerSlim {
-        &:before {
-        box-shadow: transparent 0 0 0 0;
-        top: 50%;
-        transform: rotate(225deg);
-        }
-
-        &:after {
-        top: 50%;
-        transform: rotate(315deg);
-        }
-    }
-
-    .nav__menu {
-        @include md {
-            display: block;
-            position: fixed;
-            top: 52px;
+            top: -100%;
             left: 15px;
             right: 15px;
-            background: rgba(29, 91, 101,.9);
+            opacity: 0;
+            @include transition(opacity .2s ease-in-out);
             li {
                 display: block;
                 text-align: left;
                 border-bottom: 1px solid $orange1;
                 a {
                     display: block;
+                    background: rgba(29, 91, 101,.9);
                 }
                 &:after{
                     content: '>';
@@ -201,5 +175,60 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
                 }
             }
         }
+    }
+
+    .overlay {
+        content: ' ';
+        position: fixed;
+        left: 0;right: 0;bottom: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .2);
+        opacity: 0;
+        z-index: 10;
+    }
+
+    &.isActive {
+        @include md {
+            .overlay {
+                top: 52px;
+                bottom: 0;
+                opacity: 100;
+                @include transition(opacity 1s ease-in-out);
+            }
+            .nav__menu {
+                top: 52px;
+                position: fixed;
+                opacity: 100;
+                z-index: 15;
+                @include transition(opacity .4s ease-in-out);
+            }
+            
+            .nav__wrapper {
+                &:before {
+                    content: ' ';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(29, 91, 101, 0.9);
+                    opacity: 100;
+                    @include transition (all .5s ease-in-out);
+                }
+            }
+        }
+
+        .hamburgerSlim {
+            &:before {
+            box-shadow: transparent 0 0 0 0;
+            top: 50%;
+            transform: rotate(225deg);
+            }
+    
+            &:after {
+            top: 50%;
+            transform: rotate(315deg);
+            }
+        }
+    
     }
 }
