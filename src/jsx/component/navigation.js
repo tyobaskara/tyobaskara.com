@@ -9,10 +9,9 @@ export class Navigation extends React.Component{
             NavList: ['Home', 'About', 'Blog', 'Contact'],
             burgerToggle: 'off'
         }
-        this.burgerToggle = this.burgerToggle.bind(this);
     }
 
-    burgerToggle(event) {
+    burgerToggle = (e) => {
         if(this.state.burgerToggle === 'off') {
             document.getElementsByClassName('nav')[0].classList.add("isActive");
             this.setState({burgerToggle: 'on'});

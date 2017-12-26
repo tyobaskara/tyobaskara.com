@@ -17,7 +17,8 @@ var config = {
                 include: path.resolve(__dirname, 'src'),
                 loader: 'babel-loader',
                 query: {
-                    presets: ['react', 'env']
+                    presets: ['react', 'env'],
+                    plugins: ['transform-decorators-legacy', 'transform-class-properties']
                 }
             }
         ],

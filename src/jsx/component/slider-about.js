@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 
 export class SliderAbout extends React.Component {
   render() {
-    var settings = {
+    const settings = {
       dots: true,
       infinite: true,
       speed: 500,

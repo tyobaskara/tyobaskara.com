@@ -11,42 +11,7 @@ class Blog extends React.Component {
             posts: []
         }
     }
-    render() {
-
-        return (
-            <div>
-                <Helmet>
-                    <title>Blog - Prasetya Aji Baskara</title>
-                    <meta name="title" content="Tyobaskara.rocks : Front End Developer from Zero to Zoro" />
-                    <meta name="description" content="I became really passionate as a Front End Developer and kept creating since then. It absolutely has its ups and downs, but if you love what you do and are able to provide value to people, the outcomes are far more rewarding!" />
-                </Helmet>
-
-                <Navigation active="Blog"/>
-
-                <div className="container-fluid">
-                    <div className="jumbotron">
-                        <div className="container text-center">
-                            <h1>Blog</h1>
-                        </div>
-                    </div>
-                    <div className="container">
-                        <ul className="list-ajax">
-                            <li>Loading...</li>
-                            {
-                                this.state.posts.map(post =>
-                                <li key={post.id}>
-                                    <div>name: {post.name}</div>
-                                    <div>email: {post.email}</div>
-                                    <div>comment: {post.body.replace(/\n/g, ' ')}</div>
-                                </li>
-                            )}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
+    
     componentDidMount(){
         const _this = this;
         const url = 'https://jsonplaceholder.typicode.com/posts/1/comments';
@@ -72,6 +37,40 @@ class Blog extends React.Component {
             }
         });
     }
+
+    render = () => (
+        <div>
+            <Helmet>
+                <title>Blog - Prasetya Aji Baskara</title>
+                <meta name="title" content="Tyobaskara.rocks : Front End Developer from Zero to Zoro" />
+                <meta name="description" content="I became really passionate as a Front End Developer and kept creating since then. It absolutely has its ups and downs, but if you love what you do and are able to provide value to people, the outcomes are far more rewarding!" />
+            </Helmet>
+
+            <Navigation active="Blog"/>
+
+            <div className="container-fluid">
+                <div className="jumbotron">
+                    <div className="container text-center">
+                        <h1>Blog</h1>
+                    </div>
+                </div>
+                <div className="container">
+                    <ul className="list-ajax">
+                        <li>Loading...</li>
+                        {
+                            this.state.posts.map(post =>
+                            <li key={post.id}>
+                                <div>name: {post.name}</div>
+                                <div>email: {post.email}</div>
+                                <div>comment: {post.body.replace(/\n/g, ' ')}</div>
+                            </li>
+                        )}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    )
+
 };
 
 export default Blog;

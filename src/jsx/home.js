@@ -27,24 +27,22 @@ class Home extends React.Component {
         }
     };
 
-    render() {
-        return (
-            <div>
-                <Helmet>
-                    <title>Home - Prasetya Aji Baskara</title>
-                    <meta name="title" content="Tyobaskara.rocks : Front End Developer from Zero to Zoro" />
-                    <meta name="description" content="I became really passionate as a Front End Developer and kept creating since then. It absolutely has its ups and downs, but if you love what you do and are able to provide value to people, the outcomes are far more rewarding!" />
-                </Helmet>
+    render = () => (
+        <div>
+            <Helmet>
+                <title>Home - Prasetya Aji Baskara</title>
+                <meta name="title" content="Tyobaskara.rocks : Front End Developer from Zero to Zoro" />
+                <meta name="description" content="I became really passionate as a Front End Developer and kept creating since then. It absolutely has its ups and downs, but if you love what you do and are able to provide value to people, the outcomes are far more rewarding!" />
+            </Helmet>
 
-                <Navigation active="Home"/>
+            <Navigation active="Home"/>
 
-                <div className="container-fluid">
-                    <HeroBanner />
-                    <AboutInro />
-                </div>
+            <div className="container-fluid">
+                <HeroBanner />
+                <AboutInro />
             </div>
-        )
-    }
+        </div>
+    )
 };
 
 export default Home;
