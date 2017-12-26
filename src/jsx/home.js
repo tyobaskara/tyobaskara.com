@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
 import { AboutInro } from './component/about-intro';
 import { HeroBanner } from './component/herobanner';
+import { Footer } from './component/footer';
 
 class Home extends React.Component {
     constructor(props){
@@ -41,6 +42,8 @@ class Home extends React.Component {
                 <HeroBanner />
                 <AboutInro />
             </div>
+
+            <Footer />
         </div>
     )
 };

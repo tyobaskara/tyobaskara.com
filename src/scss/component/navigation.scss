@@ -19,7 +19,7 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
     &--fixed {
         padding-bottom: 50px;
         .nav__wrapper {
-            background: rgba(29, 91, 101, 0.9);
+            background: $blue1;
             @include box-shadow((0px 1px 2px $blue1), (0px 1px 1px wheat));
         }
         .nav__menu > li a {
@@ -35,7 +35,7 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
                 position: absolute;
                 width: 100%;
                 height: 100%;
-                background: rgba(29, 91, 101, 0.9);
+                background: $blue1;
                 opacity: 100;
                 @include transition (all .5s ease-in-out);
             }
@@ -161,7 +161,7 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
                 border-bottom: 1px solid $orange1;
                 a {
                     display: block;
-                    background: rgba(29, 91, 101,.9);
+                    background: $blue1;
                 }
                 &:after{
                     content: '>';
@@ -210,7 +210,7 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
                     position: absolute;
                     width: 100%;
                     height: 100%;
-                    background: rgba(29, 91, 101, 0.9);
+                    background: $blue1;
                     opacity: 100;
                     @include transition (all .5s ease-in-out);
                 }

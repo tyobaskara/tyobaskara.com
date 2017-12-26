@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
+import { Footer } from './component/footer';
 
 class Contact extends React.Component {
     constructor(props){
