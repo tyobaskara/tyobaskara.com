@@ -24,6 +24,11 @@ export class Navigation extends React.Component{
         }
     }
 
+    componentDidMount() {
+        document.getElementsByTagName('html')[0].classList.remove("ovHidden");
+        document.getElementById(this.props.active).setAttribute('class', 'active');
+    }
+
     render(){
         let NavList = this.state.NavList;
         NavList = NavList.map( (item,index) => {
@@ -57,7 +62,4 @@ export class Navigation extends React.Component{
         );
     }
 
-    componentDidMount() {
-        document.getElementById(this.props.active).setAttribute('class', 'active');
-    }
 };
