@@ -44,7 +44,7 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
 
     &__wrapper {
         background: rgba(255,255,255,.1);
-        @include box-shadow((0px 1px 2px $orange1), (0px 1px 1px white));
+        @include box-shadow(0 0.1px 1px $orange1);
         position: fixed;
         top: 0;
         left: 0;
@@ -158,10 +158,11 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
             li {
                 display: block;
                 text-align: left;
-                border-bottom: 1px solid $orange1;
                 a {
                     display: block;
                     background: $blue1;
+                    @include box-shadow(0 0.1px 1px $orange1);
+                    margin-bottom: 1px;
                 }
                 &:after{
                     content: '>';

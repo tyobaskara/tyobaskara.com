@@ -1,5 +1,5 @@
 .aboutIntro {
-    background-color: $dark1;
+    background-color: $whiteOrange;
     position: relative;
     .container {
         padding-top: 0;
@@ -10,14 +10,14 @@
         padding-bottom: 25px;
         h2 {
             margin-bottom: 15px;
-            color: ghostwhite;
+            color: $black2;
         }
         p {
             line-height: 1.5;
-            color: ghostwhite;
+            color: $black3;
             text-align: justify;
         }
-        .btn-wheat {
+        .btn {
             margin-top: 25px;
         }
     }
