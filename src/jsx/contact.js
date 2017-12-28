@@ -13,8 +13,8 @@ class Contact extends React.Component {
         <div>
             <Helmet>
                 <title>Contact - Prasetya Aji Baskara</title>
-                <meta name="title" content="Tyobaskara.rocks : Front End Developer from Zero to Zoro" />
-                <meta name="description" content="I became really passionate as a Front End Developer and kept creating since then. It absolutely has its ups and downs, but if you love what you do and are able to provide value to people, the outcomes are far more rewarding!" />
+                <meta name="title" content="Tyobaskara.rocks : Contact" />
+                <meta name="description" content="Don't hestitate to contacting me, lets make our live surrounded by happiness" />
             </Helmet>
 
             <Navigation active="Contact"/>
@@ -22,7 +22,7 @@ class Contact extends React.Component {
             <div className="container-fluid">
                 <div className="container">
                     <div className="skills">
-                        <h1>Contact</h1>
+                        <h1>Don't hestitate to contact me</h1>
                     </div>
                 </div>
             </div>

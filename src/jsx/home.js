@@ -39,7 +39,12 @@ class Home extends React.Component {
             <Navigation active="Home"/>
 
             <div className="container-fluid">
-                <HeroBanner />
+                <HeroBanner 
+                    title="Web Developer" 
+                    subtitle="Don't be afraid to be Great" 
+                    images="./assets/images/herobanner-2.jpg" 
+                    altImages="tyobaskara" 
+                />
                 <AboutInro />
             </div>
 

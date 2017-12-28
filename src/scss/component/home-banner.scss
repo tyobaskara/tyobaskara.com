@@ -38,8 +38,8 @@
         transform: translateY(-50%);
         z-index: 4;
         text-align: center;
-        h1 {
-            color: ghostwhite;
+        .title {
+            color: white;
             font-size: 52px;
             @include lg {
                 font-size: 46px;
@@ -51,7 +51,7 @@
                 font-size: 32px;
             }
         }
-        p {
+        .subtitle {
             font-size: 24px;
             margin-top: 10px;
             color: ghostwhite;
