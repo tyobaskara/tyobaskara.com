@@ -6,12 +6,11 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
             display: inline-block;
         }
         position: absolute;
-        left: 5px;
+        left: 0;
         bottom: 0;
         top: 0;
         @include md {
             position: relative;
-            left: -10px;
             display: inline-block;
         }
     }
