@@ -12,6 +12,23 @@ class About extends React.Component {
             Skills: ['HTML5','CSS/SCSS/SASS','Javascript','Jquery','Gulp','React']
         }
     }
+    
+    componentDidMount() {
+        document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
+        document.addEventListener('scroll', this.scroll); //mobile
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('scroll', this.scroll); //mobile
+    }
+
+    scroll(event) {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            document.getElementsByClassName("nav")[0].classList.add("nav--active");
+        } else {
+            document.getElementsByClassName("nav")[0].classList.remove("nav--active");
+        }
+    };
 
     render() {
         let Skills = this.state.Skills;
@@ -38,7 +55,7 @@ class About extends React.Component {
                         images="./assets/images/about.jpg" 
                         altImages="tyobaskara" 
                     />
-                    <div className="container">
+                    <div className="container" style={{height: '50vh'}}>
                         <div className="skills">
                             <h3>About</h3>
                             <ul>
@@ -47,6 +64,8 @@ class About extends React.Component {
                         </div>
                     </div>
                 </div>
+
+                <Footer />
             </div>
         )
     }

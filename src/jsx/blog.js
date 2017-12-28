@@ -55,7 +55,7 @@ class Blog extends React.Component {
                         <h1>Blog</h1>
                     </div>
                 </div>
-                <div className="container">
+                <div className="container" style={{height: '100vh'}}>
                     <ul className="list-ajax">
                         <li>Loading...</li>
                         {
@@ -69,6 +69,8 @@ class Blog extends React.Component {
                     </ul>
                 </div>
             </div>
+            
+            <Footer />
         </div>
     )
 

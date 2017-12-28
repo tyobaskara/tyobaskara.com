@@ -8,8 +8,13 @@
     &__description {
         padding-top: 25px;
         padding-bottom: 25px;
-        h2 {
-            margin-bottom: 15px;
+        @include sm {
+            text-align: center;
+        }
+        h3 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            display: inline-block;
             color: $black2;
         }
         p {

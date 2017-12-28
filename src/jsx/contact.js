@@ -20,12 +20,14 @@ class Contact extends React.Component {
             <Navigation active="Contact"/>
 
             <div className="container-fluid">
-                <div className="container">
+                <div className="container" style={{height: '100vh'}}>
                     <div className="skills">
                         <h1>Don't hestitate to contact me</h1>
                     </div>
                 </div>
             </div>
+            
+            <Footer />
         </div>
     )
 };
