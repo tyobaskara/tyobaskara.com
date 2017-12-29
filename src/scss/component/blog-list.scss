@@ -64,7 +64,7 @@
         display: block;
         overflow: hidden;
         @include transition(all .3s ease-in-out);
-        &:hover {
+        &:hover, &:active {
             .blogList__desc-image {
                 img {
                     transform: scale(1.1);
