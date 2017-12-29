@@ -9,8 +9,8 @@ export class HeroBanner extends React.Component {
                 </div>
                 <div className="heroBanner__content">
                     <div className="container">
-                        {this.props.title ? <h1 className="title">{this.props.title}</h1> : ''}
-                        {this.props.subtitle ? <h2 className="subtitle">{this.props.subtitle}</h2> : ''}
+                        {this.props.title ? this.props.title : ''}
+                        {this.props.subtitle ? this.props.subtitle : ''}
                     </div>
                 </div>
             </div>

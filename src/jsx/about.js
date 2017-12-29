@@ -4,22 +4,21 @@ import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
 import { Footer } from './component/footer';
 import { HeroBanner } from './component/herobanner';
+import { InstagramGallery } from './component/instagram-gallery';
+import { LinkedinProfile } from './component/linkedin-profile';
 
 class About extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            Skills: ['HTML5','CSS/SCSS/SASS','Javascript','Jquery','Gulp','React']
-        }
     }
     
     componentDidMount() {
         document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
-        document.addEventListener('scroll', this.scroll); //mobile
+        document.addEventListener('scroll', this.scroll);
     }
 
     componentWillUnmount() {
-        document.removeEventListener('scroll', this.scroll); //mobile
+        document.removeEventListener('scroll', this.scroll);
     }
 
     scroll(event) {
@@ -31,13 +30,6 @@ class About extends React.Component {
     };
 
     render() {
-        let Skills = this.state.Skills;
-        Skills = Skills.map( (item,index) => {
-            return (
-                <li key={index}>{item}</li>
-            );
-        });
-
         return (
             <div>
                 <Helmet>
@@ -50,18 +42,13 @@ class About extends React.Component {
 
                 <div className="container-fluid">
                     <HeroBanner 
-                        title="The Passion" 
-                        subtitle={["The only way to do great work is to love what you do" , <br/>,  "-steve jobs"]}
+                        title={<h1 className="title">The Passion</h1>}
+                        subtitle={<h2 className="subtitle">The only way to do great work is to love what you do<br/>-steve jobs</h2>}
                         images="./assets/images/about.jpg" 
                         altImages="tyobaskara" 
                     />
-                    <div className="container" style={{height: '50vh'}}>
-                        <div className="skills">
-                            <h3>About</h3>
-                            <ul>
-                                {Skills}
-                            </ul>
-                        </div>
+                    <div className="container">
+                        <InstagramGallery />
                     </div>
                 </div>
 

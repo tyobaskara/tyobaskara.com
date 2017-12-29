@@ -40,8 +40,8 @@ class Home extends React.Component {
 
             <div className="container-fluid">
                 <HeroBanner 
-                    title="Web Developer" 
-                    subtitle="Don't be afraid to be Great" 
+                    title={<h1 className="title">Web Developer</h1>}
+                    subtitle={<h2 className="subtitle">Don't be afraid to be Great</h2>}
                     images="./assets/images/herobanner-2.jpg" 
                     altImages="tyobaskara" 
                 />

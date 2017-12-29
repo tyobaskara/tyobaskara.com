@@ -10,20 +10,25 @@
 html, body {
     overflow-x: hidden;
     background: ghostwhite; font-family: 'Baumans';
+    color: $black3;
+    font-size: 16px;
 } 
 * { 
     font-family: 'Baumans', sans-serif; 
-    &:hover, &:focus, &:active {
-        text-decoration: none;
-        outline: none;
-        border: none;
-    }
+    text-decoration: none;
+    outline: none;
+    border: none;
     color: $black1;
+    &::selection {
+    background: rgba(239,122,22,.5); /* WebKit/Blink Browsers */
+    }
+    &::-moz-selection {
+    background: rgba(239,122,22,.5); /* Gecko Browsers */
+    }
 }
 a:hover, a:focus, a:active {
     text-decoration: none;
     outline: none;
-    border: none;
 }
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {outline: none;}
 .posRelative {position: relative;}
@@ -44,19 +49,7 @@ a:hover, a:focus, a:active {
         }   
     }
 } 
-h2 {
-    font-size: 36px;
-    @include lg {
-        font-size: 30px;
-    }
-    @include md {
-        font-size: 24px;
-    }
-    @include xs {
-        font-size: 20px;
-    }
-}
-h3 {
+h1,h2,h3 {
     font-size: 34px;
     @include lg {
         font-size: 26px;
@@ -81,8 +74,12 @@ p {
     }
 }
 
-.orgLine {
+.orgTitle {
     position: relative;
+    display: inline-block;
+    color: $black2;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
     &::after {
         content: ' ';
         position: absolute;
@@ -104,3 +101,4 @@ p {
 @import './component/about-intro';
 @import './component/home-banner';
 @import './component/footer';
+@import './component/blog-list';
