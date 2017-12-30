@@ -6,30 +6,46 @@ import { Footer } from './component/footer';
 import { BlogList } from './component/blog-list';
 
 class Blog extends React.Component {
-    render = () => (
-        <div>
-            <Helmet>
-                <title>Blog - Prasetya Aji Baskara</title>
-                <meta name="title" content="Tyobaskara.rocks : Blog" />
-                <meta name="description" content="Will Share anything regarding about my Skill, Love Live, or Anyting that could help the world better :D" />
-            </Helmet>
+    render() {
+        const metaTitle = "Tyobaskara.rocks : Blog";
+        const metaDesc = "Shares anything regarding about my Skill, Love Live, or Anyting that could helps. What you see is what you get.";
 
-            <Navigation active="Blog"/>
+        return (
+            <div>
+                <Helmet>
+                    <title>Blog - Prasetya Aji Baskara</title>
+                    <meta name="title" content={metaTitle} />
+                    <meta name="description" content={metaDesc} />
+                    <meta property="og:site_name" content="tyobaskara.rocks" />
+                    <meta property="og:url" content="http://www.tyobaskara.rocks" />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:title" content={metaTitle} />
+                    <meta property="og:description" content={metaDesc} />
+                    <meta property="og:image" content="http://www.tyobaskara.rocks/assets/images/logo.png" />
+                    <meta name="twitter:card" content="summary" />
+                    <meta name="twitter:site" content="@tyobaskara" />
+                    <meta name="twitter:creator" content="@tyobaskara" />
+                    <meta name="twitter:title" content={metaTitle} />
+                    <meta name="twitter:description" content={metaDesc} />
+                    <meta name="twitter:image" content="http://www.tyobaskara.rocks/assets/images/logo.png" />
+                </Helmet>
+
+                <Navigation active="Blog"/>
 
 
-            <div className="blogWrap" style={{minHeight: '100vh'}}>
-                <div className="container">
-                    <div className="text-center">
-                        <h1 className="orgTitle" style={{marginTop: '20px'}}>What you see is what you get</h1>
+                <div className="blogWrap" style={{minHeight: '100vh'}}>
+                    <div className="container">
+                        <div className="text-center">
+                            <h1 className="orgTitle" style={{marginTop: '20px'}}>What you see is what you get</h1>
+                        </div>
+                        <BlogList />
                     </div>
-                    <BlogList />
                 </div>
+                
+                <Footer />
             </div>
-            
-            <Footer />
-        </div>
-    )
-
+        )
+    }
 };
 
 export default Blog;

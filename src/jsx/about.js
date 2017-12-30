@@ -30,12 +30,27 @@ class About extends React.Component {
     };
 
     render() {
+        const metaTitle = "Tyobaskara.rocks : To be Web Developer is My Passion";
+        const metaDesc = "The passion to became as a Web Developer, Was started a career as Front End Developer in Jakarta, Indonesia. and it's an amazing journey.";
+        
         return (
             <div>
                 <Helmet>
                     <title>About - Prasetya Aji Baskara</title>
-                    <meta name="title" content="Tyobaskara.rocks : Web Developer is My Passion" />
-                    <meta name="description" content="The passion to became as a Web Developer, It's started as Front End Developer in Jakarta, Indonesia" />
+                    <meta name="title" content={metaTitle} />
+                    <meta name="description" content={metaDesc} />
+                    <meta property="og:site_name" content="tyobaskara.rocks" />
+                    <meta property="og:url" content="http://www.tyobaskara.rocks" />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:title" content={metaTitle} />
+                    <meta property="og:description" content={metaDesc} />
+                    <meta property="og:image" content="http://www.tyobaskara.rocks/assets/images/logo.png" />
+                    <meta name="twitter:card" content="summary" />
+                    <meta name="twitter:site" content="@tyobaskara" />
+                    <meta name="twitter:creator" content="@tyobaskara" />
+                    <meta name="twitter:title" content={metaTitle} />
+                    <meta name="twitter:description" content={metaDesc} />
+                    <meta name="twitter:image" content="http://www.tyobaskara.rocks/assets/images/logo.png" />
                 </Helmet>
 
                 <Navigation active="About"/>
