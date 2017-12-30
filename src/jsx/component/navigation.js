@@ -6,7 +6,7 @@ export class Navigation extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            NavList: ['Home', 'About', 'Blog', 'Contact'],
+            NavList: ['Home', 'About', 'Blog'],
             burgerToggle: 'off'
         }
     }

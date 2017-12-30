@@ -18,6 +18,16 @@ export const Footer = () => (
                     <i className="fab fa-facebook"></i>
                 </a>
             </li>
+            <li>
+                <a href="https://www.instagram.com/tyobaskara/" target="_blank">
+                    <i className="fab fa-instagram"></i>
+                </a>
+            </li>
+            <li>
+                <a href="mailto:prasetyaajibaskara@gmail.com" target="_blank">
+                    <i className="fas fa-envelope-square"></i>
+                </a>
+            </li>
         </ul>
     </footer>
 );

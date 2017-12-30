@@ -39,7 +39,7 @@
         z-index: 4;
         text-align: center;
         .title {
-            color: white;
+            color: ghostwhite;
             font-size: 52px;
             @include lg {
                 font-size: 46px;
@@ -54,7 +54,7 @@
         .subtitle {
             font-size: 24px;
             margin-top: 10px;
-            color: ghostwhite;
+            color: $whiteOrange2;
             @include lg {
                 font-size: 22px;
             }
