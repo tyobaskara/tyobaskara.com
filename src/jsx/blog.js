@@ -16,8 +16,14 @@ class Blog extends React.Component {
 
             <Navigation active="Blog"/>
 
-            <div className="container-fluid">
-                <BlogList />
+
+            <div className="blogWrap" style={{minHeight: '100vh'}}>
+                <div className="container">
+                    <div className="text-center">
+                        <h1 className="orgTitle" style={{marginTop: '20px'}}>What you see is what you get</h1>
+                    </div>
+                    <BlogList />
+                </div>
             </div>
             
             <Footer />

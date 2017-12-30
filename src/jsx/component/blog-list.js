@@ -91,23 +91,16 @@ export class BlogList extends React.Component {
         });
 
         return (    
-            <div className="blogWrap" style={{minHeight: '100vh'}}>
-                <div className="container">
-                    <div className="text-center">
-                        <h1 className="orgTitle" style={{marginTop: '20px'}}>Blog</h1>
-                    </div>
-                    <Masonry
-                        className={'blogList'} // default ''
-                        elementType={'ul'} // default 'div'
-                        options={masonryOptions} // default {}
-                        disableImagesLoaded={false} // default false
-                        updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-                    >
-                        <li>Loading...</li>
-                        {listElement}
-                    </Masonry>
-                </div>
-            </div>
+            <Masonry
+                className={'blogList'} // default ''
+                elementType={'ul'} // default 'div'
+                options={masonryOptions} // default {}
+                disableImagesLoaded={false} // default false
+                updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+            >
+                <li>Loading...</li>
+                {listElement}
+            </Masonry>
         )
     }
 
