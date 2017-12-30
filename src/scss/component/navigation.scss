@@ -42,7 +42,7 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
     }
 
     &__wrapper {
-        background: rgba(255,255,255,.1);
+        background: $blue1;
         @include box-shadow(0 0.1px 1px $orange1);
         position: fixed;
         top: 0;
@@ -55,7 +55,7 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
             position: absolute;
             width: 0;
             height: 100%;
-            background: rgba(255,255,255,.1);
+            background: $blue1;
             left: 50%;
             transform: translateX(-50%);
             opacity: 0;
