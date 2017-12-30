@@ -3,7 +3,7 @@ require('./../vendor/lightwidget.js');
 
 export const InstagramGallery = () => (
     <div>
-        <div className="text-center" style={{marginTop: '20px'}}>
+        <div className="text-center">
             <h3 className="orgTitle">Follow me on instagram</h3>
         </div>
         <div className="igWrapper" style={{padding: '20px 0'}}>

@@ -75,7 +75,6 @@ p {
         font-size: 16px;
     }
 }
-
 .orgTitle {
     position: relative;
     display: inline-block;
@@ -94,6 +93,20 @@ p {
         background: $orange1;
         transform: rotate(-2deg);
 
+    }
+}
+.container{
+    &--wrap {
+        padding: 50px 0;
+        @include sm {
+            padding: 25px;
+        }
+        .orgTitle {
+            margin-bottom: 50px;
+            @include sm {
+                margin-bottom: 25px;
+            }
+        }
     }
 }
 

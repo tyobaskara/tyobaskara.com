@@ -62,7 +62,7 @@ class About extends React.Component {
                         images="./assets/images/about.jpg" 
                         altImages="tyobaskara" 
                     />
-                    <div className="container">
+                    <div className="container container--wrap">
                         <InstagramGallery />
                     </div>
                 </div>
