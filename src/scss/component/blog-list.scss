@@ -3,11 +3,17 @@
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+    padding: 50px 0;
     @include sm {
         background: $blue5;
+        padding: 25px 0;
     }
     .orgTitle {
         color: ghostwhite;
+        margin-bottom: 50px;
+        @include sm {
+            margin-bottom: 25px;
+        }
     }
 }
 .blogList {

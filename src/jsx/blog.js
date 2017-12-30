@@ -36,7 +36,7 @@ class Blog extends React.Component {
                 <div className="blogWrap" style={{minHeight: '100vh'}}>
                     <div className="container">
                         <div className="text-center">
-                            <h1 className="orgTitle" style={{marginTop: '20px'}}>What you see is what you get</h1>
+                            <h1 className="orgTitle">What you see is what you get</h1>
                         </div>
                         <BlogList />
                     </div>
