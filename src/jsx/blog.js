@@ -17,14 +17,7 @@ class Blog extends React.Component {
             <Navigation active="Blog"/>
 
             <div className="container-fluid">
-                <div className="jumbotron">
-                    <div className="container text-center">
-                        <h1 className="orgTitle" style={{marginTop: '20px'}}>Blog</h1>
-                    </div>
-                </div>
-                <div className="container">
-                    <BlogList />
-                </div>
+                <BlogList />
             </div>
             
             <Footer />

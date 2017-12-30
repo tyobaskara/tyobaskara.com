@@ -1,3 +1,12 @@
+.blogWrap {
+    background-image: url('./../images/blog-bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    .orgTitle {
+        color: ghostwhite;
+    }
+}
 .blogList {
     font-size: 0;
     > li {
@@ -26,6 +35,7 @@
             font-size: 1.125rem;
             font-weight: 700;
             line-height: 1.2em;
+            background: ghostwhite;
         }
         &-image {
             width: 100%;
@@ -44,6 +54,7 @@
 
     &__read {
         padding: 0px 15px 15px;
+        background: ghostwhite;
         span {
             vertical-align: middle;
             color: $bluelink;
@@ -59,12 +70,13 @@
 
     &__card {
         cursor: pointer;
-        border: 2px solid #ccc;
+        border: 2px solid azure;
         @include box-shadow(-2px 2px 5px #ccc);
         display: block;
         overflow: hidden;
         @include transition(all .3s ease-in-out);
         &:hover, &:active {
+            border-color: salmon;
             .blogList__desc-image {
                 img {
                     transform: scale(1.1);

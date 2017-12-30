@@ -32,8 +32,6 @@ export class BlogList extends React.Component {
             if(jsonResponse != null) {
                 block.removeChild(list[0]);
                 this.setState({posts: jsonResponse[0], photos: jsonResponse[1]});
-                console.log(this.state.posts);
-                console.log(this.state.photos);
             }
         })
     
@@ -67,8 +65,8 @@ export class BlogList extends React.Component {
             let photosElement = this.state.photos.map(photo => {
                 if(photo.id === id) {
                     return (
-                        <div className="blogList__desc-image">
-                            <img key={photo.id} src={photo.thumbnailUrl} alt={photo.title}/>
+                        <div key={photo.id} className="blogList__desc-image">
+                            <img src={photo.thumbnailUrl} alt={photo.title}/>
                         </div>
                     )
                 }
@@ -93,17 +91,22 @@ export class BlogList extends React.Component {
         });
 
         return (    
-            <div style={{minHeight: '500px'}}>
-                <Masonry
-                    className={'blogList'} // default ''
-                    elementType={'ul'} // default 'div'
-                    options={masonryOptions} // default {}
-                    disableImagesLoaded={false} // default false
-                    updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-                >
-                    <li>Loading...</li>
-                    {listElement}
-                </Masonry>
+            <div className="blogWrap" style={{minHeight: '100vh'}}>
+                <div className="container">
+                    <div className="text-center">
+                        <h1 className="orgTitle" style={{marginTop: '20px'}}>Blog</h1>
+                    </div>
+                    <Masonry
+                        className={'blogList'} // default ''
+                        elementType={'ul'} // default 'div'
+                        options={masonryOptions} // default {}
+                        disableImagesLoaded={false} // default false
+                        updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+                    >
+                        <li>Loading...</li>
+                        {listElement}
+                    </Masonry>
+                </div>
             </div>
         )
     }
