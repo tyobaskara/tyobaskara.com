@@ -34,24 +34,6 @@ export class BlogList extends React.Component {
                 this.setState({posts: jsonResponse[0], photos: jsonResponse[1]});
             }
         })
-    
-        // fetch(url).then(response => {
-        //     if (response.ok) {
-        //         return response.json();
-        //     }
-        //     list[0].innerHTML = 'Request failed!';
-        //     throw new Error('Request failed!');
-        // }, networkError => {
-        //     list[0].innerHTML = 'Request failed!';
-        //     console.log(networkError.message);
-        // }
-        // ).then(jsonResponse => {
-        //     if(jsonResponse != null) {
-        //         block.removeChild(list[0]);
-        //         this.setState({posts: jsonResponse});
-        //         console.log(this.state.posts);
-        //     }
-        // });
     }
 
     render() {
