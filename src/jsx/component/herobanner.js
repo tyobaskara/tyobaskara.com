@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export class HeroBanner extends React.Component {
     render() {
@@ -17,3 +18,10 @@ export class HeroBanner extends React.Component {
         )
     };  
 } 
+
+HeroBanner.propTypes = {
+    images: PropTypes.string.isRequired,
+    altImages: PropTypes.string.isRequired,
+    title: PropTypes.object,
+    subtitle: PropTypes.object
+}

@@ -5,7 +5,6 @@ import { Navigation } from './component/navigation';
 import { Footer } from './component/footer';
 import { HeroBanner } from './component/herobanner';
 import { InstagramGallery } from './component/instagram-gallery';
-import { LinkedinProfile } from './component/linkedin-profile';
 
 class About extends React.Component {
     constructor(props){

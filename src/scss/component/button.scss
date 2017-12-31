@@ -4,6 +4,7 @@
     line-height: 1;
     position: relative;
     font-weight: 600;
+    font-size: 1.6rem;
     @include border-radius(25px 5px 25px 5px);
     &:hover {
         text-decoration: none;
