@@ -58,7 +58,7 @@ export class BlogList extends React.Component {
             if(post.id < 25) {
                 return (
                     <li key={post.id}>
-                        <NavLink to={"/Blogs/" + post.id + '/' + post.title} className="blogList__card">
+                        <NavLink to={"/Blog/" + post.id + '/' + post.title} className="blogList__card">
                             <div className="blogList__desc">
                                 {photosElement}
                                 <h2 className="blogList__desc-title">{post.title}</h2>
