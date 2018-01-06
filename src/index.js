@@ -26,7 +26,7 @@ class App extends React.Component{
                     <Route exact path={'/'} render={props => <Home {...props} />} />
                     <Route exact path={'/About'} render={props => <About {...props} />} />
                     <Route exact path={'/Blog'} render={props => <Blog {...props} />} />
-                    <Route exact path={'/Blogs/:id/:title'} render={props => <BlogDetail {...props} />} />
+                    <Route exact path={'/Blog/:id/:title'} render={props => <BlogDetail {...props} />} />
                 </Switch>
             </Router>
         );
