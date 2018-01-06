@@ -1,6 +1,9 @@
 import React from 'react';
 import Masonry from 'react-masonry-component';
 import { NavLink } from 'react-router-dom';
+import InfiniteScroll from 'react-infinite-scroll';
+
+const pagination = 10;
  
 export class BlogList extends React.Component {
     constructor(props){
@@ -8,34 +11,91 @@ export class BlogList extends React.Component {
 
         this.state = {
             posts: [],
-            photos: []
+            photos: [],
+            isLoading: true,
+            isLoadingMore: false,
+            isMounted: false
         }
+    }
+
+    showLoader() {
+        this.setState({
+            isLoading: true
+        });
+    }
+
+    hideLoader() {
+        this.setState({
+            isLoading: false
+        });
     }
     
     componentDidMount(){
-        const url = 'https://jsonplaceholder.typicode.com/posts/';
-        const urls = ['https://jsonplaceholder.typicode.com/posts/', 'https://jsonplaceholder.typicode.com/photos'];
-        const block = document.getElementsByClassName('blogList')[0];
-        const list = block.getElementsByTagName('li');
+        this.setState({_isMounted: true});
+        this.getContentJson(0, pagination, false);
+    }
+
+    getContentJson(startIndex, pagination, isLoadingMore) {
+        let _isMounted = this.state.isMounted;
+        let _isLoadingMore = this.state.isLoadingMore;
+
+        for(let i=startIndex; i<=pagination; i++) {
+            if (i === pagination) {
+                console.log('done');
+                if(_isMounted) { 
+                    this.hideLoader;
+                    console.log('hide');
+                };
+
+                if (_isMounted && _isLoadingMore) this.setState({ isLoadingMore: false });
+
+                // this.loadMore(pagination);
+                return false;
+            }
+
+            this.getContentData((i+1) , pagination);
+        }      
+    }
+
+    getContentData(id) {
+        const urls = [`https://jsonplaceholder.typicode.com/posts/${id}`, `https://jsonplaceholder.typicode.com/photos/${id}`];
+        //const block = document.getElementsByClassName('blogList')[0];
+        //const list = block.getElementsByTagName('li');
 
         Promise.all(urls.map(url =>
             fetch(url).then(response => {
                 if (response.ok) {
                     return response.json();
                 }
-                list[0].innerHTML = 'Request failed!';
+                console.log('Request failed!');
                 throw new Error('Request failed!');
             }, networkError => {
-                list[0].innerHTML = 'Request failed!';
+                console.log('Request failed!');
                 console.log(networkError.message);
             })
         )).then(jsonResponse => {
             if(jsonResponse != null) {
-                block.removeChild(list[0]);
-                this.setState({posts: jsonResponse[0], photos: jsonResponse[1]});
+                this.setState({posts: this.state.posts.concat(jsonResponse[0]), photos: this.state.photos.concat(jsonResponse[1])});
             }
         })
     }
+
+    // loadMore(pagination) {
+
+    //     $(window).unbind('scroll');
+    
+    //     $(window).bind('scroll', function () {
+    
+    //       if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+    //           let previousCount = pagination + 1;
+    //           pagination = pagination + 11;
+    
+    //           this.setState({isLoadingMore : true}); //To show loader at the bottom
+    
+    //           this.getContentJson(previousCount, pagination, true);
+    //       }
+    //     }.bind(this));
+    // }
 
     render() {
         const masonryOptions = {
@@ -55,22 +115,21 @@ export class BlogList extends React.Component {
                 }
             })
 
-            if(post.id < 25) {
-                return (
-                    <li key={post.id}>
-                        <NavLink to={"/Blogs/" + post.id + '/' + post.title} className="blogList__card">
-                            <div className="blogList__desc">
-                                {photosElement}
-                                <h2 className="blogList__desc-title">{post.title}</h2>
-                            </div>
-                            <div className="blogList__read">
-                                <span>Read more <i className="fa fa-caret-right"></i></span>
-                            </div>
-                        </NavLink>
-                    </li>
-                )
-            }
+            return (
+                <li key={post.id}>
+                    <NavLink to={"/Blog/" + post.id + '/' + post.title} className="blogList__card">
+                        <div className="blogList__desc">
+                            {photosElement}
+                            <h2 className="blogList__desc-title">{post.title}</h2>
+                        </div>
+                        <div className="blogList__read">
+                            <span>Read more <i className="fa fa-caret-right"></i></span>
+                        </div>
+                    </NavLink>
+                </li>
+            )
         });
+        console.log(this.state);
 
         return (    
             <Masonry
@@ -80,8 +139,10 @@ export class BlogList extends React.Component {
                 disableImagesLoaded={false} // default false
                 updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
             >
-                <li>Loading...</li>
                 {listElement}
+                <li className={this.state.isLoading ? '': 'hidden'}>
+                    Loading...
+                </li>
             </Masonry>
         )
     }

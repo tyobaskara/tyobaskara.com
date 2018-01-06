@@ -55,6 +55,7 @@
     "gulp-sourcemaps": "^2.6.2",
     "gulp-watch": "^4.3.11",
     "node-sass": "^4.5.3",
+    "react-infinite-scroll": "^0.1.5",
     "react-masonry-component": "^6.0.2",
     "react-slick": "^0.16.0",
     "run-sequence": "^2.2.0",
