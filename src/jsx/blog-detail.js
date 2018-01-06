@@ -16,6 +16,8 @@ export default class BlogDetail extends React.Component {
     }
 
     componentDidMount(){
+        window.scrollTo(0,0);
+        
         const id = this.props.match.params.id;
         const urls = [`https://jsonplaceholder.typicode.com/posts/${id}`, `https://jsonplaceholder.typicode.com/photos/${id}`];
 
