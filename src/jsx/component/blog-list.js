@@ -1,5 +1,6 @@
 import React from 'react';
 import Masonry from 'react-masonry-component';
+import { NavLink } from 'react-router-dom';
  
 export class BlogList extends React.Component {
     constructor(props){
@@ -57,16 +58,15 @@ export class BlogList extends React.Component {
             if(post.id < 25) {
                 return (
                     <li key={post.id}>
-                        <a href="#" className="blogList__card">
+                        <NavLink to={"/Blogs/" + post.id + '/' + post.title} className="blogList__card">
                             <div className="blogList__desc">
                                 {photosElement}
                                 <h2 className="blogList__desc-title">{post.title}</h2>
-                                {/* <span className="blogList__desc-subtitle">{post.body.replace(/\n/g, ' ')}</span> */}
                             </div>
                             <div className="blogList__read">
                                 <span>Read more <i className="fa fa-caret-right"></i></span>
                             </div>
-                        </a>
+                        </NavLink>
                     </li>
                 )
             }

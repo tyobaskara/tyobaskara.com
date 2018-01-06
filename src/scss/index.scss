@@ -36,7 +36,7 @@ a:hover, a:focus, a:active {
 .posRelative {position: relative;}
 .posInitial {position: initial;}
 .opOn {opacity: 0;}
-.opOff {opacity: 1;@include transition(opacity .3s ease);}
+.opOff {opacity: 1;@include transition(opacity 1s ease);}
 .slick-prev { left: 15px; z-index: 25;}
 .slick-next { right: 15px; z-index: 25;}
 .slick-dots { bottom: 15px; z-index: 25;}

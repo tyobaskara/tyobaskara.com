@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
 import { Footer } from './component/footer';
@@ -14,6 +13,7 @@ class About extends React.Component {
     componentDidMount() {
         document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
         document.addEventListener('scroll', this.scroll);
+        window.scrollTo(0,0);
     }
 
     componentWillUnmount() {

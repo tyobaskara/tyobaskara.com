@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
 import { AboutInro } from './component/about-intro';
@@ -13,11 +12,12 @@ class Home extends React.Component {
     
     componentDidMount() {
         document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
-        document.addEventListener('scroll', this.scroll); //mobile
+        document.addEventListener('scroll', this.scroll);
+        window.scrollTo(0,0);
     }
 
     componentWillUnmount() {
-        document.removeEventListener('scroll', this.scroll); //mobile
+        document.removeEventListener('scroll', this.scroll);
     }
 
     scroll(event) {

@@ -82,10 +82,10 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
                 padding: 15px;
                 color: ghostwhite;
                 font-size: 2.1rem;
-                &.active {
+                &.active, &:hover {
                     font-weight: 600;
                     color: $orange1;
-                    pointer-events: none;
+                    @include transition(all .3s ease-in-out);
                 }
             }
             &:after{

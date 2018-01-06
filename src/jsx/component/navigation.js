@@ -26,7 +26,9 @@ export class Navigation extends React.Component{
 
     componentDidMount() {
         document.getElementsByTagName('html')[0].classList.remove("ovHidden");
-        document.getElementById(this.props.active).setAttribute('class', 'active');
+        if(this.props.active) {
+            document.getElementById(this.props.active).setAttribute('class', 'active');
+        }
     }
 
     render(){
@@ -49,7 +51,7 @@ export class Navigation extends React.Component{
                     <div className="container posRelative">
                         <div className="overlay" onClick={this.burgerToggle}></div>
                         <div className="nav__logo">
-                            <a href="/"><img src="./assets/images/logo.png" alt="tyobaskara"/></a>
+                            <a href="/"><img src="/assets/images/logo.png" alt="tyobaskara"/></a>
                         </div>
                         <ul className="nav__menu">
                             {NavList}

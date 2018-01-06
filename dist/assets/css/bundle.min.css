@@ -5980,10 +5980,10 @@ a:hover, a:focus, a:active {
 
 .opOff {
   opacity: 1;
-  -webkit-transition: opacity 0.3s ease;
-  -moz-transition: opacity 0.3s ease;
-  -o-transition: opacity 0.3s ease;
-  transition: opacity 0.3s ease; }
+  -webkit-transition: opacity 1s ease;
+  -moz-transition: opacity 1s ease;
+  -o-transition: opacity 1s ease;
+  transition: opacity 1s ease; }
 
 .slick-prev {
   left: 15px;
@@ -6224,10 +6224,13 @@ nav .container {
       padding: 15px;
       color: ghostwhite;
       font-size: 2.1rem; }
-      .nav__menu > li a.active {
+      .nav__menu > li a.active, .nav__menu > li a:hover {
         font-weight: 600;
         color: #ef7a16;
-        pointer-events: none; }
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out; }
     .nav__menu > li:after {
       content: '|';
       position: absolute;

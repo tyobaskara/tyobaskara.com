@@ -20,8 +20,8 @@ export class HeroBanner extends React.Component {
 } 
 
 HeroBanner.propTypes = {
-    images: PropTypes.string.isRequired,
-    altImages: PropTypes.string.isRequired,
+    images: PropTypes.string,
+    altImages: PropTypes.string,
     title: PropTypes.object,
     subtitle: PropTypes.object
 }

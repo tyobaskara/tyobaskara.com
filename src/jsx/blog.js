@@ -1,11 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
 import { Footer } from './component/footer';
 import { BlogList } from './component/blog-list';
 
 class Blog extends React.Component {
+    componentDidMount() {
+        window.scrollTo(0,0);
+    }
+    
     render() {
         const metaTitle = "Tyobaskara.rocks : Blog";
         const metaDesc = "Shares anything regarding about my Skill, Love Live, or Anyting that could helps. What you see is what you get.";
