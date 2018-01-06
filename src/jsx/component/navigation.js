@@ -51,7 +51,7 @@ export class Navigation extends React.Component{
                     <div className="container posRelative">
                         <div className="overlay" onClick={this.burgerToggle}></div>
                         <div className="nav__logo">
-                            <a href="/"><img src="/assets/images/logo.png" alt="tyobaskara"/></a>
+                            <NavLink href="/"><img src="/assets/images/logo.png" alt="tyobaskara"/></NavLink>
                         </div>
                         <ul className="nav__menu">
                             {NavList}
