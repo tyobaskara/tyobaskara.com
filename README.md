@@ -11,6 +11,11 @@
 # Build production mode
 * npm run build
 
+# Deploy in bash command
+* netlify deploy
+* choose sites
+* path to dist/
+
 # Deploy
 * npm run deploy
 
