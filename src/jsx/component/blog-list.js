@@ -50,6 +50,7 @@ export default class BlogList extends React.Component {
     }
   
     getContentJson = (startKey, counter) => {
+        this.setState({requestSent: true}); //show Loading...
         let data = [];
 
         this.checkPostLength(() => {
@@ -117,7 +118,7 @@ export default class BlogList extends React.Component {
       // enumerate a slow query
       setTimeout(this.doQuery, 1000);
   
-      this.setState({requestSent: true});
+      this.setState({requestSent: true}); //show Loading...
     }
   
     doQuery = () => {
