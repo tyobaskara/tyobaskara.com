@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
 import { Footer } from './component/footer';
-import { BlogList } from './component/blog-list';
+import BlogList from './component/blog-list';
 
 class Blog extends React.Component {
     componentDidMount() {
