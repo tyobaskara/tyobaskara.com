@@ -5429,6 +5429,8 @@ var _footer = __webpack_require__(20);
 
 var _blogList = __webpack_require__(82);
 
+var _blogList2 = _interopRequireDefault(_blogList);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5499,7 +5501,7 @@ var Blog = function (_React$Component) {
                                 'What you see is what you get'
                             )
                         ),
-                        _react2.default.createElement(_blogList.BlogList, null)
+                        _react2.default.createElement(_blogList2.default, null)
                     )
                 ),
                 _react2.default.createElement(_footer.Footer, null)
@@ -5524,7 +5526,7 @@ exports.default = Blog;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.BlogList = undefined;
+exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -5538,10 +5540,6 @@ var _reactMasonryComponent2 = _interopRequireDefault(_reactMasonryComponent);
 
 var _reactRouterDom = __webpack_require__(23);
 
-var _reactInfiniteScroll = __webpack_require__(289);
-
-var _reactInfiniteScroll2 = _interopRequireDefault(_reactInfiniteScroll);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5550,9 +5548,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var pagination = 10;
-
-var BlogList = exports.BlogList = function (_React$Component) {
+var BlogList = function (_React$Component) {
     _inherits(BlogList, _React$Component);
 
     function BlogList(props) {
@@ -5560,171 +5556,190 @@ var BlogList = exports.BlogList = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (BlogList.__proto__ || Object.getPrototypeOf(BlogList)).call(this, props));
 
+        _this.initFirstData = function () {
+            _this.getContentJson(1, _this.state.blogPagination);
+        };
+
+        _this.checkPostLength = function (callback) {
+            var url = 'https://jsonplaceholder.typicode.com/posts/';
+
+            fetch(url).then(function (response) {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Request failed!');
+            }, function (networkError) {
+                console.log(networkError.message);
+            }).then(function (jsonResponse) {
+                if (jsonResponse != null) {
+                    _this.setState({ totalPostLength: jsonResponse.length }, callback);
+                }
+            });
+        };
+
+        _this.getContentJson = function (startKey, counter) {
+            var data = [];
+
+            _this.checkPostLength(function () {
+                for (var i = startKey; i <= counter; i++) {
+
+                    if (i > _this.state.totalPostLength) {
+                        console.log('reached total');
+                        _this.setState({ requestSent: false, finishLoad: true });
+                        break;
+                    }
+
+                    //console.log(i);
+                    var urls = ['https://jsonplaceholder.typicode.com/posts/' + i, 'https://jsonplaceholder.typicode.com/photos/' + i];
+
+                    Promise.all(urls.map(function (url) {
+                        return fetch(url).then(function (response) {
+                            if (response.ok) {
+                                return response.json();
+                            }
+                            _this.setState({ requestSent: false, finishLoad: true });
+                            throw new Error('Request failed!');
+                            return false;
+                        }, function (networkError) {
+                            _this.setState({ requestSent: false, finishLoad: true });
+                            console.log(networkError.message);
+                            return false;
+                        });
+                    })).then(function (jsonResponse) {
+                        if (jsonResponse[0] != null) {
+                            _this.setState({ post: jsonResponse[0], photo: jsonResponse[1], requestSent: false }, function () {
+                                var item = _react2.default.createElement(
+                                    'li',
+                                    { key: _this.state.post.id },
+                                    _react2.default.createElement(
+                                        _reactRouterDom.NavLink,
+                                        { to: "/Blog/" + _this.state.post.id + '/' + _this.state.post.title, className: 'blogList__card' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'blogList__desc' },
+                                            _react2.default.createElement(
+                                                'div',
+                                                { key: _this.state.photo.id, className: 'blogList__desc-image' },
+                                                _react2.default.createElement('img', { src: _this.state.photo.thumbnailUrl, alt: _this.state.photo.title })
+                                            ),
+                                            _react2.default.createElement(
+                                                'h2',
+                                                { className: 'blogList__desc-title' },
+                                                _this.state.post.title
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'blogList__read' },
+                                            _react2.default.createElement(
+                                                'span',
+                                                null,
+                                                'Read more ',
+                                                _react2.default.createElement('i', { className: 'fa fa-caret-right' })
+                                            )
+                                        )
+                                    )
+                                );
+
+                                _this.setState({ data: _this.state.data.concat(item) });
+                            });
+                        } else {
+                            console.log('Response null');
+                            _this.setState({ requestSent: false, finishLoad: true });
+                        }
+                    });
+                }
+            });
+        };
+
+        _this.querySearchResult = function () {
+            if (_this.state.requestSent || _this.state.finishLoad) {
+                return;
+            }
+
+            // enumerate a slow query
+            setTimeout(_this.doQuery, 1000);
+
+            _this.setState({ requestSent: true });
+        };
+
+        _this.doQuery = function () {
+            var previousCount = _this.state.blogPagination + 1;
+            var NextCount = _this.state.blogPagination + 15;
+            _this.setState({ blogPagination: NextCount });
+
+            _this.getContentJson(previousCount, NextCount);
+        };
+
+        _this.handleOnScroll = function () {
+            // http://stackoverflow.com/questions/9439725/javascript-how-to-detect-if-browser-window-is-scrolled-to-bottom
+            var scrollTop = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop;
+            var scrollHeight = document.documentElement && document.documentElement.scrollHeight || document.body.scrollHeight;
+            var clientHeight = document.documentElement.clientHeight || window.innerHeight;
+            var scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+
+            if (scrolledToBottom) {
+                _this.querySearchResult();
+            }
+        };
+
         _this.state = {
-            posts: [],
-            photos: [],
-            isLoading: true,
-            isLoadingMore: false,
-            isMounted: false
+            data: [],
+            post: [],
+            photo: [],
+            requestSent: false,
+            finishLoad: false,
+            totalPostLength: 0,
+            blogPagination: 10
         };
         return _this;
     }
 
     _createClass(BlogList, [{
-        key: 'showLoader',
-        value: function showLoader() {
-            this.setState({
-                isLoading: true
-            });
-        }
-    }, {
-        key: 'hideLoader',
-        value: function hideLoader() {
-            this.setState({
-                isLoading: false
-            });
-        }
-    }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            this.setState({ _isMounted: true });
-            this.getContentJson(0, pagination, false);
+            window.addEventListener('scroll', this.handleOnScroll);
+
+            this.initFirstData();
         }
     }, {
-        key: 'getContentJson',
-        value: function getContentJson(startIndex, pagination, isLoadingMore) {
-            var _isMounted = this.state.isMounted;
-            var _isLoadingMore = this.state.isLoadingMore;
-
-            for (var i = startIndex; i <= pagination; i++) {
-                if (i === pagination) {
-                    console.log('done');
-                    if (_isMounted) {
-                        this.hideLoader;
-                        console.log('hide');
-                    };
-
-                    if (_isMounted && _isLoadingMore) this.setState({ isLoadingMore: false });
-
-                    // this.loadMore(pagination);
-                    return false;
-                }
-
-                this.getContentData(i + 1, pagination);
-            }
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            window.removeEventListener('scroll', this.handleOnScroll);
         }
-    }, {
-        key: 'getContentData',
-        value: function getContentData(id) {
-            var _this2 = this;
-
-            var urls = ['https://jsonplaceholder.typicode.com/posts/' + id, 'https://jsonplaceholder.typicode.com/photos/' + id];
-            //const block = document.getElementsByClassName('blogList')[0];
-            //const list = block.getElementsByTagName('li');
-
-            Promise.all(urls.map(function (url) {
-                return fetch(url).then(function (response) {
-                    if (response.ok) {
-                        return response.json();
-                    }
-                    console.log('Request failed!');
-                    throw new Error('Request failed!');
-                }, function (networkError) {
-                    console.log('Request failed!');
-                    console.log(networkError.message);
-                });
-            })).then(function (jsonResponse) {
-                if (jsonResponse != null) {
-                    _this2.setState({ posts: _this2.state.posts.concat(jsonResponse[0]), photos: _this2.state.photos.concat(jsonResponse[1]) });
-                }
-            });
-        }
-
-        // loadMore(pagination) {
-
-        //     $(window).unbind('scroll');
-
-        //     $(window).bind('scroll', function () {
-
-        //       if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-        //           let previousCount = pagination + 1;
-        //           pagination = pagination + 11;
-
-        //           this.setState({isLoadingMore : true}); //To show loader at the bottom
-
-        //           this.getContentJson(previousCount, pagination, true);
-        //       }
-        //     }.bind(this));
-        // }
-
     }, {
         key: 'render',
         value: function render() {
-            var _this3 = this;
+            var _this2 = this;
 
             var masonryOptions = {
                 transitionDuration: 0
             };
-
-            var listElement = this.state.posts.map(function (post) {
-                var id = post.id;
-
-                var photosElement = _this3.state.photos.map(function (photo) {
-                    if (photo.id === id) {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    _reactMasonryComponent2.default,
+                    {
+                        className: 'blogList' // default ''
+                        , elementType: 'ul' // default 'div'
+                        , options: masonryOptions // default {}
+                        , disableImagesLoaded: false // default false
+                        , updateOnEachImageLoad: false // default false and works only if disableImagesLoaded is false
+                    },
+                    this.state.data
+                ),
+                function () {
+                    if (_this2.state.requestSent) {
                         return _react2.default.createElement(
                             'div',
-                            { key: photo.id, className: 'blogList__desc-image' },
-                            _react2.default.createElement('img', { src: photo.thumbnailUrl, alt: photo.title })
+                            { className: 'data-loading text-center', style: { color: 'white' } },
+                            'Loading...'
                         );
+                    } else {
+                        return _react2.default.createElement('div', { className: 'data-loading' });
                     }
-                });
-
-                return _react2.default.createElement(
-                    'li',
-                    { key: post.id },
-                    _react2.default.createElement(
-                        _reactRouterDom.NavLink,
-                        { to: "/Blog/" + post.id + '/' + post.title, className: 'blogList__card' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'blogList__desc' },
-                            photosElement,
-                            _react2.default.createElement(
-                                'h2',
-                                { className: 'blogList__desc-title' },
-                                post.title
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'blogList__read' },
-                            _react2.default.createElement(
-                                'span',
-                                null,
-                                'Read more ',
-                                _react2.default.createElement('i', { className: 'fa fa-caret-right' })
-                            )
-                        )
-                    )
-                );
-            });
-            console.log(this.state);
-
-            return _react2.default.createElement(
-                _reactMasonryComponent2.default,
-                {
-                    className: 'blogList' // default ''
-                    , elementType: 'ul' // default 'div'
-                    , options: masonryOptions // default {}
-                    , disableImagesLoaded: false // default false
-                    , updateOnEachImageLoad: false // default false and works only if disableImagesLoaded is false
-                },
-                listElement,
-                _react2.default.createElement(
-                    'li',
-                    { className: this.state.isLoading ? '' : 'hidden' },
-                    'Loading...'
-                )
+                }()
             );
         }
     }]);
@@ -5732,6 +5747,7 @@ var BlogList = exports.BlogList = function (_React$Component) {
     return BlogList;
 }(_react2.default.Component);
 
+exports.default = BlogList;
 ;
 
 /***/ }),
@@ -38856,74 +38872,6 @@ function isFlattenable(value) {
 
 module.exports = isFlattenable;
 
-
-/***/ }),
-/* 289 */
-/***/ (function(module, exports) {
-
-function topPosition(domElt) {
-  if (!domElt) {
-    return 0;
-  }
-  return domElt.offsetTop + topPosition(domElt.offsetParent);
-}
-
-module.exports = function (React) {
-  if (React.addons && React.addons.InfiniteScroll) {
-    return React.addons.InfiniteScroll;
-  }
-  React.addons = React.addons || {};
-  var InfiniteScroll = React.addons.InfiniteScroll = React.createClass({
-    getDefaultProps: function () {
-      return {
-        pageStart: 0,
-        hasMore: false,
-        loadMore: function () {},
-        threshold: 250
-      };
-    },
-    componentDidMount: function () {
-      this.pageLoaded = this.props.pageStart;
-      this.attachScrollListener();
-    },
-    componentDidUpdate: function () {
-      this.attachScrollListener();
-    },
-    render: function () {
-      var props = this.props;
-      return React.DOM.div(null, props.children, props.hasMore && (props.loader || InfiniteScroll._defaultLoader));
-    },
-    scrollListener: function () {
-      var el = this.getDOMNode();
-      var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-      if (topPosition(el) + el.offsetHeight - scrollTop - window.innerHeight < Number(this.props.threshold)) {
-        this.detachScrollListener();
-        // call loadMore after detachScrollListener to allow
-        // for non-async loadMore functions
-        this.props.loadMore(this.pageLoaded += 1);
-      }
-    },
-    attachScrollListener: function () {
-      if (!this.props.hasMore) {
-        return;
-      }
-      window.addEventListener('scroll', this.scrollListener);
-      window.addEventListener('resize', this.scrollListener);
-      this.scrollListener();
-    },
-    detachScrollListener: function () {
-      window.removeEventListener('scroll', this.scrollListener);
-      window.removeEventListener('resize', this.scrollListener);
-    },
-    componentWillUnmount: function () {
-      this.detachScrollListener();
-    }
-  });
-  InfiniteScroll.setDefaultLoader = function (loader) {
-    InfiniteScroll._defaultLoader = loader;
-  };
-  return InfiniteScroll;
-};
 
 /***/ })
 /******/ ]);

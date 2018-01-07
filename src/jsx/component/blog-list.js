@@ -1,150 +1,175 @@
 import React from 'react';
 import Masonry from 'react-masonry-component';
 import { NavLink } from 'react-router-dom';
-import InfiniteScroll from 'react-infinite-scroll';
 
-const pagination = 10;
- 
-export class BlogList extends React.Component {
+export default class BlogList extends React.Component {
     constructor(props){
         super(props);
 
         this.state = {
-            posts: [],
-            photos: [],
-            isLoading: true,
-            isLoadingMore: false,
-            isMounted: false
+            data: [],
+            post: [],
+            photo: [],
+            requestSent: false,
+            finishLoad: false,
+            totalPostLength: 0,
+            blogPagination: 10
         }
     }
-
-    showLoader() {
-        this.setState({
-            isLoading: true
-        });
+  
+    componentDidMount() {
+      window.addEventListener('scroll', this.handleOnScroll);
+  
+      this.initFirstData();
+    }
+  
+    componentWillUnmount() {
+      window.removeEventListener('scroll', this.handleOnScroll);
+    }
+  
+    initFirstData = () => {
+        this.getContentJson(1, this.state.blogPagination);
     }
 
-    hideLoader() {
-        this.setState({
-            isLoading: false
-        });
-    }
-    
-    componentDidMount(){
-        this.setState({_isMounted: true});
-        this.getContentJson(0, pagination, false);
-    }
+    checkPostLength = (callback) => {
+        const url = 'https://jsonplaceholder.typicode.com/posts/';
 
-    getContentJson(startIndex, pagination, isLoadingMore) {
-        let _isMounted = this.state.isMounted;
-        let _isLoadingMore = this.state.isLoadingMore;
-
-        for(let i=startIndex; i<=pagination; i++) {
-            if (i === pagination) {
-                console.log('done');
-                if(_isMounted) { 
-                    this.hideLoader;
-                    console.log('hide');
-                };
-
-                if (_isMounted && _isLoadingMore) this.setState({ isLoadingMore: false });
-
-                // this.loadMore(pagination);
-                return false;
+        fetch(url).then(response => {
+            if (response.ok) {
+                return response.json();
             }
-
-            this.getContentData((i+1) , pagination);
-        }      
-    }
-
-    getContentData(id) {
-        const urls = [`https://jsonplaceholder.typicode.com/posts/${id}`, `https://jsonplaceholder.typicode.com/photos/${id}`];
-        //const block = document.getElementsByClassName('blogList')[0];
-        //const list = block.getElementsByTagName('li');
-
-        Promise.all(urls.map(url =>
-            fetch(url).then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                console.log('Request failed!');
-                throw new Error('Request failed!');
-            }, networkError => {
-                console.log('Request failed!');
-                console.log(networkError.message);
-            })
-        )).then(jsonResponse => {
+            throw new Error('Request failed!');
+        }, networkError => {
+            console.log(networkError.message);
+        }
+        ).then(jsonResponse => {
             if(jsonResponse != null) {
-                this.setState({posts: this.state.posts.concat(jsonResponse[0]), photos: this.state.photos.concat(jsonResponse[1])});
+                this.setState({totalPostLength: jsonResponse.length}, callback);
             }
-        })
+        });
     }
+  
+    getContentJson = (startKey, counter) => {
+        let data = [];
 
-    // loadMore(pagination) {
+        this.checkPostLength(() => {
+                for(let i=startKey; i<=counter; i++) {
 
-    //     $(window).unbind('scroll');
-    
-    //     $(window).bind('scroll', function () {
-    
-    //       if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-    //           let previousCount = pagination + 1;
-    //           pagination = pagination + 11;
-    
-    //           this.setState({isLoadingMore : true}); //To show loader at the bottom
-    
-    //           this.getContentJson(previousCount, pagination, true);
-    //       }
-    //     }.bind(this));
-    // }
+                    if(i > this.state.totalPostLength) {
+                        console.log('reached total');
+                        this.setState({requestSent: false, finishLoad: true});
+                        break;
+                    }
 
+                    //console.log(i);
+                    const urls = [`https://jsonplaceholder.typicode.com/posts/${i}`, `https://jsonplaceholder.typicode.com/photos/${i}`];
+        
+                    Promise.all(urls.map(url =>
+                        fetch(url).then(response => {
+                            if (response.ok) {
+                                return response.json();
+                            }
+                            this.setState({requestSent: false, finishLoad: true});
+                            throw new Error('Request failed!');
+                            return false;
+                        }, networkError => {
+                            this.setState({requestSent: false, finishLoad: true});
+                            console.log(networkError.message);
+                            return false;
+                        })
+                    )).then(jsonResponse => {
+                        if(jsonResponse[0] != null) {
+                            this.setState({post: jsonResponse[0], photo: jsonResponse[1], requestSent: false}, () => {
+                                let item = (
+                                    <li key={this.state.post.id}>
+                                        <NavLink to={"/Blog/" + this.state.post.id + '/' + this.state.post.title} className="blogList__card">
+                                            <div className="blogList__desc">
+                                                <div key={this.state.photo.id} className="blogList__desc-image">
+                                                    <img src={this.state.photo.thumbnailUrl} alt={this.state.photo.title}/>
+                                                </div>
+                                                <h2 className="blogList__desc-title">{this.state.post.title}</h2>
+                                            </div>
+                                            <div className="blogList__read">
+                                                <span>Read more <i className="fa fa-caret-right"></i></span>
+                                            </div>
+                                        </NavLink>
+                                    </li>
+                                );
+        
+                                this.setState({data: this.state.data.concat(item)});
+                            });    
+                        }
+                        else {
+                            console.log('Response null');
+                            this.setState({requestSent: false, finishLoad: true});
+                        }
+                    })
+                }
+            }
+        );
+    }
+  
+    querySearchResult = () => {
+      if (this.state.requestSent || this.state.finishLoad) {
+        return;
+      }
+  
+      // enumerate a slow query
+      setTimeout(this.doQuery, 1000);
+  
+      this.setState({requestSent: true});
+    }
+  
+    doQuery = () => {
+        let previousCount = this.state.blogPagination + 1;
+        let NextCount = this.state.blogPagination + 15;
+        this.setState({blogPagination: NextCount});
+
+        this.getContentJson(previousCount, NextCount);
+    }  
+  
+    handleOnScroll = () => {
+      // http://stackoverflow.com/questions/9439725/javascript-how-to-detect-if-browser-window-is-scrolled-to-bottom
+      let scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+      let scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
+      let clientHeight = document.documentElement.clientHeight || window.innerHeight;
+      let scrolledToBottom = Math.ceil(scrollTop + clientHeight) >= scrollHeight;
+  
+      if (scrolledToBottom) {
+        this.querySearchResult();
+      }
+    }
+  
     render() {
         const masonryOptions = {
             transitionDuration: 0
         };
-        
-        let listElement = this.state.posts.map(post => {
-            let id = post.id;
+        return (
+            <div>
+                <Masonry
+                    className={'blogList'} // default ''
+                    elementType={'ul'} // default 'div'
+                    options={masonryOptions} // default {}
+                    disableImagesLoaded={false} // default false
+                    updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+                >
+                    {this.state.data}
+                </Masonry>
 
-            let photosElement = this.state.photos.map(photo => {
-                if(photo.id === id) {
-                    return (
-                        <div key={photo.id} className="blogList__desc-image">
-                            <img src={photo.thumbnailUrl} alt={photo.title}/>
-                        </div>
-                    )
+            {(() => {
+                if (this.state.requestSent) {
+                return(
+                    <div className="data-loading text-center" style={{color: 'white'}}>Loading...</div>
+                );
+                } else {
+                return(
+                    <div className="data-loading"></div>
+                );
                 }
-            })
+            })()}
 
-            return (
-                <li key={post.id}>
-                    <NavLink to={"/Blog/" + post.id + '/' + post.title} className="blogList__card">
-                        <div className="blogList__desc">
-                            {photosElement}
-                            <h2 className="blogList__desc-title">{post.title}</h2>
-                        </div>
-                        <div className="blogList__read">
-                            <span>Read more <i className="fa fa-caret-right"></i></span>
-                        </div>
-                    </NavLink>
-                </li>
-            )
-        });
-        console.log(this.state);
-
-        return (    
-            <Masonry
-                className={'blogList'} // default ''
-                elementType={'ul'} // default 'div'
-                options={masonryOptions} // default {}
-                disableImagesLoaded={false} // default false
-                updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-            >
-                {listElement}
-                <li className={this.state.isLoading ? '': 'hidden'}>
-                    Loading...
-                </li>
-            </Masonry>
-        )
+            </div>
+        );
     }
 
-};
+  };
