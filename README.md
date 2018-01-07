@@ -23,5 +23,5 @@
 * React helmet
 * React Router
 * Fetch Ajax
-* Redux Basic Concept
+* Redux Basic Concept (on approach)
 * Webpack Combined inside gulp
