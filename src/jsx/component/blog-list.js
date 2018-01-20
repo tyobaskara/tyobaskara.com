@@ -1,6 +1,6 @@
 import React from 'react';
 import Masonry from 'react-masonry-component';
-import { NavLink } from 'react-router-dom';
+import {BlogItem} from './blog-item';
 
 export default class BlogList extends React.Component {
     constructor(props){
@@ -50,64 +50,54 @@ export default class BlogList extends React.Component {
     }
   
     getContentJson = (startKey, counter) => {
-        this.setState({requestSent: true}); //show Loading...
+        this.setState({ requestSent: true }); //show Loading...
         let data = [];
 
         this.checkPostLength(() => {
-                for(let i=startKey; i<=counter; i++) {
+            for(let i=startKey; i<=counter; i++) {
 
-                    if(i > this.state.totalPostLength) {
-                        console.log('reached total');
-                        this.setState({requestSent: false, finishLoad: true});
-                        break;
-                    }
-
-                    //console.log(i);
-                    const urls = [`https://jsonplaceholder.typicode.com/posts/${i}`, `https://jsonplaceholder.typicode.com/photos/${i}`];
-        
-                    Promise.all(urls.map(url =>
-                        fetch(url).then(response => {
-                            if (response.ok) {
-                                return response.json();
-                            }
-                            this.setState({requestSent: false, finishLoad: true});
-                            throw new Error('Request failed!');
-                            return false;
-                        }, networkError => {
-                            this.setState({requestSent: false, finishLoad: true});
-                            console.log(networkError.message);
-                            return false;
-                        })
-                    )).then(jsonResponse => {
-                        if(jsonResponse[0] != null) {
-                            this.setState({post: jsonResponse[0], photo: jsonResponse[1], requestSent: false}, () => {
-                                let item = (
-                                    <li key={this.state.post.id}>
-                                        <NavLink to={"/Blog/" + this.state.post.id + '/' + this.state.post.title} className="blogList__card">
-                                            <div className="blogList__desc">
-                                                <div key={this.state.photo.id} className="blogList__desc-image">
-                                                    <img src={this.state.photo.thumbnailUrl} alt={this.state.photo.title}/>
-                                                </div>
-                                                <h2 className="blogList__desc-title">{this.state.post.title}</h2>
-                                            </div>
-                                            <div className="blogList__read">
-                                                <span>Read more <i className="fa fa-caret-right"></i></span>
-                                            </div>
-                                        </NavLink>
-                                    </li>
-                                );
-        
-                                this.setState({data: this.state.data.concat(item)});
-                            });    
-                        }
-                        else {
-                            console.log('Response null');
-                            this.setState({requestSent: false, finishLoad: true});
-                        }
-                    })
+                if(i > this.state.totalPostLength) {
+                    console.log('reached total');
+                    this.setState({ requestSent: false, finishLoad: true });
+                    break;
                 }
+
+                //console.log(i);
+                const urls = [`https://jsonplaceholder.typicode.com/posts/${i}`, `https://jsonplaceholder.typicode.com/photos/${i}`];
+    
+                Promise.all(urls.map(url =>
+                    fetch(url).then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        }
+                        this.setState({requestSent: false, finishLoad: true});
+                        throw new Error('Request failed!');
+                        return false;
+                    }, networkError => {
+                        this.setState({requestSent: false, finishLoad: true});
+                        console.log(networkError.message);
+                        return false;
+                    })
+                )).then(jsonResponse => {
+                    if(jsonResponse[0] != null) {
+                        this.setState({post: jsonResponse[0], photo: jsonResponse[1], requestSent: false}, () => {
+                            let item = (
+                                <BlogItem key={this.state.post.id} post={this.state.post} photo={this.state.photo} />
+                            );
+    
+                            this.setState({
+                                data: this.state.data.concat(item)
+                                .sort((a, b) => a.props.post.id < b.props.post.id ? -1 : a.props.post.id > b.props.post.id ? 1 : 0) 
+                            })
+                        }) 
+                    }
+                    else {
+                        console.log('Response null');
+                        this.setState({requestSent: false, finishLoad: true});
+                    }
+                })
             }
-        );
+        });
     }
   
     querySearchResult = () => {
@@ -143,8 +133,9 @@ export default class BlogList extends React.Component {
   
     render() {
         const masonryOptions = {
-            transitionDuration: 0
+            transitionDuration: 250
         };
+        
         return (
             <div>
                 <Masonry
@@ -154,20 +145,12 @@ export default class BlogList extends React.Component {
                     disableImagesLoaded={false} // default false
                     updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
                 >
-                    {this.state.data}
+                    { this.state.data }
                 </Masonry>
 
-            {(() => {
-                if (this.state.requestSent) {
-                return(
-                    <div className="data-loading text-center" style={{color: 'white'}}>Loading...</div>
-                );
-                } else {
-                return(
-                    <div className="data-loading"></div>
-                );
-                }
-            })()}
+            { this.state.requestSent &&
+                <div className="data-loading text-center" style={{color: 'white'}}>Loading...</div>
+            }
 
             </div>
         );
