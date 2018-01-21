@@ -6,6 +6,7 @@ import Home from './jsx/home';
 import About from './jsx/about';
 import Blog from './jsx/blog';
 import BlogDetail from './jsx/blog-detail';
+import NewsPage from './jsx/news-page';
 
 class App extends React.Component{
     componentWillMount(){
@@ -27,6 +28,7 @@ class App extends React.Component{
                     <Route exact path={'/About'} render={props => <About {...props} />} />
                     <Route exact path={'/Blog'} render={props => <Blog {...props} />} />
                     <Route exact path={'/Blog/:id/:title'} render={props => <BlogDetail {...props} />} />
+                    <Route exact path={'/News'} render={props => <NewsPage {...props} />} />
                 </Switch>
             </Router>
         );
