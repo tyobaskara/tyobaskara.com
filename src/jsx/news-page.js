@@ -1,49 +1,47 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
+import { HeroBanner } from './component/herobanner';
+import { HeadLines } from './component/news-headlines';
+import { Articles } from './component/news-articles';
 import { Footer } from './component/footer';
+import ButtonToTop from './component/button-to-top';
 
 class NewsPage extends React.Component {
     constructor(props){
         super(props);
     }
-
+    
     componentDidMount() {
-        this.getNewsJson();
+        document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
+        document.addEventListener('scroll', this.scroll);
+        this.topFunction;
     }
 
-    getNewsJson() {
-        let url = new URL("https://api.nytimes.com/svc/topstories/v2/home.json");
-        let params = {
-            'method': 'GET',
-            'api-key': "7c73b2ded34e4fcfabcf7222f78b6577"
-        };
-        
-        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+    componentWillUnmount() {
+        document.removeEventListener('scroll', this.scroll);
+    }
+    
+    topFunction() {
+        window.scrollTo(0,0);
+    }
 
-        fetch(url).then(response => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw new Error('Request failed!');
-        }, networkError => {
-            console.log(networkError.message);
+    scroll(event) {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            document.getElementsByClassName("nav")[0].classList.add("nav--active");
+        } else {
+            document.getElementsByClassName("nav")[0].classList.remove("nav--active");
         }
-        ).then(jsonResponse => {
-            if(jsonResponse != null) {
-                console.log(jsonResponse);
-            }
-        });
-    }
+    };
 
-    render() {
-        const metaTitle = "Tyobaskara.rocks : New York Times News fetch api";
-        const metaDesc = "New York Times News fetch api top stories, most popular, most viewed, most shared, etc";
+    render = () => {
+        const metaTitle = "Tyobaskara.rocks : Bloomberg News fetch api";
+        const metaDesc = "Bloomberg News fetch api top headlines and recent articles";
 
         return (
             <div>
                 <Helmet>
-                    <title>tyobaskara.rocks - New York Times</title>
+                    <title>tyobaskara.rocks - Bloomberg News</title>
                     <meta name="title" content={metaTitle} />
                     <meta name="description" content={metaDesc} />
                     <meta property="og:site_name" content="tyobaskara.rocks" />
@@ -63,10 +61,28 @@ class NewsPage extends React.Component {
                 <Navigation active="News"/>
 
                 <div className="container-fluid">
-                    <div className="container container--wrap" style={{minHeight: '100vh'}}>
-
+                    <HeroBanner 
+                        title={<h1 className="title">Bloomberg News</h1>}
+                        subtitle={<h2 className="subtitle">Powered by newsapi.org</h2>}
+                        images="./assets/images/news.jpg" 
+                        altImages="bloomberg news" 
+                    />
+                    
+                    <div className="news">
+                        <div className="container container--wrap" style={{minHeight: '100vh'}}>
+                            <div className="row">
+                                <div className="col-sm-4">
+                                    <HeadLines />
+                                </div>
+                                <div className="col-sm-8">
+                                    <Articles />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <ButtonToTop />
 
                 <Footer />
             </div>

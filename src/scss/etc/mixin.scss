@@ -418,12 +418,20 @@ BREAKPOINTS
 
 $screen-xs-max: 576px;
 $screen-sm-max: 768px;
+$screen-ssm-max: 767px;
 $screen-md-max: 992px;
 $screen-lg-max: 1200px;
 
 // Xtra Small devices
 @mixin xs {
   @media (max-width: #{$screen-xs-max}) {
+      @content;
+  }
+}
+
+// Small devices
+@mixin ssm {
+  @media (max-width: #{$screen-ssm-max}) {
       @content;
   }
 }
