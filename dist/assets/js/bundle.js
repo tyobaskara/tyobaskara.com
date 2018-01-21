@@ -6761,8 +6761,8 @@ var NewsPage = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var metaTitle = "Tyobaskara.rocks : Front End Developer from Zero to Whatever :)";
-            var metaDesc = "I became really passionate as a Front End Developer and kept creating since then. It absolutely has its ups and downs, but if you love what you do and are able to provide value to people, the outcomes are far more rewarding!";
+            var metaTitle = "Tyobaskara.rocks : New York Times News fetch api";
+            var metaDesc = "New York Times News fetch api top stories, most popular, most viewed, most shared, etc";
 
             return _react2.default.createElement(
                 'div',
@@ -6773,7 +6773,7 @@ var NewsPage = function (_React$Component) {
                     _react2.default.createElement(
                         'title',
                         null,
-                        'Home - Prasetya Aji Baskara'
+                        'tyobaskara.rocks - New York Times'
                     ),
                     _react2.default.createElement('meta', { name: 'title', content: metaTitle }),
                     _react2.default.createElement('meta', { name: 'description', content: metaDesc }),

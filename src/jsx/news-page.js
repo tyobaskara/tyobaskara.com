@@ -37,13 +37,13 @@ class NewsPage extends React.Component {
     }
 
     render() {
-        const metaTitle = "Tyobaskara.rocks : Front End Developer from Zero to Whatever :)";
-        const metaDesc = "I became really passionate as a Front End Developer and kept creating since then. It absolutely has its ups and downs, but if you love what you do and are able to provide value to people, the outcomes are far more rewarding!";
+        const metaTitle = "Tyobaskara.rocks : New York Times News fetch api";
+        const metaDesc = "New York Times News fetch api top stories, most popular, most viewed, most shared, etc";
 
         return (
             <div>
                 <Helmet>
-                    <title>Home - Prasetya Aji Baskara</title>
+                    <title>tyobaskara.rocks - New York Times</title>
                     <meta name="title" content={metaTitle} />
                     <meta name="description" content={metaDesc} />
                     <meta property="og:site_name" content="tyobaskara.rocks" />
