@@ -13,17 +13,13 @@ class NewsPage extends React.Component {
     }
     
     componentDidMount() {
+        window.scrollTo(0,0);
         document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
         document.addEventListener('scroll', this.scroll);
-        this.topFunction;
     }
 
     componentWillUnmount() {
         document.removeEventListener('scroll', this.scroll);
-    }
-    
-    topFunction() {
-        window.scrollTo(0,0);
     }
 
     scroll(event) {
