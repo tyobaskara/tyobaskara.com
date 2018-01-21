@@ -15,7 +15,7 @@ export default class ButtonToTop extends React.Component {
     }
     
     topFunction() {
-        window.scrollTo(0,250);
+        window.scrollTo(0,0);
     }
 
     buttonToTopEvent(event) {

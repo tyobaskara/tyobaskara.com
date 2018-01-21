@@ -90,7 +90,7 @@
                 }
             }
         }
-        &:hover {
+        &:hover, &:active {
             .nts-item__image {
                 &::after {
                     background: rgba(0,0,0,0);

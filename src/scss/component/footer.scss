@@ -14,7 +14,7 @@ footer {
             a {
                 > i {
                     color: ghostwhite;
-                    &:hover {
+                    &:hover, &:active {
                         color: $orange1;
                     }
                 }
