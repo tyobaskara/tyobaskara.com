@@ -11,16 +11,16 @@ export class HeadLines extends React.Component {
     }
 
     componentDidMount() {
-        let that = this;
-        let interval = 1000 * 60 * 3;
+        // let that = this;
+        // let interval = 1000 * 60 * 3;
         this.getNewsJson();
 
-        this.getNewsJsonInterval = setInterval(that.getNewsJson, 2000);
+        // this.getNewsJsonInterval = setInterval(that.getNewsJson, 2000);
     }
 
-    componentWillUnmount() {
-        clearInterval(this.getNewsJsonInterval);
-    }
+    // componentWillUnmount() {
+    //     clearInterval(this.getNewsJsonInterval);
+    // }
 
     getNewsJson() {
         // new york times api
