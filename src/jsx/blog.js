@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Navigation } from './component/navigation';
 import { Footer } from './component/footer';
 import BlogList from './component/blog-list';
+import ButtonToTop from './component/button-to-top';
 
 class Blog extends React.Component {
     componentDidMount() {
@@ -44,6 +45,8 @@ class Blog extends React.Component {
                         <BlogList />
                     </div>
                 </div>
+
+                <ButtonToTop />
                 
                 <Footer />
             </div>
