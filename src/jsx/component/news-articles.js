@@ -11,7 +11,15 @@ export class Articles extends React.Component {
     }
 
     componentDidMount() {
+        let that = this;
+        let interval = 1000 * 60 * 3;
         this.getNewsJson();
+
+        this.getNewsJsonInterval = setInterval(that.getNewsJson, interval);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.getNewsJsonInterval);
     }
 
     getNewsJson() {

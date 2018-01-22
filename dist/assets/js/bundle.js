@@ -7385,7 +7385,16 @@ var HeadLines = exports.HeadLines = function (_React$Component) {
     _createClass(HeadLines, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
+            var that = this;
+            var interval = 1000 * 60 * 3;
             this.getNewsJson();
+
+            this.getNewsJsonInterval = setInterval(that.getNewsJson, 2000);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            clearInterval(this.getNewsJsonInterval);
         }
     }, {
         key: 'getNewsJson',
@@ -7502,7 +7511,16 @@ var Articles = exports.Articles = function (_React$Component) {
     _createClass(Articles, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
+            var that = this;
+            var interval = 1000 * 60 * 3;
             this.getNewsJson();
+
+            this.getNewsJsonInterval = setInterval(that.getNewsJson, interval);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            clearInterval(this.getNewsJsonInterval);
         }
     }, {
         key: 'getNewsJson',
