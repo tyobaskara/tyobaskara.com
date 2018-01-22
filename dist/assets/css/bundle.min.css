@@ -6062,43 +6062,6 @@ div, p, span, label {
       .container--wrap .orgTitle {
         margin-bottom: 25px; } }
 
-#btnToTop {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Fixed/sticky position */
-  bottom: 20px;
-  /* Place the button at the bottom of the page */
-  right: 30px;
-  /* Place the button 30px from the right */
-  z-index: 99;
-  /* Make sure it does not overlap */
-  border: none;
-  /* Remove borders */
-  outline: none;
-  /* Remove outline */
-  background-color: rgba(0, 0, 0, 0.2);
-  /* Set a background color */
-  color: white;
-  /* Text color */
-  cursor: pointer;
-  /* Add a mouse pointer on hover */
-  padding: 10px;
-  /* Some padding */
-  -webkit-border-radius: 10px;
-     -moz-border-radius: 10px;
-          border-radius: 10px;
-  /* Rounded corners */
-  font-size: 2rem; }
-  @media (max-width: 767px) {
-    #btnToTop {
-      bottom: 15px;
-      right: 15px;
-      font-size: 1.5rem; } }
-  #btnToTop:hover, #btnToTop:active {
-    background-color: #555;
-    /* Add a dark-grey background on hover */ }
-
 .btn {
   display: inline-block;
   padding: 15px 20px;
@@ -6171,6 +6134,48 @@ div, p, span, label {
       .btn.btn-brown {
         display: block;
         text-align: center; } }
+
+#btnToTop {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Fixed/sticky position */
+  bottom: 20px;
+  /* Place the button at the bottom of the page */
+  right: 30px;
+  /* Place the button 30px from the right */
+  z-index: 99;
+  /* Make sure it does not overlap */
+  border: none;
+  /* Remove borders */
+  outline: none;
+  /* Remove outline */
+  background-color: rgba(0, 0, 0, 0.2);
+  /* Set a background color */
+  color: white;
+  /* Text color */
+  cursor: pointer;
+  /* Add a mouse pointer on hover */
+  padding: 10px;
+  /* Some padding */
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  /* Rounded corners */
+  font-size: 2rem; }
+  @media (max-width: 767px) {
+    #btnToTop {
+      bottom: 15px;
+      right: 15px;
+      font-size: 1.5rem; } }
+  @media (min-width: 992px) {
+    #btnToTop:hover {
+      background-color: #555;
+      /* Add a dark-grey background on hover */ } }
+  @media (max-width: 768px) {
+    #btnToTop:active {
+      background-color: #555;
+      /* Add a dark-grey background on hover */ } }
 
 .ovHidden {
   overflow: hidden; }
@@ -6751,18 +6756,32 @@ footer {
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out; }
-    .blogList__card:hover, .blogList__card:active {
-      border-color: salmon; }
-      .blogList__card:hover .blogList__desc-image img, .blogList__card:active .blogList__desc-image img {
-        -webkit-transform: scale(1.1);
-           -moz-transform: scale(1.1);
-            -ms-transform: scale(1.1);
-             -o-transform: scale(1.1);
-                transform: scale(1.1); }
-      .blogList__card:hover .blogList__desc-title, .blogList__card:active .blogList__desc-title {
-        text-decoration: underline; }
-      .blogList__card:hover .blogList__read span, .blogList__card:hover .blogList__read i, .blogList__card:active .blogList__read span, .blogList__card:active .blogList__read i {
-        color: #ef7a16; }
+    @media (min-width: 992px) {
+      .blogList__card:hover {
+        border-color: salmon; }
+        .blogList__card:hover .blogList__desc-image img {
+          -webkit-transform: scale(1.1);
+             -moz-transform: scale(1.1);
+              -ms-transform: scale(1.1);
+               -o-transform: scale(1.1);
+                  transform: scale(1.1); }
+        .blogList__card:hover .blogList__desc-title {
+          text-decoration: underline; }
+        .blogList__card:hover .blogList__read span, .blogList__card:hover .blogList__read i {
+          color: #ef7a16; } }
+    @media (max-width: 768px) {
+      .blogList__card:active {
+        border-color: salmon; }
+        .blogList__card:active .blogList__desc-image img {
+          -webkit-transform: scale(1.1);
+             -moz-transform: scale(1.1);
+              -ms-transform: scale(1.1);
+               -o-transform: scale(1.1);
+                  transform: scale(1.1); }
+        .blogList__card:active .blogList__desc-title {
+          text-decoration: underline; }
+        .blogList__card:active .blogList__read span, .blogList__card:active .blogList__read i {
+          color: #ef7a16; } }
 
 .news {
   background: #f7f7f7;

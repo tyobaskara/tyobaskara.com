@@ -416,43 +416,78 @@
 BREAKPOINTS
 *********************/
 
-$screen-xs-max: 576px;
-$screen-sm-max: 768px;
-$screen-ssm-max: 767px;
-$screen-md-max: 992px;
-$screen-lg-max: 1200px;
+$screen-xs: 576px;
+$screen-sm: 768px;
+$screen-ssm: 767px;
+$screen-md: 992px;
+$screen-lg: 1200px;
 
 // Xtra Small devices
 @mixin xs {
-  @media (max-width: #{$screen-xs-max}) {
+  @media (max-width: #{$screen-xs}) {
       @content;
   }
 }
 
 // Small devices
 @mixin ssm {
-  @media (max-width: #{$screen-ssm-max}) {
+  @media (max-width: #{$screen-ssm}) {
       @content;
   }
 }
 
 // Small devices
 @mixin sm {
-  @media (max-width: #{$screen-sm-max}) {
+  @media (max-width: #{$screen-sm}) {
       @content;
   }
 }
 
 // Medium devices
 @mixin md {
-  @media (max-width: #{$screen-md-max}) {
+  @media (max-width: #{$screen-md}) {
       @content;
   }
 }
 
 // Large devices
 @mixin lg {
-  @media (max-width: #{$screen-lg-max}) {
+  @media (max-width: #{$screen-lg}) {
+      @content;
+  }
+}
+
+// Xtra Small devices
+@mixin xs-min {
+  @media (min-width: #{$screen-xs}) {
+      @content;
+  }
+}
+
+// Small devices
+@mixin ssm-min {
+  @media (min-width: #{$screen-ssm}) {
+      @content;
+  }
+}
+
+// Small devices
+@mixin sm-min {
+  @media (min-width: #{$screen-sm}) {
+      @content;
+  }
+}
+
+// Medium devices
+@mixin md-min {
+  @media (min-width: #{$screen-md}) {
+      @content;
+  }
+}
+
+// Large devices
+@mixin lg-min {
+  @media (min-width: #{$screen-lg}) {
       @content;
   }
 }

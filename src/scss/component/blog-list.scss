@@ -93,19 +93,40 @@
         display: block;
         overflow: hidden;
         @include transition(all .3s ease-in-out);
-        &:hover, &:active {
-            border-color: salmon;
-            .blogList__desc-image {
-                img {
-                    transform: scale(1.1);
+
+        &:hover {
+            @include md-min {
+                border-color: salmon;
+                .blogList__desc-image {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+                .blogList__desc-title {
+                    text-decoration: underline;
+                }
+                .blogList__read {
+                    span, i {
+                        color: $orange1;
+                    }
                 }
             }
-            .blogList__desc-title {
-                text-decoration: underline;
-            }
-            .blogList__read {
-                span, i {
-                    color: $orange1;
+        }
+        &:active {
+            @include sm {
+                border-color: salmon;
+                .blogList__desc-image {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+                .blogList__desc-title {
+                    text-decoration: underline;
+                }
+                .blogList__read {
+                    span, i {
+                        color: $orange1;
+                    }
                 }
             }
         }
