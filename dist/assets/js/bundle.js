@@ -814,7 +814,7 @@ var Navigation = exports.Navigation = function (_React$Component) {
                     _react2.default.createElement(
                         _reactRouterDom.NavLink,
                         {
-                            to: index == 0 ? '/' : '/' + item,
+                            to: index == 0 ? '/' : '/' + item.toLowerCase(),
                             id: item,
                             activeClassName: ''
                         },
@@ -2726,7 +2726,7 @@ var AboutInro = exports.AboutInro = function AboutInro() {
                         ),
                         _react2.default.createElement(
                             _reactRouterDom.NavLink,
-                            { to: '/About', className: 'btn btn-brown' },
+                            { to: '/about', className: 'btn btn-brown' },
                             'Find Out More!'
                         )
                     )
@@ -7009,7 +7009,7 @@ var BlogItem = exports.BlogItem = function BlogItem(props) {
         null,
         _react2.default.createElement(
             _reactRouterDom.NavLink,
-            { to: "/Blog/" + props.post.id + '/' + props.post.title.split(" ").join("-"), className: 'blogList__card' },
+            { to: "/blog/" + props.post.id + '/' + props.post.title.split(" ").join("-"), className: 'blogList__card' },
             _react2.default.createElement(
                 'div',
                 { className: 'blogList__desc' },
@@ -7694,16 +7694,16 @@ var App = function (_React$Component) {
                     _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render(props) {
                             return _react2.default.createElement(_home2.default, props);
                         } }),
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/About', render: function render(props) {
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/about', render: function render(props) {
                             return _react2.default.createElement(_about2.default, props);
                         } }),
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/Blog', render: function render(props) {
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/blog', render: function render(props) {
                             return _react2.default.createElement(_blog2.default, props);
                         } }),
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/Blog/:id/:title', render: function render(props) {
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/blog/:id/:title', render: function render(props) {
                             return _react2.default.createElement(_blogDetail2.default, props);
                         } }),
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/News', render: function render(props) {
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/news', render: function render(props) {
                             return _react2.default.createElement(_newsPage2.default, props);
                         } })
                 )

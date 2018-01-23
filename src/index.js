@@ -25,10 +25,10 @@ class App extends React.Component{
             <Router history={browserHistory}>
                 <Switch>
                     <Route exact path={'/'} render={props => <Home {...props} />} />
-                    <Route exact path={'/About'} render={props => <About {...props} />} />
-                    <Route exact path={'/Blog'} render={props => <Blog {...props} />} />
-                    <Route exact path={'/Blog/:id/:title'} render={props => <BlogDetail {...props} />} />
-                    <Route exact path={'/News'} render={props => <NewsPage {...props} />} />
+                    <Route exact path={'/about'} render={props => <About {...props} />} />
+                    <Route exact path={'/blog'} render={props => <Blog {...props} />} />
+                    <Route exact path={'/blog/:id/:title'} render={props => <BlogDetail {...props} />} />
+                    <Route exact path={'/news'} render={props => <NewsPage {...props} />} />
                 </Switch>
             </Router>
         );

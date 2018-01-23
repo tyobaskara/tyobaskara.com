@@ -37,7 +37,7 @@ export class Navigation extends React.Component{
             return (
                 <li key={index}>
                     <NavLink
-                        to={index == 0 ? '/' : '/'+item }
+                        to={index == 0 ? '/' : '/'+item.toLowerCase() }
                         id={item}
                         activeClassName= ''
                     >{item}</NavLink>
