@@ -44,7 +44,7 @@ export default class BlogDetail extends React.Component {
         })
     }
     render() {
-        let metaTitle = this.props.match.params.title;
+        let metaTitle = this.props.match.params.title.split('-').join(' ');
 
         return (
             <div>

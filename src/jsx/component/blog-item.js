@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const BlogItem = (props) => {
     return (
         <li>
-            <NavLink to={"/Blog/" + props.post.id + '/' + props.post.title} className="blogList__card">
+            <NavLink to={"/Blog/" + props.post.id + '/' + props.post.title.split(" ").join("-")} className="blogList__card">
                 <div className="blogList__desc">
                     <div className="blogList__desc-image">
                         <img src={props.photo.thumbnailUrl} alt={props.photo.title}/>
