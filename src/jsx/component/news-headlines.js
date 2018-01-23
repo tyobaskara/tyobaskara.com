@@ -6,21 +6,14 @@ export class HeadLines extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            headlines: []
+            headlines: [],
+            requestFailed: false
         }
     }
 
     componentDidMount() {
-        // let that = this;
-        // let interval = 1000 * 60 * 3;
         this.getNewsJson();
-
-        // this.getNewsJsonInterval = setInterval(that.getNewsJson, 2000);
     }
-
-    // componentWillUnmount() {
-    //     clearInterval(this.getNewsJsonInterval);
-    // }
 
     getNewsJson() {
         // new york times api
@@ -38,8 +31,10 @@ export class HeadLines extends React.Component {
             if (response.ok) {
                 return response.json();
             }
+            this.setState({requestFailed: true});
             throw new Error('Request failed!');
         }, networkError => {
+            this.setState({requestFailed: true});
             console.log(networkError.message);
         }
         ).then(jsonResponse => {
@@ -61,7 +56,7 @@ export class HeadLines extends React.Component {
                         });
 
         return (
-            <div className="news-headlines">
+            <div className="news-headlines" style={{minHeight: '50vh'}}>
                 <h2 className="orgTitle">Top Headlines</h2>
                 
                 <Masonry
@@ -73,6 +68,12 @@ export class HeadLines extends React.Component {
                 >
                     { headline }
                 </Masonry>
+
+                { this.state.requestFailed ?
+                    <div className="data-loading text-center" style={{color: 'white'}}>Try again later..</div> 
+                    :
+                    <div className="data-loading text-center" style={{color: 'white'}}>Loading...</div>
+                }
             </div>
         )
     }

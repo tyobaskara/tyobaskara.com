@@ -19,12 +19,22 @@
             }
         }
     }
+    %data-loading {
+        .data-loading {
+            position: absolute;
+            top: 58%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
 
     &-headlines {
         @extend %news-section;
         background: seagreen;
         border: 1px solid seagreen;
         box-shadow: -1px 1px 2px darkseagreen;
+        position: relative;
+        @extend %data-loading;
     }
 
     
@@ -33,6 +43,8 @@
         background: slategray;
         border: 1px solid slategray;
         box-shadow: -1px 1px 2px darkslategray;
+        position: relative;
+        @extend %data-loading;
 
         .nts-list {
             margin: 0 -15px;

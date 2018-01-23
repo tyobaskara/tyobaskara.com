@@ -6066,11 +6066,11 @@ var BlogList = function (_React$Component) {
                             if (response.ok) {
                                 return response.json();
                             }
-                            _this.setState({ requestSent: false, finishLoad: true });
+                            _this.setState({ requestSent: false, finishLoad: true, requestFailed: true });
                             throw new Error('Request failed!');
                             return false;
                         }, function (networkError) {
-                            _this.setState({ requestSent: false, finishLoad: true });
+                            _this.setState({ requestSent: false, finishLoad: true, requestFailed: true });
                             console.log(networkError.message);
                             return false;
                         });
@@ -6085,9 +6085,6 @@ var BlogList = function (_React$Component) {
                                     })
                                 });
                             });
-                        } else {
-                            console.log('Response null');
-                            _this.setState({ requestSent: false, finishLoad: true });
                         }
                     });
                 }
@@ -6100,7 +6097,7 @@ var BlogList = function (_React$Component) {
             }
 
             // enumerate a slow query
-            setTimeout(_this.doQuery, 1000);
+            setTimeout(_this.doQuery, 500);
 
             _this.setState({ requestSent: true }); //show Loading...
         };
@@ -6131,6 +6128,7 @@ var BlogList = function (_React$Component) {
             photo: [],
             requestSent: false,
             finishLoad: false,
+            requestFailed: false,
             totalPostLength: 0,
             blogPagination: 10
         };
@@ -6170,10 +6168,14 @@ var BlogList = function (_React$Component) {
                     },
                     this.state.data
                 ),
-                this.state.requestSent && _react2.default.createElement(
+                this.state.requestSent ? _react2.default.createElement(
                     'div',
                     { className: 'data-loading text-center', style: { color: 'white' } },
                     'Loading...'
+                ) : this.state.requestFailed && _react2.default.createElement(
+                    'div',
+                    { className: 'data-loading text-center', style: { color: 'white' } },
+                    'Try again later..'
                 )
             );
         }
@@ -7280,7 +7282,7 @@ var NewsPage = function (_React$Component) {
                         { className: 'news' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'container container--wrap', style: { minHeight: '100vh' } },
+                            { className: 'container container--wrap', style: { minHeight: '50vh' } },
                             _react2.default.createElement(
                                 'div',
                                 { className: 'row' },
@@ -7377,7 +7379,8 @@ var HeadLines = exports.HeadLines = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (HeadLines.__proto__ || Object.getPrototypeOf(HeadLines)).call(this, props));
 
         _this.state = {
-            headlines: []
+            headlines: [],
+            requestFailed: false
         };
         return _this;
     }
@@ -7385,17 +7388,8 @@ var HeadLines = exports.HeadLines = function (_React$Component) {
     _createClass(HeadLines, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            // let that = this;
-            // let interval = 1000 * 60 * 3;
             this.getNewsJson();
-
-            // this.getNewsJsonInterval = setInterval(that.getNewsJson, 2000);
         }
-
-        // componentWillUnmount() {
-        //     clearInterval(this.getNewsJsonInterval);
-        // }
-
     }, {
         key: 'getNewsJson',
         value: function getNewsJson() {
@@ -7416,8 +7410,10 @@ var HeadLines = exports.HeadLines = function (_React$Component) {
                 if (response.ok) {
                     return response.json();
                 }
+                _this2.setState({ requestFailed: true });
                 throw new Error('Request failed!');
             }, function (networkError) {
+                _this2.setState({ requestFailed: true });
                 console.log(networkError.message);
             }).then(function (jsonResponse) {
                 if (jsonResponse != null) {
@@ -7438,7 +7434,7 @@ var HeadLines = exports.HeadLines = function (_React$Component) {
 
             return _react2.default.createElement(
                 'div',
-                { className: 'news-headlines' },
+                { className: 'news-headlines', style: { minHeight: '50vh' } },
                 _react2.default.createElement(
                     'h2',
                     { className: 'orgTitle' },
@@ -7454,6 +7450,15 @@ var HeadLines = exports.HeadLines = function (_React$Component) {
                         , updateOnEachImageLoad: false // default false and works only if disableImagesLoaded is false
                     },
                     headline
+                ),
+                this.state.requestFailed ? _react2.default.createElement(
+                    'div',
+                    { className: 'data-loading text-center', style: { color: 'white' } },
+                    'Try again later..'
+                ) : _react2.default.createElement(
+                    'div',
+                    { className: 'data-loading text-center', style: { color: 'white' } },
+                    'Loading...'
                 )
             );
         }
@@ -7503,7 +7508,8 @@ var Articles = exports.Articles = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Articles.__proto__ || Object.getPrototypeOf(Articles)).call(this, props));
 
         _this.state = {
-            articles: []
+            articles: [],
+            requestFailed: false
         };
         return _this;
     }
@@ -7511,17 +7517,8 @@ var Articles = exports.Articles = function (_React$Component) {
     _createClass(Articles, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            // let that = this;
-            // let interval = 1000 * 60 * 3;
             this.getNewsJson();
-
-            // this.getNewsJsonInterval = setInterval(that.getNewsJson, interval);
         }
-
-        // componentWillUnmount() {
-        //     clearInterval(this.getNewsJsonInterval);
-        // }
-
     }, {
         key: 'getNewsJson',
         value: function getNewsJson() {
@@ -7542,8 +7539,10 @@ var Articles = exports.Articles = function (_React$Component) {
                 if (response.ok) {
                     return response.json();
                 }
+                _this2.setState({ requestFailed: true });
                 throw new Error('Request failed!');
             }, function (networkError) {
+                _this2.setState({ requestFailed: true });
                 console.log(networkError.message);
             }).then(function (jsonResponse) {
                 if (jsonResponse != null) {
@@ -7564,7 +7563,7 @@ var Articles = exports.Articles = function (_React$Component) {
 
             return _react2.default.createElement(
                 'div',
-                { className: 'news-articles' },
+                { className: 'news-articles', style: { minHeight: '50vh' } },
                 _react2.default.createElement(
                     'h2',
                     { className: 'orgTitle' },
@@ -7580,6 +7579,15 @@ var Articles = exports.Articles = function (_React$Component) {
                         , updateOnEachImageLoad: false // default false and works only if disableImagesLoaded is false
                     },
                     article
+                ),
+                this.state.requestFailed ? _react2.default.createElement(
+                    'div',
+                    { className: 'data-loading text-center', style: { color: 'white', marginBottom: '25px' } },
+                    'Try again later..'
+                ) : _react2.default.createElement(
+                    'div',
+                    { className: 'data-loading text-center', style: { color: 'white', marginBottom: '25px' } },
+                    'Loading...'
                 )
             );
         }

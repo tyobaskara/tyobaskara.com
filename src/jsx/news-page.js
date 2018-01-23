@@ -65,7 +65,7 @@ class NewsPage extends React.Component {
                     />
                     
                     <div className="news">
-                        <div className="container container--wrap" style={{minHeight: '100vh'}}>
+                        <div className="container container--wrap" style={{minHeight: '50vh'}}>
                             <div className="row">
                                 <div className="col-sm-4">
                                     <HeadLines />

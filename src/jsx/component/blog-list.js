@@ -12,6 +12,7 @@ export default class BlogList extends React.Component {
             photo: [],
             requestSent: false,
             finishLoad: false,
+            requestFailed: false,
             totalPostLength: 0,
             blogPagination: 10
         }
@@ -70,11 +71,11 @@ export default class BlogList extends React.Component {
                         if (response.ok) {
                             return response.json();
                         }
-                        this.setState({requestSent: false, finishLoad: true});
+                        this.setState({requestSent: false, finishLoad: true, requestFailed: true});
                         throw new Error('Request failed!');
                         return false;
                     }, networkError => {
-                        this.setState({requestSent: false, finishLoad: true});
+                        this.setState({requestSent: false, finishLoad: true, requestFailed: true});
                         console.log(networkError.message);
                         return false;
                     })
@@ -91,10 +92,6 @@ export default class BlogList extends React.Component {
                             })
                         }) 
                     }
-                    else {
-                        console.log('Response null');
-                        this.setState({requestSent: false, finishLoad: true});
-                    }
                 })
             }
         });
@@ -106,7 +103,7 @@ export default class BlogList extends React.Component {
       }
   
       // enumerate a slow query
-      setTimeout(this.doQuery, 1000);
+      setTimeout(this.doQuery, 500);
   
       this.setState({requestSent: true}); //show Loading...
     }
@@ -148,8 +145,10 @@ export default class BlogList extends React.Component {
                     { this.state.data }
                 </Masonry>
 
-            { this.state.requestSent &&
-                <div className="data-loading text-center" style={{color: 'white'}}>Loading...</div>
+            { this.state.requestSent ?
+                <div className="data-loading text-center" style={{color: 'white'}}>Loading...</div> 
+                : this.state.requestFailed &&
+                <div className="data-loading text-center" style={{color: 'white'}}>Try again later..</div> 
             }
 
             </div>
