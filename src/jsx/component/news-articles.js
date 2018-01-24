@@ -1,13 +1,15 @@
 import React from 'react';
 import Masonry from 'react-masonry-component';
 import {NewsItem} from './news-item';
+import { LoadingRequest, FailedRequest } from './fetch-status-return';
 
 export class Articles extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             articles: [],
-            requestFailed: false
+            loadingRequest: false,
+            failedRequest: false
         }
     }
 
@@ -27,19 +29,21 @@ export class Articles extends React.Component {
         // https://newsapi.org/s/bloomberg-api
         let articles = new URL("https://newsapi.org/v2/everything?sources=bloomberg&apiKey=1878c21cdaa74709a6db87229692a5e7");
 
+        this.setState({loadingRequest: true});// show loading
+
         fetch(articles).then(response => {
             if (response.ok) {
                 return response.json();
             }
-            this.setState({requestFailed: true});
+            this.setState({failedRequest: true, loadingRequest: false});
             throw new Error('Request failed!');
         }, networkError => {
-            this.setState({requestFailed: true});
+            this.setState({failedRequest: true, loadingRequest: false});
             console.log(networkError.message);
         }
         ).then(jsonResponse => {
             if(jsonResponse != null) {
-                this.setState({ articles: jsonResponse.articles})
+                this.setState({ articles: jsonResponse.articles, loadingRequest: false})
             }
         });
     }
@@ -69,11 +73,9 @@ export class Articles extends React.Component {
                     { article }
                 </Masonry>
 
-                { this.state.requestFailed ?
-                    <div className="data-loading text-center" style={{color: 'white', marginBottom: '25px'}}>Try again later..</div> 
-                    :
-                    <div className="data-loading text-center" style={{color: 'white', marginBottom: '25px'}}>Loading...</div>
-                }
+                { this.state.failedRequest && <FailedRequest /> }
+                { this.state.loadingRequest && <LoadingRequest /> }
+
             </div>
         )
     }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Masonry from 'react-masonry-component';
 import {BlogItem} from './blog-item';
+import { LoadingRequest, FailedRequest } from './fetch-status-return';
 
 export default class BlogList extends React.Component {
     constructor(props){
@@ -12,7 +13,7 @@ export default class BlogList extends React.Component {
             photo: [],
             requestSent: false,
             finishLoad: false,
-            requestFailed: false,
+            failedRequest: false,
             totalPostLength: 0,
             blogPagination: 10
         }
@@ -71,11 +72,11 @@ export default class BlogList extends React.Component {
                         if (response.ok) {
                             return response.json();
                         }
-                        this.setState({requestSent: false, finishLoad: true, requestFailed: true});
+                        this.setState({requestSent: false, finishLoad: true, failedReqeust: true});
                         throw new Error('Request failed!');
                         return false;
                     }, networkError => {
-                        this.setState({requestSent: false, finishLoad: true, requestFailed: true});
+                        this.setState({requestSent: false, finishLoad: true, failedReqeust: true});
                         console.log(networkError.message);
                         return false;
                     })
@@ -145,11 +146,8 @@ export default class BlogList extends React.Component {
                     { this.state.data }
                 </Masonry>
 
-            { this.state.requestSent ?
-                <div className="data-loading text-center" style={{color: 'white'}}>Loading...</div> 
-                : this.state.requestFailed &&
-                <div className="data-loading text-center" style={{color: 'white'}}>Try again later..</div> 
-            }
+            { this.state.requestSent && <LoadingRequest /> }
+            { this.state.failedReqeust && <FailedRequest /> }
 
             </div>
         );
