@@ -1,32 +1,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Navigation } from './component/navigation';
 import { AboutInro } from './component/about-intro';
 import { HeroBanner } from './component/herobanner';
 import { Footer } from './component/footer';
 
 class Home extends React.Component {
-    constructor(props){
-        super(props);
-    }
-    
     componentDidMount() {
         document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
-        document.addEventListener('scroll', this.scroll);
         window.scrollTo(0,0);
     }
-
-    componentWillUnmount() {
-        document.removeEventListener('scroll', this.scroll);
-    }
-
-    scroll(event) {
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            document.getElementsByClassName("nav")[0].classList.add("nav--active");
-        } else {
-            document.getElementsByClassName("nav")[0].classList.remove("nav--active");
-        }
-    };
 
     render() {
         const metaTitle = "Tyobaskara.rocks : Front End Developer from Zero to Whatever :)";
@@ -51,8 +33,6 @@ class Home extends React.Component {
                     <meta name="twitter:description" content={metaDesc} />
                     <meta name="twitter:image" content="http://www.tyobaskara.rocks/assets/images/logo.png" />
                 </Helmet>
-
-                <Navigation active="Home"/>
 
                 <div className="container-fluid">
                     <HeroBanner 

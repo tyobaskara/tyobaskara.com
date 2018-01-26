@@ -3,13 +3,32 @@ import ReactDOM from 'react-dom';
 import { NavLink } from 'react-router-dom';
 
 export class Navigation extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            NavList: ['Home', 'About', 'Blog', 'News'],
-            burgerToggle: 'off'
-        }
+    state = {
+        NavList: ['Home', 'About', 'Blog', 'News'],
+        burgerToggle: 'off'
     }
+
+    componentDidMount() {
+        document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
+        document.addEventListener('scroll', this.scroll);
+        window.scrollTo(0,0);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('scroll', this.scroll);
+    }
+
+    componentWillUpdate() {
+        document.getElementsByTagName('html')[0].classList.remove("ovHidden");
+    }
+
+    scroll = (event) => {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            document.getElementsByClassName("nav")[0].classList.add("nav--active");
+        } else {
+            document.getElementsByClassName("nav")[0].classList.remove("nav--active");
+        }
+    };
 
     burgerToggle = (e) => {
         if(this.state.burgerToggle === 'off') {
@@ -24,22 +43,16 @@ export class Navigation extends React.Component{
         }
     }
 
-    componentDidMount() {
-        document.getElementsByTagName('html')[0].classList.remove("ovHidden");
-        if(this.props.active) {
-            document.getElementById(this.props.active).setAttribute('class', 'active');
-        }
-    }
-
     render(){
         let NavList = this.state.NavList;
         NavList = NavList.map( (item,index) => {
             return (
                 <li key={index}>
                     <NavLink
-                        to={index == 0 ? '/' : '/'+item.toLowerCase() }
+                        activeClassName= 'active'
+                        exact={true}
                         id={item}
-                        activeClassName= ''
+                        to={index == 0 ? '/' : '/'+item.toLowerCase() }
                     >{item}</NavLink>
                 </li>
             );

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Navigation } from './component/navigation';
 import { AboutInro } from './component/about-intro';
 import { HeroBanner } from './component/herobanner';
 import { Footer } from './component/footer';
@@ -52,8 +51,6 @@ export default class BlogDetail extends React.Component {
                     <title>Blogs - {metaTitle}</title>
                     <meta name="title" content={metaTitle} />
                 </Helmet>
-
-                <Navigation/>
 
                 <div className="container-fluid">
                     <HeroBanner 

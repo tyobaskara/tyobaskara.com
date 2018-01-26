@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Navigation } from './component/navigation';
 import { Footer } from './component/footer';
 import { HeroBanner } from './component/herobanner';
 import { InstagramGallery } from './component/instagram-gallery';
@@ -51,8 +50,6 @@ class About extends React.Component {
                     <meta name="twitter:description" content={metaDesc} />
                     <meta name="twitter:image" content="http://www.tyobaskara.rocks/assets/images/logo.png" />
                 </Helmet>
-
-                <Navigation active="About"/>
 
                 <div className="container-fluid">
                     <HeroBanner 
