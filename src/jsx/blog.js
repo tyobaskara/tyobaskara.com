@@ -1,12 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Navigation } from './component/navigation';
 import { Footer } from './component/footer';
 import BlogList from './component/blog-list';
 import ButtonToTop from './component/button-to-top';
 
 class Blog extends React.Component {
     componentDidMount() {
+        document.getElementsByClassName("nav")[0].setAttribute('class', 'nav nav--fixed');
         window.scrollTo(0,0);
     }
     
@@ -33,9 +33,6 @@ class Blog extends React.Component {
                     <meta name="twitter:description" content={metaDesc} />
                     <meta name="twitter:image" content="http://www.tyobaskara.rocks/assets/images/logo.png" />
                 </Helmet>
-
-                <Navigation active="Blog"/>
-
 
                 <div className="blogWrap" style={{minHeight: '100vh'}}>
                     <div className="container container--wrap">

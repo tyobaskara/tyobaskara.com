@@ -6199,9 +6199,9 @@ nav .container {
 
 .nav__wrapper {
   background: rgba(255, 255, 255, 0.05);
-  -webkit-box-shadow: 0 0.1px 1px #ef7a16;
-  -moz-box-shadow: 0 0.1px 1px #ef7a16;
-  box-shadow: 0 0.1px 1px #ef7a16;
+  -webkit-box-shadow: 0 0.1px 2px #ef7a16;
+  -moz-box-shadow: 0 0.1px 2px #ef7a16;
+  box-shadow: 0 0.1px 2px #ef7a16;
   position: fixed;
   top: 0;
   left: 0;

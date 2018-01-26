@@ -4,13 +4,10 @@ import {NewsItem} from './news-item';
 import { LoadingRequest, FailedRequest } from './fetch-status-return';
 
 export class Articles extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            articles: [],
-            loadingRequest: false,
-            failedRequest: false
-        }
+    state = {
+        articles: [],
+        loadingRequest: false,
+        failedRequest: false
     }
 
     componentDidMount() {

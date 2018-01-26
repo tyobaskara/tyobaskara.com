@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Navigation } from './component/navigation';
 import { HeroBanner } from './component/herobanner';
 import { HeadLines } from './component/news-headlines';
 import { Articles } from './component/news-articles';
@@ -53,8 +52,6 @@ class NewsPage extends React.Component {
                     <meta name="twitter:description" content={metaDesc} />
                     <meta name="twitter:image" content="http://www.tyobaskara.rocks/assets/images/logo.png" />
                 </Helmet>
-
-                <Navigation active="News"/>
 
                 <div className="container-fluid">
                     <HeroBanner 

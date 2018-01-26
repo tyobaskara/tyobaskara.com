@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, browserHistory, Switch, Redirect } from 'react-router-dom';
+import { Navigation } from './jsx/component/navigation';
 
 import Home from './jsx/home';
 import About from './jsx/about';
@@ -23,13 +24,16 @@ class App extends React.Component{
     render(){
         return(
             <Router history={browserHistory}>
-                <Switch>
-                    <Route exact path={'/'} render={props => <Home {...props} />} />
-                    <Route exact path={'/about'} render={props => <About {...props} />} />
-                    <Route exact path={'/blog'} render={props => <Blog {...props} />} />
-                    <Route exact path={'/blog/:id/:title'} render={props => <BlogDetail {...props} />} />
-                    <Route exact path={'/news'} render={props => <NewsPage {...props} />} />
-                </Switch>
+                <div>
+                    <Navigation/>
+                    <Switch>
+                        <Route exact path={'/'} render={props => <Home {...props} />} />
+                        <Route exact path={'/about'} render={props => <About {...props} />} />
+                        <Route exact path={'/blog'} render={props => <Blog {...props} />} />
+                        <Route exact path={'/blog/:id/:title'} render={props => <BlogDetail {...props} />} />
+                        <Route exact path={'/news'} render={props => <NewsPage {...props} />} />
+                    </Switch>
+                </div>
             </Router>
         );
     }
