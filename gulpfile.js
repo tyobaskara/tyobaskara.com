@@ -91,7 +91,7 @@ gulp.task('react', function() {
     return gulp.src(paths.jsx.src)
     .pipe(
     webpackStream({
-        devtool: 'cheap-module-sourcemap',
+        devtool: 'cheap-module-eval-sourcemap',
         output: {
             path: path.resolve(__dirname, 'dist/assets/js'),
             filename: 'bundle.js',
