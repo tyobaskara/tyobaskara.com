@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, browserHistory, Switch, Redirect } from 'react-router-dom';
 import { Navigation } from './jsx/component/navigation';
+import { Footer } from './jsx/component/footer';
 
 import Home from './jsx/home';
 import About from './jsx/about';
@@ -34,6 +35,7 @@ class App extends React.Component{
                         <Route exact path={'/news'} render={props => <NewsPage {...props} />} />
                     </Switch>
                 </div>
+                <Footer />
             </Router>
         );
     }

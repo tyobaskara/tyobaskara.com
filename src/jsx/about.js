@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Footer } from './component/footer';
 import { HeroBanner } from './component/herobanner';
 import { InstagramGallery } from './component/instagram-gallery';
 
@@ -62,8 +61,6 @@ class About extends React.Component {
                         <InstagramGallery />
                     </div>
                 </div>
-
-                <Footer />
             </div>
         )
     }

@@ -2,7 +2,6 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { AboutInro } from './component/about-intro';
 import { HeroBanner } from './component/herobanner';
-import { Footer } from './component/footer';
  
 export default class BlogDetail extends React.Component {
     constructor(props){
@@ -65,8 +64,6 @@ export default class BlogDetail extends React.Component {
                         </div>
                     </div>
                 </div>
-
-                <Footer />
             </div>
         )
     }

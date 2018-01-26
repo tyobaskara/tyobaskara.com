@@ -50,14 +50,15 @@ export class Navigation extends React.Component{
         let that = this;
         NavList = NavList.map( (item,index) => {
             return (
-                <li key={index}>
-                    <NavLink
-                        activeClassName= 'active'
-                        exact={true}
-                        id={item}
-                        onClick={that.offBurgerToggle}
-                        to={index == 0 ? '/' : '/'+item.toLowerCase() }
-                    >{item}</NavLink>
+                <li 
+                    key={index} 
+                    onClick={that.offBurgerToggle}>
+                        <NavLink
+                            activeClassName= 'active'
+                            exact={true}
+                            id={item}
+                            to={index == 0 ? '/' : '/'+item.toLowerCase() }
+                        >{item}</NavLink>
                 </li>
             );
         });
@@ -67,7 +68,7 @@ export class Navigation extends React.Component{
                 <div className="nav__wrapper">
                     <div className="container posRelative">
                         <div className="overlay" onClick={this.burgerToggle}></div>
-                        <div className="nav__logo">
+                        <div className="nav__logo" onClick={this.offBurgerToggle}>
                             <NavLink to="/"><img src="/assets/images/logo.png" alt="tyobaskara"/></NavLink>
                         </div>
                         <ul className="nav__menu">

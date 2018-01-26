@@ -6431,7 +6431,8 @@ nav .container {
     -webkit-border-radius: 25px 5px 25px 5px;
     -moz-border-radius: 25px 5px 25px 5px;
     border-radius: 25px 5px 25px 5px;
-    border: 2px solid wheat; }
+    border: 2px solid wheat;
+    min-height: 290px; }
   .sliderMe .slick-dots li button:before {
     content: "\f070";
     -moz-osx-font-smoothing: grayscale;

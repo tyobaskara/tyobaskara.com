@@ -2,7 +2,6 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { AboutInro } from './component/about-intro';
 import { HeroBanner } from './component/herobanner';
-import { Footer } from './component/footer';
 
 class Home extends React.Component {
     componentDidMount() {
@@ -43,8 +42,6 @@ class Home extends React.Component {
                     />
                     <AboutInro />
                 </div>
-
-                <Footer />
             </div>
         )
     }

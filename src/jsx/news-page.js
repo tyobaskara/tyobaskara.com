@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import { HeroBanner } from './component/herobanner';
 import { HeadLines } from './component/news-headlines';
 import { Articles } from './component/news-articles';
-import { Footer } from './component/footer';
 import ButtonToTop from './component/button-to-top';
 
 class NewsPage extends React.Component {
@@ -76,8 +75,6 @@ class NewsPage extends React.Component {
                 </div>
 
                 <ButtonToTop />
-
-                <Footer />
             </div>
         )
     }

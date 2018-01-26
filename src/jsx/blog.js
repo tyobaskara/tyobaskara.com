@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Footer } from './component/footer';
 import BlogList from './component/blog-list';
 import ButtonToTop from './component/button-to-top';
 
@@ -44,8 +43,6 @@ class Blog extends React.Component {
                 </div>
 
                 <ButtonToTop />
-                
-                <Footer />
             </div>
         )
     }
