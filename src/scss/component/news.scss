@@ -108,46 +108,6 @@
         @include ssm {
             min-height: 50vh;
         }
-
-        .nts-list-scroll {
-            height: auto;
-            overflow-y: hidden;
-            overflow-x: scroll;
-            white-space: nowrap;
-            -ms-overflow-style: -ms-autohiding-scrollbar;
-            -webkit-overflow-scrolling: touch;
-            @include sm {
-                &::-webkit-scrollbar {
-                    display: none;
-                }
-            }
-            > li {
-                position: relative;
-                float: none;
-                display: inline-block;
-                top: auto;
-                left: auto;
-                right: auto;
-                bottom: auto;
-                padding-right: 15px;
-                vertical-align: top;
-                width: 23%;
-                @include md {
-                    width: 30%;
-                }
-                @include ssm {
-                    width: 90%;
-                }
-            }
-            .nts-item {
-                @includes sm {
-                    margin-bottom: 0;
-                }
-                &__front {
-                    white-space: normal;
-                }
-            }
-        }
     }
 }
 
@@ -219,6 +179,7 @@
             white-space: nowrap;
             -ms-overflow-style: -ms-autohiding-scrollbar;
             -webkit-overflow-scrolling: touch;
+            margin: 0 -15px;
             &::-webkit-scrollbar {
                 display: none;
             }
@@ -233,6 +194,53 @@
                 padding-right: 15px !important;
                 vertical-align: top;
                 width: 90%;
+                &:first-child {
+                    padding-left: 15px !important;
+                }
+            }
+        }
+    }
+    &-list-scroll {
+        height: auto;
+        overflow-y: hidden;
+        overflow-x: scroll;
+        white-space: nowrap;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -15px;
+        @include sm {
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+        > li {
+            position: relative;
+            float: none;
+            display: inline-block;
+            top: auto;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            vertical-align: top;
+            padding-left: 0;
+            padding-right: 15px;
+            &:first-child {
+                padding-left: 15px;
+            }
+            width: 23%;
+            @include md {
+                width: 30%;
+            }
+            @include ssm {
+                width: 90%;
+            }
+        }
+        .nts-item {
+            @include sm {
+                margin-bottom: 25px;
+            }
+            &__front {
+                white-space: normal;
             }
         }
     }
