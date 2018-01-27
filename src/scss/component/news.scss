@@ -10,29 +10,6 @@
         color: $blackNews;   
     }
 
-    /* Let's get this party started */
-    ::-webkit-scrollbar {
-        width: 12px;
-    }
-    
-    /* Track */
-    ::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
-    }
-    
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
-        background: #ddd; 
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-    }
-    ::-webkit-scrollbar-thumb:window-inactive {
-        background: #ddd; 
-    }
-
     %news-section {
         padding: 15px;
         .orgTitle {
@@ -101,7 +78,6 @@
         box-shadow: -1px 1px 2px darkseagreen;
         position: relative;
         @extend %data-loading;
-        min-height: 25vh;
         @include md-min {
             margin-bottom: 20px;
         }
@@ -208,6 +184,31 @@
         -ms-overflow-style: -ms-autohiding-scrollbar;
         -webkit-overflow-scrolling: touch;
         margin: 0 -15px;
+        min-height: 20vh;
+
+        /* Let's get this party started */
+        &::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        /* Track */
+        &::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px #ddd; 
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            background: #ddd; 
+            -webkit-box-shadow: inset 0 0 6px #ddd; 
+        }
+        &::-webkit-scrollbar-thumb:window-inactive {
+            background: #ddd; 
+        }
+
         @include sm {
             &::-webkit-scrollbar {
                 display: none;
