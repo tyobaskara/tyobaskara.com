@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { HeroBanner } from './component/herobanner';
 import { HeadLines } from './component/news-headlines';
 import { Articles } from './component/news-articles';
+import { VergeHeadlines } from './component/news-verge-headlines';
 import ButtonToTop from './component/button-to-top';
 
 class NewsPage extends React.Component {
@@ -54,7 +55,7 @@ class NewsPage extends React.Component {
 
                 <div className="container-fluid">
                     <HeroBanner 
-                        title={<h1 className="title">Bloomberg News</h1>}
+                        title={<h1 className="title">BloombergVerge News</h1>}
                         subtitle={<h2 className="subtitle">Powered by newsapi.org</h2>}
                         images="./assets/images/news.jpg" 
                         altImages="bloomberg news" 
@@ -63,6 +64,9 @@ class NewsPage extends React.Component {
                     <div className="news">
                         <div className="container container--wrap" style={{minHeight: '50vh'}}>
                             <div className="row">
+                                <div className="col-sm-12">
+                                    <VergeHeadlines />
+                                </div>
                                 <div className="col-sm-4">
                                     <HeadLines />
                                 </div>

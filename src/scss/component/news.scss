@@ -10,6 +10,29 @@
         color: $blackNews;   
     }
 
+    /* Let's get this party started */
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: #ddd; 
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    }
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: #ddd; 
+    }
+
     %news-section {
         padding: 15px;
         .orgTitle {
@@ -60,7 +83,68 @@
                 width: 50%;
                 padding: 0 15px;
                 @include ssm {
-                    width: 100%;
+                    padding-left: 0;
+                    padding-right: 15px;
+                    width: 90%;
+                    &:first-child {
+                        padding-left: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-verge-headline {
+        @extend %news-section;
+        background: darkslategray;
+        border: 1px solid seagreen;
+        box-shadow: -1px 1px 2px darkseagreen;
+        position: relative;
+        @extend %data-loading;
+        min-height: 25vh;
+        @include md-min {
+            margin-bottom: 20px;
+        }
+        @include ssm {
+            min-height: 50vh;
+        }
+
+        .nts-list-scroll {
+            height: auto;
+            overflow-y: hidden;
+            overflow-x: scroll;
+            white-space: nowrap;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+            -webkit-overflow-scrolling: touch;
+            @include sm {
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+            > li {
+                position: relative;
+                float: none;
+                display: inline-block;
+                top: auto;
+                left: auto;
+                right: auto;
+                bottom: auto;
+                padding-right: 15px;
+                vertical-align: top;
+                width: 23%;
+                @include md {
+                    width: 30%;
+                }
+                @include ssm {
+                    width: 90%;
+                }
+            }
+            .nts-item {
+                @includes sm {
+                    margin-bottom: 0;
+                }
+                &__front {
+                    white-space: normal;
                 }
             }
         }
@@ -125,6 +209,39 @@
         }
         &__date {
             font-size: 1rem;
+        }
+    }
+    &-list {
+        @include ssm {
+            height: auto !important;
+            overflow-y: hidden;
+            overflow-x: scroll;
+            white-space: nowrap;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+            -webkit-overflow-scrolling: touch;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            > li {
+                position: relative !important;
+                float: none !important;
+                display: inline-block;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                padding-right: 15px !important;
+                vertical-align: top;
+                width: 90%;
+            }
+        }
+    }
+    &-item {
+        @include ssm {
+            margin-top: 20px;
+            &__front {
+                white-space: normal;
+            }
         }
     }
 }
