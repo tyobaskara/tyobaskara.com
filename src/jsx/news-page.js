@@ -55,7 +55,7 @@ class NewsPage extends React.Component {
 
                 <div className="container-fluid">
                     <HeroBanner 
-                        title={<h1 className="title">BloombergVerge News</h1>}
+                        title={<h1 className="title">BloombergVerge</h1>}
                         subtitle={<h2 className="subtitle">Powered by newsapi.org</h2>}
                         images="./assets/images/news.jpg" 
                         altImages="bloomberg news" 
