@@ -6817,16 +6817,16 @@ footer {
   .news-headlines {
     background: seagreen;
     border: 1px solid seagreen;
-    -webkit-box-shadow: -1px 1px 2px darkseagreen;
-       -moz-box-shadow: -1px 1px 2px darkseagreen;
-            box-shadow: -1px 1px 2px darkseagreen;
+    -webkit-box-shadow: 0px 0px 2px darkseagreen;
+       -moz-box-shadow: 0px 0px 2px darkseagreen;
+            box-shadow: 0px 0px 2px darkseagreen;
     position: relative; }
   .news-articles {
-    background: slategray;
-    border: 1px solid slategray;
-    -webkit-box-shadow: -1px 1px 2px darkslategray;
-       -moz-box-shadow: -1px 1px 2px darkslategray;
-            box-shadow: -1px 1px 2px darkslategray;
+    background: cadetblue;
+    border: 1px solid #4c7e80;
+    -webkit-box-shadow: 0px 0px 2px #4c7e80;
+       -moz-box-shadow: 0px 0px 2px #4c7e80;
+            box-shadow: 0px 0px 2px #4c7e80;
     position: relative; }
     .news-articles .nts-list {
       margin: 0 -15px; }
@@ -6849,9 +6849,9 @@ footer {
   .news-verge-headline {
     background: darkslategray;
     border: 1px solid seagreen;
-    -webkit-box-shadow: -1px 1px 2px darkseagreen;
-       -moz-box-shadow: -1px 1px 2px darkseagreen;
-            box-shadow: -1px 1px 2px darkseagreen;
+    -webkit-box-shadow: 0px 0px 2px darkseagreen;
+       -moz-box-shadow: 0px 0px 2px darkseagreen;
+            box-shadow: 0px 0px 2px darkseagreen;
     margin-top: 15px;
     position: relative; }
     @media (min-width: 992px) {

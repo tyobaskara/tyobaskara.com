@@ -32,7 +32,7 @@
         @extend %news-section;
         background: seagreen;
         border: 1px solid seagreen;
-        box-shadow: -1px 1px 2px darkseagreen;
+        box-shadow: 0px 0px 2px darkseagreen;
         position: relative;
         @extend %data-loading;
     }
@@ -40,9 +40,9 @@
     
     &-articles {
         @extend %news-section;
-        background: slategray;
-        border: 1px solid slategray;
-        box-shadow: -1px 1px 2px darkslategray;
+        background: cadetblue;
+        border: 1px solid darken(cadetblue, 10%);
+        box-shadow: 0px 0px 2px darken(cadetblue, 10%);
         position: relative;
         @extend %data-loading;
 
@@ -75,7 +75,7 @@
         @extend %news-section;
         background: darkslategray;
         border: 1px solid seagreen;
-        box-shadow: -1px 1px 2px darkseagreen;
+        box-shadow: 0px 0px 2px darkseagreen;
         margin-top: 15px;
         position: relative;
         @extend %data-loading;
