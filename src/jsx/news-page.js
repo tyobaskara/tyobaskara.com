@@ -36,7 +36,7 @@ class NewsPage extends React.Component {
         return (
             <div>
                 <Helmet>
-                    <title>tyobaskara.rocks - Bloomberg News</title>
+                    <title>tyobaskara.rocks - Bloomberg - the Verge News</title>
                     <meta name="title" content={metaTitle} />
                     <meta name="description" content={metaDesc} />
                     <meta property="og:site_name" content="tyobaskara.rocks" />
@@ -55,7 +55,7 @@ class NewsPage extends React.Component {
 
                 <div className="container-fluid">
                     <HeroBanner 
-                        title={<h1 className="title">BloombergVerge</h1>}
+                        title={<h1 className="title">Bloomberg-Verge</h1>}
                         subtitle={<h2 className="subtitle">Powered by newsapi.org</h2>}
                         images="./assets/images/news.jpg" 
                         altImages="bloomberg news" 
@@ -64,14 +64,14 @@ class NewsPage extends React.Component {
                     <div className="news">
                         <div className="container container--wrap" style={{minHeight: '50vh'}}>
                             <div className="row">
-                                <div className="col-sm-12">
-                                    <VergeHeadlines />
-                                </div>
                                 <div className="col-sm-4">
                                     <HeadLines />
                                 </div>
                                 <div className="col-sm-8">
                                     <Articles />
+                                </div>
+                                <div className="col-sm-12">
+                                    <VergeHeadlines />
                                 </div>
                             </div>
                         </div>

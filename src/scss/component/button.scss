@@ -76,12 +76,16 @@
     
     @include md-min {
         &:hover {
-            background-color: #555; /* Add a dark-grey background on hover */
+            background-color: $blue1; /* Add a dark-grey background on hover */
+            border: lighten($blue1, 30%);
+            @include box-shadow(0 0 2px lighten($blue1, 30%));
         }
     }
     @include sm {    
         &:active {
-            background-color: #555; /* Add a dark-grey background on hover */
+            background-color: $blue1; /* Add a dark-grey background on hover */
+            border: lighten($blue1, 30%);
+            @include box-shadow(0 0 2px lighten($blue1, 30%));
         }
     }
 }
