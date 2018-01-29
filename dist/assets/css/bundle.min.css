@@ -6852,13 +6852,14 @@ footer {
     -webkit-box-shadow: 0px 0px 2px darkseagreen;
        -moz-box-shadow: 0px 0px 2px darkseagreen;
             box-shadow: 0px 0px 2px darkseagreen;
-    margin-top: 15px;
+    margin-top: 20px;
     position: relative; }
     @media (min-width: 992px) {
       .news-verge-headline {
         margin-bottom: 20px; } }
     @media (max-width: 767px) {
       .news-verge-headline {
+        margin-top: 0;
         min-height: 50vh; } }
 
 .nts-item {
