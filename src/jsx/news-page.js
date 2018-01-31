@@ -7,10 +7,6 @@ import { VergeHeadlines } from './component/news-verge-headlines';
 import ButtonToTop from './component/button-to-top';
 
 class NewsPage extends React.Component {
-    constructor(props){
-        super(props);
-    }
-    
     componentDidMount() {
         window.scrollTo(0,0);
         document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');

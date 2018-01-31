@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Route, browserHistory, Switch, Redirect } from
 import { Navigation } from './jsx/component/navigation';
 import { Footer } from './jsx/component/footer';
 
-import Home from './jsx/home';
-import About from './jsx/about';
-import Blog from './jsx/blog';
-import BlogDetail from './jsx/blog-detail';
+import Home from './jsx/home-page';
+import About from './jsx/about-page';
+import Blog from './jsx/blog-page';
+import BlogDetail from './jsx/blog-detail-page';
 import NewsPage from './jsx/news-page';
 import { Page404 } from './jsx/component/page404';
 

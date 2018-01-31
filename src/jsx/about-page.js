@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { HeroBanner } from './component/herobanner';
 import { InstagramGallery } from './component/instagram-gallery';
+import ButtonToTop from './component/button-to-top';
 
 class About extends React.Component {
     constructor(props){
@@ -61,6 +62,8 @@ class About extends React.Component {
                         <InstagramGallery />
                     </div>
                 </div>
+                
+                <ButtonToTop />
             </div>
         )
     }
