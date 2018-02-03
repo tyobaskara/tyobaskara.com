@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Tab } from 'semantic-ui-react'
 import { HeroBanner } from './component/herobanner';
-import AirportsAC from './component/airports-autocomplete';
+import FindFlightTab from './component/find-flight-tab';
 
 class TravelPage extends React.Component {
     componentDidMount() {
@@ -12,6 +13,11 @@ class TravelPage extends React.Component {
     render() {
         const metaTitle = "Tyobaskara.rocks : Travel - Reservasi booking tiket pesawat hotel murah terjangkau";
         const metaDesc = "Cari tiket booking pesawat reservasi hotel harga murah, terjangkau, dan aman";
+
+        const panes = [
+            { menuItem: 'Flight', render: () => <FindFlightTab /> },
+            { menuItem: 'Hotel', render: () => <p>Hotel Find</p> },
+        ]
 
         return (
             <div>
@@ -41,15 +47,7 @@ class TravelPage extends React.Component {
                         altImages="tyobaskara" 
                     />
                     <div className="container container--wrap" style={{minHeight: '50vh'}}>
-                        <div className="form-group">
-                            <label className="control-label">Origin</label>
-                            <AirportsAC id="departure" placeholder="From"/>
-                        </div>
-                        
-                        <div className="form-group">
-                            <label className="control-label">Destination</label>
-                            <AirportsAC id="arrival" placeholder="To"/>
-                        </div>
+                        <Tab className="find-tab" panes={panes} />
                     </div>
                 </div>
             </div>
