@@ -9,6 +9,7 @@ import About from './jsx/about-page';
 import Blog from './jsx/blog-page';
 import BlogDetail from './jsx/blog-detail-page';
 import NewsPage from './jsx/news-page';
+import TravelPage from './jsx/travel-page';
 import { Page404 } from './jsx/component/page404';
 
 
@@ -35,6 +36,7 @@ class App extends React.Component{
                         <Route exact path={'/blog'} render={props => <Blog {...props} />} />
                         <Route exact path={'/blog/:id/:title'} render={props => <BlogDetail {...props} />} />
                         <Route exact path={'/news'} render={props => <NewsPage {...props} />} />
+                        <Route exact path={'/travel'} render={props => <TravelPage {...props} />} />
                         <Route component={Page404}/>
                     </Switch>
                     <Footer />

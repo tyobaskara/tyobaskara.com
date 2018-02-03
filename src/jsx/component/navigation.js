@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export class Navigation extends React.Component{
     state = {
-        NavList: ['Home', 'About', 'Blog', 'News'],
+        NavList: ['Home', 'About', 'Blog', 'News', 'Travel'],
         burgerToggle: 'off'
     }
 
