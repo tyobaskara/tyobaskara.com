@@ -15,11 +15,7 @@ var config = {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 include: path.resolve(__dirname, 'src'),
-                loader: 'babel-loader',
-                query: {
-                    presets: ['react', 'env'],
-                    plugins: ['transform-decorators-legacy', 'transform-class-properties']
-                }
+                loader: 'babel-loader'
             }
         ],
         

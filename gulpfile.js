@@ -102,11 +102,7 @@ gulp.task('react', function() {
                 {
                     test: /\.js$/,
                     include: path.resolve(__dirname, 'src'),
-                    loader: 'babel-loader',
-                    query: {
-                        presets: ['react', 'env'],
-                        plugins: ['transform-decorators-legacy', 'transform-class-properties']
-                    }
+                    loader: 'babel-loader'
                 },
                 {
                     test: /\.(png|jpg|woff|woff2|svg|eot|gif|ttf)$/,
