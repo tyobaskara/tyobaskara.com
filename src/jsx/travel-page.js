@@ -1,17 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { HeroBanner } from './component/herobanner';
-import _ from 'lodash';
+import AirportsAC from './component/airports-autocomplete';
 
 class TravelPage extends React.Component {
     componentDidMount() {
         document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
         window.scrollTo(0,0);
-
-        var array = [1];
-        var other = _.concat(array, 2, [3], [[4]]);
-        
-        console.log(other);
     }
 
     render() {
@@ -41,12 +36,20 @@ class TravelPage extends React.Component {
                 <div className="container-fluid">
                     <HeroBanner 
                         title={<h1 className="title">Going somewhere ?</h1>}
-                        subtitle={<h2 className="subtitle">Let me help you find it!</h2>}
-                        images="./assets/images/herobanner-2.jpg" 
+                        subtitle={<h2 className="subtitle">Let me help you to find it!</h2>}
+                        images="./assets/images/glasses-explore.jpg" 
                         altImages="tyobaskara" 
                     />
-                    <div className="container container--wrap" style={{minHeight: '35vh'}}>
-
+                    <div className="container container--wrap" style={{minHeight: '50vh'}}>
+                        <div className="form-group">
+                            <label className="control-label">Origin</label>
+                            <AirportsAC id="departure" placeholder="From"/>
+                        </div>
+                        
+                        <div className="form-group">
+                            <label className="control-label">Destination</label>
+                            <AirportsAC id="arrival" placeholder="To"/>
+                        </div>
                     </div>
                 </div>
             </div>
