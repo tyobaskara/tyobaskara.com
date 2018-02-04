@@ -55,8 +55,6 @@ export default class AirportsAC extends Component {
               }
             })
             .on('click', clearResults);
-
-            $('#airportAC').focus();
           
           function clearResults() {
             results = [];
