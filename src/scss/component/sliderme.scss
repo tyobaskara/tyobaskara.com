@@ -3,14 +3,29 @@
     @include border-radius(25px 5px 25px 5px);
     .slick-slider {
         overflow: hidden;
+        visibility: hidden;
+        &.slick-initialized {
+            visibility: visible;
+        }
     }
     .slick-slide {
         img {
+            min-height: 290px;
+            max-width: 555px;
+            max-height: 555px;
             width: 100%;
+            -o-object-fit: cover;
             object-fit: cover;
             @include border-radius(25px 5px 25px 5px);
-            border: 2px solid wheat;
-            min-height: 290px;
+            border: 2px solid wheat;;
+            @media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) {
+                min-height: 290px;
+                max-width: 555px;
+                max-height: 555px;
+                -o-object-fit: cover;
+                object-fit: cover;
+           }
+
         }
     }
 
