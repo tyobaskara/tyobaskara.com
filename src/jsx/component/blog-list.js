@@ -146,7 +146,7 @@ export default class BlogList extends React.Component {
                     { this.state.data }
                 </Masonry>
 
-            { this.state.requestSent && <LoadingRequest /> }
+            { this.state.requestSent && <div className="loading-inline"><LoadingRequest /></div> }
             { this.state.failedReqeust && <FailedRequest /> }
 
             </div>
