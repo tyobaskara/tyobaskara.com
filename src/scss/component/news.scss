@@ -1,4 +1,4 @@
-.news {
+.news-wrap {
     background: $white1;
     text-align: center;
     @include ssm {
@@ -9,42 +9,25 @@
     h1, h2, h3 {
         color: $blackNews;   
     }
+}
 
-    %news-section {
-        padding: 15px;
-        .orgTitle {
-            color: $black2;
-            &::after {
-                background: $whiteOrange2;
-            }
+.news {
+    padding: 15px;
+    height: 100%;
+    background: white;
+    border: 1px solid $grey;
+    box-shadow: 0px 0px 2px $grey;
+    .orgTitle {
+        color: $black2;
+        &::after {
+            background: $whiteOrange2;
         }
     }
-    %data-loading {
-        .data-loading {
-            position: absolute;
-            top: 58%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-        }
-    }
-
-    &-headlines {
-        @extend %news-section;
-        background: white;
-        border: 1px solid $grey;
-        box-shadow: 0px 0px 2px $grey;
+    &--headlines {
         position: relative;
-        @extend %data-loading;
     }
-
-    
-    &-articles {
-        @extend %news-section;
-        background: white;
-        border: 1px solid $grey;
-        box-shadow: 0px 0px 2px $grey;
+    &--articles {
         position: relative;
-        @extend %data-loading;
 
         .nts-list {
             margin: 0 -15px;
@@ -70,15 +53,9 @@
             }
         }
     }
-
-    &-verge-headline {
-        @extend %news-section;
-        background: white;
-        border: 1px solid $grey;
-        box-shadow: 0px 0px 2px $grey;
+    &--verge-headline {
         margin-top: 20px;
         position: relative;
-        @extend %data-loading;
         @include md-min {
             margin-bottom: 20px;
         }

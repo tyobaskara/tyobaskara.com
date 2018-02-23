@@ -57,7 +57,7 @@ export class VergeHeadlines extends React.Component {
                         });
 
         return (
-            <div className="news-verge-headline">
+            <div className="news news--verge-headline">
                 <h2 className="orgTitle">Technology</h2>
                 
                 <ul className="nts-list-scroll">

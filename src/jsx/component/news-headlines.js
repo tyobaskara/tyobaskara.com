@@ -2,6 +2,7 @@ import React from 'react';
 import Masonry from 'react-masonry-component';
 import {NewsItem} from './news-item';
 import { LoadingRequest, FailedRequest } from './fetch-status-return';
+import equalheight from '../util/equal-height';
 
 export class HeadLines extends React.Component {
     state = {
@@ -40,7 +41,11 @@ export class HeadLines extends React.Component {
         }
         ).then(jsonResponse => {
             if(jsonResponse != null) {
-                this.setState({ headlines: jsonResponse.articles, loadingRequest: false});
+                this.setState({ headlines: jsonResponse.articles, loadingRequest: false}, () => {
+                    if(screen.width > 767) {
+                        equalheight('.news-wrap .eq-col');
+                    }
+                });
             }
         });
     }
@@ -57,7 +62,7 @@ export class HeadLines extends React.Component {
                         });
 
         return (
-            <div className="news-headlines" style={{minHeight: '50vh'}}>
+            <div className="news news--headlines" style={{minHeight: '50vh'}}>
                 <h2 className="orgTitle">Top Headlines</h2>
                 
                 <Masonry

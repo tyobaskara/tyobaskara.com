@@ -5,12 +5,27 @@ import { HeadLines } from './component/news-headlines';
 import { Articles } from './component/news-articles';
 import { VergeHeadlines } from './component/news-verge-headlines';
 import ButtonToTop from './component/button-to-top';
+import equalheight from './util/equal-height';
 
 class NewsPage extends React.Component {
     componentDidMount() {
         window.scrollTo(0,0);
         document.getElementsByClassName("nav")[0].setAttribute('class', 'nav');
         document.addEventListener('scroll', this.scroll);
+
+        window.onresize = function(event) {
+            if(screen.width > 767) {
+                setTimeout(() => {
+                    equalheight('.news-wrap .eq-col');
+                }, 250);
+            }
+            else {
+                const length = document.getElementsByClassName('eq-col').length;
+                for(var i = 0;i<length;i++) {
+                    document.getElementsByClassName('eq-col')[i].style.height = 'auto'; 
+                }
+            }
+        };
     }
 
     componentWillUnmount() {
@@ -57,19 +72,18 @@ class NewsPage extends React.Component {
                         altImages="bloomberg news" 
                     />
                     
-                    <div className="news">
+                    <div className="news-wrap">
                         <div className="container container--wrap" style={{minHeight: '50vh'}}>
                             <div className="row">
-                                <div className="col-sm-4">
+                                <div className="col-sm-4 eq-col">
                                     <HeadLines />
                                 </div>
-                                <div className="col-sm-8">
+                                <div className="col-sm-8 eq-col">
                                     <Articles />
                                 </div>
-                                <div className="col-sm-12">
-                                    <VergeHeadlines />
-                                </div>
                             </div>
+
+                            <VergeHeadlines />
                         </div>
                     </div>
                 </div>
