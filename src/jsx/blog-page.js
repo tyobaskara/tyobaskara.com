@@ -11,7 +11,7 @@ class Blog extends React.Component {
     
     render() {
         const metaTitle = "Tyobaskara.rocks : Blog";
-        const metaDesc = "Shares anything regarding about my Skill, Love Live, or Anyting that could helps. What you see is what you get.";
+        const metaDesc = "Shares anything about Skills, Love , Life, or Anyting i like. stay hungry stay foolish.";
 
         return (
             <div>
