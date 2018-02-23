@@ -22,7 +22,7 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
         top: 0;
         left: 0;
         right: 0;
-        z-index: 15;
+        z-index: 25;
         height: 50px;
         &:before {
             content: ' ';
@@ -83,7 +83,6 @@ nav { .container { padding-top: 0; padding-bottom: 0} }
                 color: ghostwhite;
                 font-size: 2.1rem;
                 &.active, &:hover {
-                    font-weight: 600;
                     color: $orange1;
                     @include transition(all .3s ease-in-out);
                 }
