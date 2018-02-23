@@ -17,6 +17,9 @@
     background: white;
     border: 1px solid $grey;
     box-shadow: 0px 0px 2px $grey;
+    @include ssm {
+        background: $white1;
+    }
     .orgTitle {
         color: $black2;
         &::after {
