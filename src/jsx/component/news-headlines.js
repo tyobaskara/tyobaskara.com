@@ -62,6 +62,14 @@ export class HeadLines extends React.Component {
         );
 
         const settings = {
+            dots: true,
+            infinite: true,
+            arrows: false,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            lazyload: true,
             responsive: [
                 {
                     breakpoint: 9999,
