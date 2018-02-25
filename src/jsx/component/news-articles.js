@@ -64,7 +64,7 @@ export class Articles extends React.Component {
                         });
 
         return (
-            <div className="news news--articles" style={{minHeight: '50vh'}}>
+            <div className="news news--articles">
                 <h2 className="orgTitle">Article News</h2>
                 
                 <Masonry

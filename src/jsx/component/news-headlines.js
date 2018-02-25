@@ -84,7 +84,7 @@ export class HeadLines extends React.Component {
         };
 
         return (
-            <div className="news news--headlines" style={{minHeight: '50vh'}}>
+            <div className="news news--headlines">
                 <h2 className="orgTitle">Top Headlines</h2>
                 
                 { !this.state.loadingRequest && !this.state.failedRequest && <Slider {...settings}>{ headline }</Slider> }
