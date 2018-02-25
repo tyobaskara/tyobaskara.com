@@ -52,7 +52,9 @@ export class VergeHeadlines extends React.Component {
 
         const article = this.state.vergeHeadlines.map((value, index) => {
                             return (
-                                <NewsItem key={index} data={value} />
+                                <li key={index}>
+                                    <NewsItem data={value} />
+                                </li>
                             )
                         });
 

@@ -57,7 +57,9 @@ export class Articles extends React.Component {
 
         const article = this.state.articles.map((value, index) => {
                             return (
-                                <NewsItem key={index} data={value} />
+                                <li key={index}>
+                                    <NewsItem data={value} />
+                                </li>
                             )
                         });
 

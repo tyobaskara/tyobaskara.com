@@ -3,6 +3,7 @@ import Masonry from 'react-masonry-component';
 import {NewsItem} from './news-item';
 import { LoadingRequest, FailedRequest } from './fetch-status-return';
 import equalheight from '../util/equal-height';
+import Slider from 'react-slick';
 
 export class HeadLines extends React.Component {
     state = {
@@ -55,25 +56,46 @@ export class HeadLines extends React.Component {
             transitionDuration: 250
         };
 
-        const headline = this.state.headlines.map((value, index) => {
-                            return (
-                                <NewsItem key={index} data={value} />
-                            )
-                        });
+        const headline = this.state.headlines.map(
+            (value, index) => {
+                return (
+                    <div key={index}>
+                        <NewsItem data={value} />
+                    </div>
+                )}
+        );
+
+        const settings = {
+            responsive: [
+                {
+                    breakpoint: 9999,
+                    settings: "unslick"
+                },
+                {
+                  breakpoint: 767,
+                  settings: {        
+                    dots: true,
+                    infinite: true,
+                    arrows: false,
+                    speed: 500,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    lazyload: true,
+                  }
+                }
+            ]
+        };
 
         return (
             <div className="news news--headlines" style={{minHeight: '50vh'}}>
                 <h2 className="orgTitle">Top Headlines</h2>
                 
-                <Masonry
-                    className={'nts-list'}
-                    elementType={'ul'} // default 'div'
-                    options={masonryOptions} // default {}
-                    disableImagesLoaded={false} // default false
-                    updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-                >
-                    { headline }
-                </Masonry>
+                <div className="">
+                    <Slider {...settings}>
+                        { headline }
+                    </Slider>
+                </div>
 
                 { this.state.failedRequest && <FailedRequest /> }
                 { this.state.loadingRequest && <LoadingRequest /> }

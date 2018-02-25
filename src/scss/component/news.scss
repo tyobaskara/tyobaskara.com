@@ -28,6 +28,22 @@
     }
     &--headlines {
         position: relative;
+        .slick-slider {
+            padding-bottom: 15px;
+            margin: 0 -10px;
+            .slick-slide {
+                padding: 0 10px;
+            }
+            .slick-dots {
+                position: relative;
+                & li {
+                    margin: 0 2px;
+                    button:before {
+                        color: $black2;
+                    }
+                }
+            }
+        }
     }
     &--articles {
         position: relative;

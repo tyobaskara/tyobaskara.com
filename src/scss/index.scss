@@ -110,6 +110,13 @@ div,p,span,label {
         }
     }
 }
+// SLICK SLIDER
+.slick-slider {
+    visibility: hidden;
+    &.slick-initialized {
+        visibility: visible;
+    }
+}
 
 @import './component/button';
 @import './component/loading';
