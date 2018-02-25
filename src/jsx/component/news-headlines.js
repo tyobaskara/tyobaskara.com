@@ -62,14 +62,6 @@ export class HeadLines extends React.Component {
         );
 
         const settings = {
-            dots: true,
-            infinite: true,
-            arrows: false,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: true,
-            lazyload: true,
             responsive: [
                 {
                     breakpoint: 9999,
@@ -95,9 +87,7 @@ export class HeadLines extends React.Component {
             <div className="news news--headlines" style={{minHeight: '50vh'}}>
                 <h2 className="orgTitle">Top Headlines</h2>
                 
-                <Slider {...settings}>
-                    { headline }
-                </Slider>
+                { !this.state.loadingRequest && !this.state.failedRequest && <Slider {...settings}>{ headline }</Slider> }
 
                 { this.state.failedRequest && <FailedRequest /> }
                 { this.state.loadingRequest && <LoadingRequest /> }

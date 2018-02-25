@@ -31,10 +31,6 @@
         .slick-slider {
             padding-bottom: 15px;
             margin: 0 -10px;
-            max-height: 50vh;
-            &.slick-initialized {
-                max-height: initial;
-            }
             .slick-slide {
                 padding: 0 10px;
             }
