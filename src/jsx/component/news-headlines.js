@@ -52,10 +52,6 @@ export class HeadLines extends React.Component {
     }
 
     render() {
-        const masonryOptions = {
-            transitionDuration: 250
-        };
-
         const headline = this.state.headlines.map(
             (value, index) => {
                 return (
@@ -91,11 +87,9 @@ export class HeadLines extends React.Component {
             <div className="news news--headlines" style={{minHeight: '50vh'}}>
                 <h2 className="orgTitle">Top Headlines</h2>
                 
-                <div className="">
-                    <Slider {...settings}>
-                        { headline }
-                    </Slider>
-                </div>
+                <Slider {...settings}>
+                    { headline }
+                </Slider>
 
                 { this.state.failedRequest && <FailedRequest /> }
                 { this.state.loadingRequest && <LoadingRequest /> }

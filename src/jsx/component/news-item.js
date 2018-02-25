@@ -2,7 +2,7 @@ import React from 'react';
 
 export const NewsItem = (props) => {
     return (
-        <a className="nts-item" href={props.data.url} target="_blank">
+        <a className="nts-item" href={props.data.url}>
             <div className="nts-item__image">
                 <img src={props.data.urlToImage}/>
             </div>
